@@ -25,21 +25,27 @@ sources/1 = SubResource("TileSetAtlasSource_0djjw")
 texture = ExtResource("3_js7rf")
 texture_region_size = Vector2i(3567, 3565)
 0:0/0 = 0
+0:0/0/y_sort_origin = 500
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-883.4678, 7.8460693, 1748, 1324, 868, 1796, -1732, 444)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7x3da"]
 texture = ExtResource("4_k108s")
 texture_region_size = Vector2i(3567, 3565)
 0:0/0 = 0
+0:0/0/y_sort_origin = 500
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(899.1599, -1.5692139, -1787.5142, 1348.2805, -886.8071, 1776.3945, 1777.9202, 440.94922)
 
 [sub_resource type="TileSet" id="TileSet_tlx0u"]
 tile_shape = 1
 tile_size = Vector2i(3567, 3565)
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_bl1td")
 sources/1 = SubResource("TileSetAtlasSource_7x3da")
 
 [node name="LevelDesign" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -1
 tile_map_data = PackedByteArray("AAD/////AAAAAAAAAAD//wAAAAAAAAAAAAAAAP7/AAAAAAAAAAD+/wEAAAAAAAAAAAD+/wIAAAAAAAAAAAD+/wAAAQAAAAAAAAD///7/AQAAAAAAAAD9////AQAAAAAAAAD9//7/AQAAAAAAAAD+//3/AQAAAAAAAAD+//z/AQAAAAAAAAD9//v/AQAAAAAAAAD9//r/AQAAAAAAAAD8//3/AQAAAAAAAAD8//z/AQAAAAAAAAD9/wMAAAAAAAAAAAD9/wQAAAAAAAAAAAD8/wUAAAAAAAAAAAD8/wYAAAAAAAAAAAD9/wIAAQAAAAAAAAD8/wEAAQAAAAAAAAD8/wAAAQAAAAAAAAD7////AQAAAAAAAAD7//7/AQAAAAAAAAD6//3/AQAAAAAAAAD7//v/AQAAAAAAAAD8//n/AQAAAAAAAAD6//z/AQAAAAAAAAD5//v/AQAAAAAAAAD5//r/AQAAAAAAAAD4//n/AQAAAAAAAAD7//r/AQAAAAAAAAD6//n/AQAAAAAAAAD6//j/AQAAAAAAAAD5//f/AQAAAAAAAAD8//j/AQAAAAAAAAD7//f/AQAAAAAAAAD7//b/AQAAAAAAAAD6//X/AQAAAAAAAAD8/wQAAQAAAAAAAAD7/wMAAQAAAAAAAAD7/wIAAQAAAAAAAAD6/wEAAQAAAAAAAAD6/wAAAQAAAAAAAAD5////AQAAAAAAAAD5//7/AQAAAAAAAAD4//3/AQAAAAAAAAD4//z/AQAAAAAAAAD3//v/AQAAAAAAAAD7/wcAAAAAAAAAAAD7/wgAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_50fst")
 

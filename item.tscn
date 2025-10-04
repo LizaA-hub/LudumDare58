@@ -4,9 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://dt87ji848s1gn" path="res://icon.svg" id="2_ttk8k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kg5e7"]
-radius = 111.67
+radius = 774.69
 
 [node name="item" type="Area2D" node_paths=PackedStringArray("icon") groups=["item"]]
+z_index = 1
+position = Vector2(0, -9)
 script = ExtResource("1_tnite")
 icon = NodePath("Icon")
 
@@ -15,7 +17,7 @@ shape = SubResource("CircleShape2D_kg5e7")
 
 [node name="Icon" type="Sprite2D" parent="."]
 modulate = Color(0.93776244, 0.51739395, 0.39578268, 1)
-scale = Vector2(0.6, 0.6)
+scale = Vector2(5, 5)
 texture = ExtResource("2_ttk8k")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -30,7 +30,7 @@ func _physics_process(delta):
 	if moving:
 		var next_path_pos = nav_agent.get_next_path_position()
 		var direction = global_position.direction_to(next_path_pos)
-		var new_velocity = direction * speed * delta
+		var new_velocity = direction * speed * delta *20
 		
 		nav_agent.velocity = new_velocity
 
@@ -40,3 +40,13 @@ func _on_target_reached() -> void:
 func _on_velocity_computed(safe_velocity)->void:
 	velocity = velocity.move_toward(safe_velocity, 100)
 	move_and_slide()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		can_die = true
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if area.is_in_group("player"):
+		can_die = false

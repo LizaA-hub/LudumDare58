@@ -1,41 +1,78 @@
-[gd_scene load_steps=16 format=3 uid="uid://fu2lsweqg8ym"]
+[gd_scene load_steps=25 format=4 uid="uid://fu2lsweqg8ym"]
 
+[ext_resource type="Texture2D" uid="uid://dfy24kmjwnycl" path="res://Environment/PlaceHolders/allees_principales.png" id="1_efxa6"]
 [ext_resource type="Script" uid="uid://do4p553sc2wiw" path="res://player.gd" id="2_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://dt87ji848s1gn" path="res://icon.svg" id="3_lquwl"]
+[ext_resource type="Texture2D" uid="uid://kybcsuwm4gyo" path="res://Environment/PlaceHolders/allees_principales_flip.png" id="2_dg77c"]
+[ext_resource type="Texture2D" uid="uid://ci180wr830cod" path="res://assets/character_principal.png" id="3_5vw27"]
+[ext_resource type="Script" uid="uid://bk70mvn1anwv7" path="res://floor.gd" id="3_ycdy4"]
 [ext_resource type="Script" uid="uid://djqij5e724bc6" path="res://datas.gd" id="4_lquwl"]
 [ext_resource type="Script" uid="uid://dymkk31uu8j1u" path="res://game_over_screen.gd" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://du4w2g8o56rq0" path="res://spawner.gd" id="6_7mycd"]
 [ext_resource type="Script" uid="uid://d5pyl0f0pp7o" path="res://items/item_data.gd" id="7_5vw27"]
 [ext_resource type="Resource" uid="uid://orl18gjlisan" path="res://items/common_item.tres" id="8_kek77"]
+[ext_resource type="Texture2D" uid="uid://6e0ct8oonna8" path="res://Environment/PlaceHolders/etageres.png" id="8_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://biatt6p1e4l3a" path="res://Environment/PlaceHolders/etageres_flip.png" id="9_w48qg"]
+[ext_resource type="PackedScene" uid="uid://cekojh57uv7f2" path="res://enemy.tscn" id="12_dg77c"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
-size = Vector2(8000, 100)
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ycdy4"]
+vertices = PackedVector2Array(3396, -512, -1004, 1696, -3372, 512, 1028, -1696)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1028, -1696, -3372, 512, -1004, 1696, 3396, -512)])
+agent_radius = 0.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
-size = Vector2(100, 4400)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3je3x"]
+texture = ExtResource("1_efxa6")
+texture_region_size = Vector2i(6803, 3414)
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ycdy4")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kek77"]
-size = Vector2(128, 128)
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_w48qg"]
+vertices = PackedVector2Array(3356, 528, 1028, 1704, -3364, -512, -1036, -1696)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1036, -1696, -3364, -512, 1028, 1704, 3356, 528)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0djjw"]
+texture = ExtResource("2_dg77c")
+texture_region_size = Vector2i(6803, 3414)
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_w48qg")
+
+[sub_resource type="TileSet" id="TileSet_50fst"]
+tile_shape = 1
+tile_size = Vector2i(6803, 3414)
+navigation_layer_0/layers = 1
+sources/0 = SubResource("TileSetAtlasSource_3je3x")
+sources/1 = SubResource("TileSetAtlasSource_0djjw")
 
 [sub_resource type="LabelSettings" id="LabelSettings_272bh"]
 font_size = 30
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
-size = Vector2(1500, 200)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bl1td"]
+texture = ExtResource("8_ycdy4")
+texture_region_size = Vector2i(3567, 3565)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-883.4678, 7.8460693, 1748, 1324, 868, 1796, -1732, 444)
 
-[sub_resource type="Gradient" id="Gradient_5vw27"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 1, 1, 1)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7x3da"]
+texture = ExtResource("9_w48qg")
+texture_region_size = Vector2i(3567, 3565)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(899.1599, -1.5692139, -1787.5142, 1348.2805, -886.8071, 1776.3945, 1777.9202, 440.94922)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_kek77"]
-gradient = SubResource("Gradient_5vw27")
-width = 1500
-height = 200
+[sub_resource type="TileSet" id="TileSet_tlx0u"]
+tile_shape = 1
+tile_size = Vector2i(3567, 3565)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_bl1td")
+sources/1 = SubResource("TileSetAtlasSource_7x3da")
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_272bh"]
-vertices = PackedVector2Array(3912.0078, -2184, 3917.9766, 2193.0078, -3883.9766, 2205.9766, -3878.0078, -2189.9922)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-3888, -2200, 3922, -2194, 3928, 2203, -3894, 2216)])
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kek77"]
+size = Vector2(1364, 154)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5vw27"]
+radius = 898.94
+height = 1886.28
 
 [node name="Node2D" type="Node2D"]
 metadata/_edit_vertical_guides_ = [2011.0]
@@ -45,44 +82,70 @@ metadata/_edit_horizontal_guides_ = [449.0]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="map"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="map/StaticBody2D"]
-position = Vector2(27, -2251)
-shape = SubResource("RectangleShape2D_h2yge")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+polygon = PackedVector2Array(-34058, 15831, -31495, 17096, -31818, 17412, -34280, 16080)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="map/StaticBody2D"]
-position = Vector2(-3, 2258)
-shape = SubResource("RectangleShape2D_h2yge")
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+polygon = PackedVector2Array(-31744, 17123, 6895, -2269, 7241, -2043, -31469, 17407)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="map/StaticBody2D"]
-position = Vector2(-3943, -2)
-shape = SubResource("RectangleShape2D_1bvp3")
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+polygon = PackedVector2Array(-34008, 15904, -22760, 10257, -22997, 10139, -34255, 15734)
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="map/StaticBody2D"]
-position = Vector2(3971, 8)
-shape = SubResource("RectangleShape2D_1bvp3")
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+polygon = PackedVector2Array(-22761, 10247, -57941, -7415, -58168, -7241, -23042, 10354)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["player"]]
-unique_name_in_owner = true
-position = Vector2(-1441, 693)
-script = ExtResource("2_1bvp3")
-speed = 600.0
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+polygon = PackedVector2Array(-57818, -7343, -55350, -8544, -55505, -8639, -58063, -7415)
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-zoom = Vector2(0.5, 0.5)
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+polygon = PackedVector2Array(-20404, 9058, -55798, -8686, -55663, -8807, -20217, 8979)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_kek77")
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+polygon = PackedVector2Array(-20414, 9068, -15955, 6830, -16179, 6704, -20602, 8979)
 
-[node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("3_lquwl")
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+polygon = PackedVector2Array(-15959, 6831, -51255, -10870, -51386, -10716, -16179, 6947)
 
-[node name="MarkerY" type="Marker2D" parent="CharacterBody2D"]
-unique_name_in_owner = true
-position = Vector2(0, -650)
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+polygon = PackedVector2Array(-13615, 5650, -9301, 3420, -9431, 3306, -13778, 5585)
 
-[node name="MarkerX" type="Marker2D" parent="CharacterBody2D"]
-unique_name_in_owner = true
-position = Vector2(-1150, 0)
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+polygon = PackedVector2Array(-13599, 5650, -48832, -11999, -48622, -12170, -13396, 5516)
+
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+polygon = PackedVector2Array(-51025, -10748, -48376, -12052, -48487, -12128, -51166, -10804)
+
+[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+polygon = PackedVector2Array(-44381, -14255, -9256, 3388, -9483, 3507, -44462, -14189)
+
+[node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+polygon = PackedVector2Array(-44219, -14164, -41783, -15377, -41894, -15458, -44351, -14215)
+
+[node name="CollisionPolygon2D14" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+polygon = PackedVector2Array(-41854, -15367, -6800, 2249, -6715, 2203, -41762, -15464)
+
+[node name="CollisionPolygon2D15" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+polygon = PackedVector2Array(-6812, 2251, -2384, -18, -2501, -107, -6943, 2161)
+
+[node name="CollisionPolygon2D16" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+polygon = PackedVector2Array(-37472, -17613, -2444, -37, -2580, 24, -37522, -17556)
+
+[node name="CollisionPolygon2D17" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+polygon = PackedVector2Array(-37442, -17560, -34989, -18783, -35076, -18840, -37548, -17613)
+
+[node name="CollisionPolygon2D18" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+polygon = PackedVector2Array(-35046, -18768, -19, -1169, 85, -1214, -34974, -18820)
+
+[node name="CollisionPolygon2D19" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+polygon = PackedVector2Array(-41, -1151, 4594, -3395, 4483, -3491, -91, -1217)
+
+[node name="CollisionPolygon2D20" type="CollisionPolygon2D" parent="map/StaticBody2D"]
+polygon = PackedVector2Array(6838, -2182, 4210, -3481, 4341, -3542, 6914, -2248)
+
+[node name="floor" type="TileMapLayer" parent="map"]
+tile_map_data = PackedByteArray("AAD/////AAAAAAAAAAD//wAAAAAAAAAAAAAAAP7/AAAAAAAAAAD+/wEAAAAAAAAAAAD+/wIAAAAAAAAAAAD+/wAAAQAAAAAAAAD///7/AQAAAAAAAAD9////AQAAAAAAAAD9//7/AQAAAAAAAAD+//3/AQAAAAAAAAD+//z/AQAAAAAAAAD9//v/AQAAAAAAAAD9//r/AQAAAAAAAAD8//3/AQAAAAAAAAD8//z/AQAAAAAAAAD9/wMAAAAAAAAAAAD9/wQAAAAAAAAAAAD8/wUAAAAAAAAAAAD8/wYAAAAAAAAAAAD9/wIAAQAAAAAAAAD8/wEAAQAAAAAAAAD8/wAAAQAAAAAAAAD7////AQAAAAAAAAD7//7/AQAAAAAAAAD6//3/AQAAAAAAAAD7//v/AQAAAAAAAAD8//n/AQAAAAAAAAD6//z/AQAAAAAAAAD5//v/AQAAAAAAAAD5//r/AQAAAAAAAAD4//n/AQAAAAAAAAD7//r/AQAAAAAAAAD6//n/AQAAAAAAAAD6//j/AQAAAAAAAAD5//f/AQAAAAAAAAD8//j/AQAAAAAAAAD7//f/AQAAAAAAAAD7//b/AQAAAAAAAAD6//X/AQAAAAAAAAD8/wQAAQAAAAAAAAD7/wMAAQAAAAAAAAD7/wIAAQAAAAAAAAD6/wEAAQAAAAAAAAD6/wAAAQAAAAAAAAD5////AQAAAAAAAAD5//7/AQAAAAAAAAD4//3/AQAAAAAAAAD4//z/AQAAAAAAAAD3//v/AQAAAAAAAAD7/wcAAAAAAAAAAAD7/wgAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_50fst")
+script = ExtResource("3_ycdy4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -182,105 +245,131 @@ script = ExtResource("6_7mycd")
 items = Array[ExtResource("7_5vw27")]([ExtResource("8_kek77")])
 max_distance = 2000.0
 
-[node name="enviro" type="Node2D" parent="."]
+[node name="Marker2D" type="Marker2D" parent="spawner"]
+position = Vector2(-3125, 286)
+
+[node name="Marker2D2" type="Marker2D" parent="spawner"]
+position = Vector2(3966, -3315)
+
+[node name="Marker2D3" type="Marker2D" parent="spawner"]
+position = Vector2(-3902, -3236)
+
+[node name="Marker2D4" type="Marker2D" parent="spawner"]
+position = Vector2(-10961, 254)
+
+[node name="Marker2D5" type="Marker2D" parent="spawner"]
+position = Vector2(-10438, 3871)
+
+[node name="Marker2D6" type="Marker2D" parent="spawner"]
+position = Vector2(-17307, 7440)
+
+[node name="Marker2D7" type="Marker2D" parent="spawner"]
+position = Vector2(-24493, 10851)
+
+[node name="Marker2D8" type="Marker2D" parent="spawner"]
+position = Vector2(-31869, 14452)
+
+[node name="Marker2D9" type="Marker2D" parent="spawner"]
+position = Vector2(-26825, 5568)
+
+[node name="Marker2D10" type="Marker2D" parent="spawner"]
+position = Vector2(-20162, 1840)
+
+[node name="Marker2D11" type="Marker2D" parent="spawner"]
+position = Vector2(-33852, 2094)
+
+[node name="Marker2D12" type="Marker2D" parent="spawner"]
+position = Vector2(-27094, -1618)
+
+[node name="Marker2D13" type="Marker2D" parent="spawner"]
+position = Vector2(-41323, -1491)
+
+[node name="Marker2D14" type="Marker2D" parent="spawner"]
+position = Vector2(-34200, -5044)
+
+[node name="Marker2D15" type="Marker2D" parent="spawner"]
+position = Vector2(-48255, -5155)
+
+[node name="Marker2D16" type="Marker2D" parent="spawner"]
+position = Vector2(-41212, -8724)
+
+[node name="Marker2D17" type="Marker2D" parent="spawner"]
+position = Vector2(-55330, -8756)
+
+[node name="Marker2D18" type="Marker2D" parent="spawner"]
+position = Vector2(-48397, -12437)
+
+[node name="Marker2D19" type="Marker2D" parent="spawner"]
+position = Vector2(-39545, -14150)
+
+[node name="Marker2D20" type="Marker2D" parent="spawner"]
+position = Vector2(-32438, -10486)
+
+[node name="Marker2D21" type="Marker2D" parent="spawner"]
+position = Vector2(-25173, -7075)
+
+[node name="Marker2D22" type="Marker2D" parent="spawner"]
+position = Vector2(-17844, -3442)
+
+[node name="Marker2D23" type="Marker2D" parent="spawner"]
+position = Vector2(-11086, 0)
+
+[node name="Marker2D24" type="Marker2D" parent="spawner"]
+position = Vector2(-10943, -6932)
+
+[node name="Marker2D25" type="Marker2D" parent="spawner"]
+position = Vector2(-17970, -10469)
+
+[node name="Marker2D26" type="Marker2D" parent="spawner"]
+position = Vector2(-25108, -14149)
+
+[node name="Marker2D27" type="Marker2D" parent="spawner"]
+position = Vector2(-32278, -17702)
+
+[node name="y_sort_nodes" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="shelfs" type="TileMapLayer" parent="y_sort_nodes"]
 unique_name_in_owner = true
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAAAP3/AQAAAAAAAAD+////AQAAAAAAAAD8/wEAAQAAAAAAAAD+//3/AAAAAAAAAAD8//v/AAAAAAAAAAD8////AAAAAAAAAAD6//3/AAAAAAAAAAD4//v/AAAAAAAAAAD6//n/AAAAAAAAAAD6/wAAAAAAAAAAAAD4//7/AAAAAAAAAAD2//z/AAAAAAAAAAD4/wIAAAAAAAAAAAD2/wAAAAAAAAAAAAD0//7/AAAAAAAAAADy//z/AAAAAAAAAADw//r/AAAAAAAAAAD0//r/AAAAAAAAAADy//j/AAAAAAAAAAD2//n/AAAAAAAAAAD0//f/AAAAAAAAAAD4//f/AAAAAAAAAAD2//X/AAAAAAAAAAD6/wMAAQAAAAAAAAD4/wUAAQAAAAAAAAD2/wcAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_tlx0u")
 
-[node name="shelve" type="StaticBody2D" parent="enviro"]
-position = Vector2(-2090, -1063)
-rotation = -0.37054536
+[node name="CharacterBody2D" type="CharacterBody2D" parent="y_sort_nodes"]
+unique_name_in_owner = true
+y_sort_enabled = true
+script = ExtResource("2_1bvp3")
+speed = 6000.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enviro/shelve"]
-shape = SubResource("RectangleShape2D_272bh")
+[node name="Camera2D" type="Camera2D" parent="y_sort_nodes/CharacterBody2D"]
+zoom = Vector2(0.08, 0.08)
 
-[node name="Sprite2D" type="Sprite2D" parent="enviro/shelve"]
-texture = SubResource("GradientTexture2D_kek77")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="y_sort_nodes/CharacterBody2D"]
+position = Vector2(-25, 4)
+shape = SubResource("RectangleShape2D_kek77")
 
-[node name="shelve2" type="StaticBody2D" parent="enviro"]
-position = Vector2(-2830, 329)
-rotation = 0.3197627
+[node name="Icon" type="Sprite2D" parent="y_sort_nodes/CharacterBody2D"]
+position = Vector2(-42.5, -648)
+texture = ExtResource("3_5vw27")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enviro/shelve2"]
-shape = SubResource("RectangleShape2D_272bh")
+[node name="MarkerY" type="Marker2D" parent="y_sort_nodes/CharacterBody2D"]
+unique_name_in_owner = true
+position = Vector2(0, -4050)
 
-[node name="Sprite2D" type="Sprite2D" parent="enviro/shelve2"]
-texture = SubResource("GradientTexture2D_kek77")
+[node name="MarkerX" type="Marker2D" parent="y_sort_nodes/CharacterBody2D"]
+unique_name_in_owner = true
+position = Vector2(-7200, 0)
 
-[node name="shelve3" type="StaticBody2D" parent="enviro"]
-position = Vector2(-868, -497)
+[node name="Area2D" type="Area2D" parent="y_sort_nodes/CharacterBody2D" groups=["player"]]
+position = Vector2(-42.5, -648)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enviro/shelve3"]
-shape = SubResource("RectangleShape2D_272bh")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="y_sort_nodes/CharacterBody2D/Area2D"]
+shape = SubResource("CapsuleShape2D_5vw27")
 
-[node name="Sprite2D" type="Sprite2D" parent="enviro/shelve3"]
-texture = SubResource("GradientTexture2D_kek77")
-
-[node name="shelve4" type="StaticBody2D" parent="enviro"]
-position = Vector2(-2624, 1609)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enviro/shelve4"]
-shape = SubResource("RectangleShape2D_272bh")
-
-[node name="Sprite2D" type="Sprite2D" parent="enviro/shelve4"]
-texture = SubResource("GradientTexture2D_kek77")
-
-[node name="shelve5" type="StaticBody2D" parent="enviro"]
-position = Vector2(-543, 1578)
-rotation = -0.39258307
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enviro/shelve5"]
-shape = SubResource("RectangleShape2D_272bh")
-
-[node name="Sprite2D" type="Sprite2D" parent="enviro/shelve5"]
-texture = SubResource("GradientTexture2D_kek77")
-
-[node name="shelve6" type="StaticBody2D" parent="enviro"]
-position = Vector2(2756, 1377)
-rotation = -0.5886064
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enviro/shelve6"]
-shape = SubResource("RectangleShape2D_272bh")
-
-[node name="Sprite2D" type="Sprite2D" parent="enviro/shelve6"]
-texture = SubResource("GradientTexture2D_kek77")
-
-[node name="shelve7" type="StaticBody2D" parent="enviro"]
-position = Vector2(1348, 444)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enviro/shelve7"]
-shape = SubResource("RectangleShape2D_272bh")
-
-[node name="Sprite2D" type="Sprite2D" parent="enviro/shelve7"]
-texture = SubResource("GradientTexture2D_kek77")
-
-[node name="shelve8" type="StaticBody2D" parent="enviro"]
-position = Vector2(2915, -424)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enviro/shelve8"]
-shape = SubResource("RectangleShape2D_272bh")
-
-[node name="Sprite2D" type="Sprite2D" parent="enviro/shelve8"]
-texture = SubResource("GradientTexture2D_kek77")
-
-[node name="shelve9" type="StaticBody2D" parent="enviro"]
-position = Vector2(304, -1659)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enviro/shelve9"]
-shape = SubResource("RectangleShape2D_272bh")
-
-[node name="Sprite2D" type="Sprite2D" parent="enviro/shelve9"]
-texture = SubResource("GradientTexture2D_kek77")
-
-[node name="shelve10" type="StaticBody2D" parent="enviro"]
-position = Vector2(2456, -1309.0001)
-rotation = 0.5601782
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enviro/shelve10"]
-shape = SubResource("RectangleShape2D_272bh")
-
-[node name="Sprite2D" type="Sprite2D" parent="enviro/shelve10"]
-texture = SubResource("GradientTexture2D_kek77")
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_272bh")
+[node name="enemy" parent="y_sort_nodes" node_paths=PackedStringArray("target") instance=ExtResource("12_dg77c")]
+y_sort_enabled = true
+position = Vector2(-8238, 2640)
+wall_min_slide_angle = 0.0
+target = NodePath("../CharacterBody2D")
 
 [connection signal="pressed" from="CanvasLayer/game_over_screen/Panel/Button" to="CanvasLayer/game_over_screen" method="_on_button_pressed"]

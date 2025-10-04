@@ -8,7 +8,7 @@ var spawns : Array[Node]
 var item_prefab : PackedScene = preload("res://item.tscn")
 
 @onready var player : CharacterBody2D = %CharacterBody2D
-@onready var enviro : Node2D = %enviro
+#@onready var enviro : Node2D = %enviro
 @onready var screen_min_y : Marker2D = %MarkerY
 @onready var screen_min_x : Marker2D = %MarkerX
 
@@ -22,24 +22,28 @@ func _ready() -> void:
 	
 	
 func _populate_spawns()->void:
-	spawns = enviro.get_children()
+	spawns = get_children()
 	_spawn_item()
 
 func _spawn_item()->void:
+	##pick a random shelf outside the screen
 	var spawn : Node2D = spawns.pick_random()
-	var spawn_pos = get_spawn_position(spawn)
-	while spawn_pos == null:
+	#var spawn_pos = get_spawn_position(spawn)
+	#while spawn_pos == null:
+		#spawn = spawns.pick_random()
+		#while_safety +=1
+		#print("loop count : ",while_safety)
+		#assert(while_safety < 1000,"infinite loop!")
+	#while_safety = 0
+	while !outside_screen(spawn.position):
+		#spawn_pos = get_spawn_position(spawn)
 		spawn = spawns.pick_random()
 		while_safety +=1
 		print("loop count : ",while_safety)
 		assert(while_safety < 1000,"infinite loop!")
 	while_safety = 0
-	while !outside_screen(spawn_pos):
-		spawn_pos = get_spawn_position(spawn)
-		while_safety +=1
-		print("loop count : ",while_safety)
-		assert(while_safety < 1000,"infinite loop!")
-	while_safety = 0
+	
+	##pick a random item
 	var item_list : Array[Item_data]
 	for item in items:
 		for j in item.multiplier:
@@ -50,7 +54,7 @@ func _spawn_item()->void:
 	new_item.data = item_data
 	new_item.picked.connect(_on_item_picked)
 	spawn.call_deferred("add_child",new_item,false)
-	new_item.position = spawn.to_local(spawn_pos)
+	#new_item.position = spawn.position
 	
 	instantiated_items.append(new_item)
 	if instantiated_items.size() < item_max_nb:
