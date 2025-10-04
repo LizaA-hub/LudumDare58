@@ -9,6 +9,8 @@ var item_prefab : PackedScene = preload("res://item.tscn")
 
 @onready var player : CharacterBody2D = %CharacterBody2D
 @onready var enviro : Node2D = %enviro
+@onready var screen_min_y : Marker2D = %MarkerY
+@onready var screen_min_x : Marker2D = %MarkerX
 
 var instantiated_items : Array[Area2D]
 var while_safety : int =0
@@ -32,7 +34,7 @@ func _spawn_item()->void:
 		print("loop count : ",while_safety)
 		assert(while_safety < 1000,"infinite loop!")
 	while_safety = 0
-	while !good_distance_to_player(spawn_pos):
+	while !outside_screen(spawn_pos):
 		spawn_pos = get_spawn_position(spawn)
 		while_safety +=1
 		print("loop count : ",while_safety)
@@ -61,7 +63,7 @@ func get_spawn_position(spawn : Node2D):
 	#print("right bottom : ", right_bottom_vect)
 	var left_up_vect : Vector2 = spawn.position - collision.shape.get_rect().size/2 + Vector2(80,80)
 	#print("left up : ", left_up_vect)
-	if !good_distance_to_player(right_bottom_vect) and !good_distance_to_player(left_up_vect):
+	if !outside_screen(right_bottom_vect) and !outside_screen(left_up_vect):
 		return null
 	var random_pos : Vector2 = Vector2(randf_range(left_up_vect.x,right_bottom_vect.x),randf_range(left_up_vect.y,right_bottom_vect.y))
 	#print("spawn pos : ", random_pos)
@@ -79,7 +81,12 @@ func _on_item_picked(item : Area2D)->void:
 func _end_task()->void:
 	busy = false
 	
-func good_distance_to_player(spawn_pos : Vector2)->bool:
-	#print("distance to player = ",spawn_pos.distance_to(player.global_position))
-	return spawn_pos.distance_to(player.global_position) > 200 or spawn_pos.distance_to(player.global_position) < max_distance
+func outside_screen(spawn_pos : Vector2)->bool:
+	var y_good : bool = spawn_pos.y < screen_min_y.position.y or spawn_pos.y > player.position.y-screen_min_y.position.y
+	#print("screen max y = ",player.position.y-screen_min_y.position.y)
+	var x_good : bool = spawn_pos.x < screen_min_x.position.x or spawn_pos.x > player.position.x-screen_min_x.position.x
+	#print("screen max x = ",player.position.x-screen_min_x.position.x)
+	#var not_too_far : bool = spawn_pos.distance_to(player.global_position) < max_distance
+	#print("pos = ",spawn_pos)
+	return y_good or x_good #and not_too_far
 	
