@@ -5,12 +5,16 @@ extends Node2D
 
 var item_prefab : PackedScene = preload("res://item.tscn")
 
+@onready var player : CharacterBody2D = %CharacterBody2D
+
 func _ready() -> void:
 	World.item_picked.connect(_spawn_item)
-	_spawn_item(0,0)
+	_spawn_item()
 
-func _spawn_item(_point:float, _value:float)->void:
+func _spawn_item()->void:
 	var spawn : Node2D = spawns.pick_random()
+	while spawn.global_position.distance_to(player.global_position) <= 200:
+		spawn = spawns.pick_random()
 	var item_list : Array[Item_data]
 	for item in items:
 		for j in item.multiplier:

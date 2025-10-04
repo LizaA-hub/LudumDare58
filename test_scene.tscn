@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://c23homihibskh"]
+
+[ext_resource type="Script" uid="uid://do4p553sc2wiw" path="res://player.gd" id="1_coq8p"]
+[ext_resource type="Texture2D" uid="uid://dt87ji848s1gn" path="res://icon.svg" id="2_2nij2"]
+[ext_resource type="Script" uid="uid://dje7svcd4l0ls" path="res://area_2d_test.gd" id="3_7cbxl"]
+[ext_resource type="PackedScene" uid="uid://di7e8byfmfsh" path="res://item.tscn" id="4_8pr8v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdubu"]
+size = Vector2(128, 128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d21ai"]
+radius = 60.83
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["player"]]
+script = ExtResource("1_coq8p")
+speed = 600.0
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(0.5, 0.5)
+limit_left = -1894
+limit_top = -1082
+limit_right = 1946
+limit_bottom = 1078
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_kdubu")
+
+[node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("2_2nij2")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(287, -240)
+script = ExtResource("3_7cbxl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_d21ai")
+
+[node name="Icon" type="Sprite2D" parent="Area2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_2nij2")
+
+[node name="item" parent="." instance=ExtResource("4_8pr8v")]
+position = Vector2(-682, -168)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="body_exited" from="item" to="item" method="_on_body_exited"]
