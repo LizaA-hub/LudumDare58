@@ -3,7 +3,7 @@ extends Node
 signal item_picked
 signal game_over
 var points : float = 0
-var current_timer : float = 5
+var current_timer : float = 10
 var global_timer : float = 0
 
 func add_item(point_value : float, time_value : float)->void:
@@ -12,7 +12,7 @@ func add_item(point_value : float, time_value : float)->void:
 	item_picked.emit()
 
 func _process(delta: float) -> void:
-	#current_timer -= delta
+	current_timer -= delta
 	global_timer += delta
 	if current_timer <= 0:
 		game_over.emit()

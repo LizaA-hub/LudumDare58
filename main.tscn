@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://fu2lsweqg8ym"]
+[gd_scene load_steps=16 format=3 uid="uid://fu2lsweqg8ym"]
 
 [ext_resource type="Script" uid="uid://do4p553sc2wiw" path="res://player.gd" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://dt87ji848s1gn" path="res://icon.svg" id="3_lquwl"]
@@ -6,17 +6,7 @@
 [ext_resource type="Script" uid="uid://dymkk31uu8j1u" path="res://game_over_screen.gd" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://du4w2g8o56rq0" path="res://spawner.gd" id="6_7mycd"]
 [ext_resource type="Script" uid="uid://d5pyl0f0pp7o" path="res://items/item_data.gd" id="7_5vw27"]
-[ext_resource type="PackedScene" uid="uid://cekojh57uv7f2" path="res://enemy.tscn" id="8_5vw27"]
-[ext_resource type="Resource" uid="uid://orl18gjlisan" path="res://items/default_item.tres" id="8_kek77"]
-
-[sub_resource type="Gradient" id="Gradient_272bh"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.41598046, 0.41598043, 0.4159804, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_5vw27"]
-gradient = SubResource("Gradient_272bh")
-width = 3840
-height = 2160
+[ext_resource type="Resource" uid="uid://orl18gjlisan" path="res://items/common_item.tres" id="8_kek77"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
 size = Vector2(4000, 100)
@@ -31,7 +21,7 @@ size = Vector2(128, 128)
 font_size = 30
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
-size = Vector2(1800, 200)
+size = Vector2(1500, 200)
 
 [sub_resource type="Gradient" id="Gradient_5vw27"]
 offsets = PackedFloat32Array(1)
@@ -39,7 +29,7 @@ colors = PackedColorArray(1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_kek77"]
 gradient = SubResource("Gradient_5vw27")
-width = 1800
+width = 1500
 height = 200
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5vw27"]
@@ -48,11 +38,10 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32
 outlines = Array[PackedVector2Array]([PackedVector2Array(-1919, -925, -121, -920, -121, -711, -1925, -717, -1923, -505, -124, -501, -119, -298, -1923, -302, -1923, -74, -123, -82, -119, 131, -1923, 133, -1920, 328, -123, 324, -118, 534, -1920, 534, -1915, 718, -140, 713, -135, 918, -1922, 925, -1927, 1071, 1914, 1076, 1910, 927, 115, 925, 113, 718, 1914, 718, 1910, 543, 129, 552, 125, 336, 1914, 333, 1914, 142, 106, 147, 113, -58, 1912, -61, 1912, -273, 120, -270, 117, -476, 1914, -480, 1907, -716, 129, -716, 122, -926, 1910, -931, 1914, -1072, -1920, -1067)])
 
 [node name="Node2D" type="Node2D"]
+metadata/_edit_vertical_guides_ = [-1638.0]
+metadata/_edit_horizontal_guides_ = [801.0]
 
 [node name="map" type="Node2D" parent="."]
-
-[node name="floor" type="Sprite2D" parent="map"]
-texture = SubResource("GradientTexture2D_5vw27")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="map"]
 
@@ -78,11 +67,7 @@ script = ExtResource("2_1bvp3")
 speed = 600.0
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-zoom = Vector2(0.5, 0.5)
-limit_left = -1894
-limit_top = -1082
-limit_right = 1946
-limit_bottom = 1078
+zoom = Vector2(0.3, 0.3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_kek77")
@@ -183,27 +168,15 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Replay"
 
-[node name="spawner" type="Node2D" parent="." node_paths=PackedStringArray("spawns")]
+[node name="spawner" type="Node2D" parent="."]
 script = ExtResource("6_7mycd")
-spawns = [NodePath("spawn_01"), NodePath("spawn_02"), NodePath("spawn_03"), NodePath("spawn_04")]
 items = Array[ExtResource("7_5vw27")]([ExtResource("8_kek77")])
 
-[node name="spawn_01" type="Node2D" parent="spawner"]
-position = Vector2(-1094, -632)
-
-[node name="spawn_02" type="Node2D" parent="spawner"]
-position = Vector2(960, -616)
-
-[node name="spawn_03" type="Node2D" parent="spawner"]
-position = Vector2(-323, 219)
-
-[node name="spawn_04" type="Node2D" parent="spawner"]
-position = Vector2(1671, 977)
-
 [node name="enviro" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="shelve" type="StaticBody2D" parent="enviro"]
-position = Vector2(-1024, -818)
+position = Vector2(-959, -818)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enviro/shelve"]
 shape = SubResource("RectangleShape2D_272bh")
@@ -212,7 +185,7 @@ shape = SubResource("RectangleShape2D_272bh")
 texture = SubResource("GradientTexture2D_kek77")
 
 [node name="shelve2" type="StaticBody2D" parent="enviro"]
-position = Vector2(-1024, -399)
+position = Vector2(-959, -399)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enviro/shelve2"]
 shape = SubResource("RectangleShape2D_272bh")
@@ -221,7 +194,7 @@ shape = SubResource("RectangleShape2D_272bh")
 texture = SubResource("GradientTexture2D_kek77")
 
 [node name="shelve3" type="StaticBody2D" parent="enviro"]
-position = Vector2(-1025, 29)
+position = Vector2(-960, 29)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enviro/shelve3"]
 shape = SubResource("RectangleShape2D_272bh")
@@ -230,7 +203,7 @@ shape = SubResource("RectangleShape2D_272bh")
 texture = SubResource("GradientTexture2D_kek77")
 
 [node name="shelve4" type="StaticBody2D" parent="enviro"]
-position = Vector2(-1025, 429)
+position = Vector2(-960, 429)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enviro/shelve4"]
 shape = SubResource("RectangleShape2D_272bh")
@@ -239,7 +212,7 @@ shape = SubResource("RectangleShape2D_272bh")
 texture = SubResource("GradientTexture2D_kek77")
 
 [node name="shelve5" type="StaticBody2D" parent="enviro"]
-position = Vector2(-1036, 820)
+position = Vector2(-971, 820)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enviro/shelve5"]
 shape = SubResource("RectangleShape2D_272bh")
@@ -248,7 +221,7 @@ shape = SubResource("RectangleShape2D_272bh")
 texture = SubResource("GradientTexture2D_kek77")
 
 [node name="shelve6" type="StaticBody2D" parent="enviro"]
-position = Vector2(1021, 820)
+position = Vector2(946, 820)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enviro/shelve6"]
 shape = SubResource("RectangleShape2D_272bh")
@@ -257,7 +230,7 @@ shape = SubResource("RectangleShape2D_272bh")
 texture = SubResource("GradientTexture2D_kek77")
 
 [node name="shelve7" type="StaticBody2D" parent="enviro"]
-position = Vector2(1032, 444)
+position = Vector2(957, 444)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enviro/shelve7"]
 shape = SubResource("RectangleShape2D_272bh")
@@ -266,7 +239,7 @@ shape = SubResource("RectangleShape2D_272bh")
 texture = SubResource("GradientTexture2D_kek77")
 
 [node name="shelve8" type="StaticBody2D" parent="enviro"]
-position = Vector2(1021, 47)
+position = Vector2(946, 47)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enviro/shelve8"]
 shape = SubResource("RectangleShape2D_272bh")
@@ -275,7 +248,7 @@ shape = SubResource("RectangleShape2D_272bh")
 texture = SubResource("GradientTexture2D_kek77")
 
 [node name="shelve9" type="StaticBody2D" parent="enviro"]
-position = Vector2(1021, -375)
+position = Vector2(946, -375)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enviro/shelve9"]
 shape = SubResource("RectangleShape2D_272bh")
@@ -284,7 +257,7 @@ shape = SubResource("RectangleShape2D_272bh")
 texture = SubResource("GradientTexture2D_kek77")
 
 [node name="shelve10" type="StaticBody2D" parent="enviro"]
-position = Vector2(1032, -820)
+position = Vector2(957, -820)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enviro/shelve10"]
 shape = SubResource("RectangleShape2D_272bh")
@@ -294,12 +267,5 @@ texture = SubResource("GradientTexture2D_kek77")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_5vw27")
-
-[node name="enemy" parent="NavigationRegion2D" node_paths=PackedStringArray("target") instance=ExtResource("8_5vw27")]
-position = Vector2(-615, 205)
-target = NodePath("../../Node2D")
-
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(527, 226)
 
 [connection signal="pressed" from="CanvasLayer/game_over_screen/Panel/Button" to="CanvasLayer/game_over_screen" method="_on_button_pressed"]

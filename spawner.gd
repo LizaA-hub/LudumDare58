@@ -1,26 +1,85 @@
 extends Node2D
 
-@export var spawns : Array[Node2D]
+var spawns : Array[Node]
 @export var items : Array[Item_data]
+@export var max_distance : float = 1000
+@export var item_max_nb : int = 8
 
 var item_prefab : PackedScene = preload("res://item.tscn")
 
 @onready var player : CharacterBody2D = %CharacterBody2D
+@onready var enviro : Node2D = %enviro
+
+var instantiated_items : Array[Area2D]
+var while_safety : int =0
+var busy:bool = false
 
 func _ready() -> void:
 	World.item_picked.connect(_spawn_item)
+	_populate_spawns()
+	
+	
+func _populate_spawns()->void:
+	spawns = enviro.get_children()
 	_spawn_item()
 
 func _spawn_item()->void:
 	var spawn : Node2D = spawns.pick_random()
-	while spawn.global_position.distance_to(player.global_position) <= 200:
+	var spawn_pos = get_spawn_position(spawn)
+	while spawn_pos == null:
 		spawn = spawns.pick_random()
+		while_safety +=1
+		print("loop count : ",while_safety)
+		assert(while_safety < 1000,"infinite loop!")
+	while_safety = 0
+	while !good_distance_to_player(spawn_pos):
+		spawn_pos = get_spawn_position(spawn)
+		while_safety +=1
+		print("loop count : ",while_safety)
+		assert(while_safety < 1000,"infinite loop!")
+	while_safety = 0
 	var item_list : Array[Item_data]
 	for item in items:
 		for j in item.multiplier:
 			item_list.append(item)
 			
 	var item_data : Item_data = item_list.pick_random()
-	var new_item = item_prefab.instantiate()
+	var new_item : Area2D = item_prefab.instantiate()
 	new_item.data = item_data
-	spawn.call_deferred("add_child",new_item)
+	new_item.picked.connect(_on_item_picked)
+	spawn.call_deferred("add_child",new_item,false)
+	new_item.position = spawn.to_local(spawn_pos)
+	
+	instantiated_items.append(new_item)
+	if instantiated_items.size() < item_max_nb:
+		_spawn_item()
+
+
+func get_spawn_position(spawn : Node2D):
+	var collision : CollisionShape2D = spawn.get_child(0)
+	var right_bottom_vect : Vector2 = spawn.position + collision.shape.get_rect().size/2 - Vector2(80,80)
+	#print("right bottom : ", right_bottom_vect)
+	var left_up_vect : Vector2 = spawn.position - collision.shape.get_rect().size/2 + Vector2(80,80)
+	#print("left up : ", left_up_vect)
+	if !good_distance_to_player(right_bottom_vect) and !good_distance_to_player(left_up_vect):
+		return null
+	var random_pos : Vector2 = Vector2(randf_range(left_up_vect.x,right_bottom_vect.x),randf_range(left_up_vect.y,right_bottom_vect.y))
+	#print("spawn pos : ", random_pos)
+	return random_pos
+
+func _on_item_picked(item : Area2D)->void:
+	if busy : return
+	busy = true
+	instantiated_items.erase(item)
+	item.queue_free()
+	if instantiated_items.size() < item_max_nb :
+		_spawn_item()
+	call_deferred("_end_task")
+		
+func _end_task()->void:
+	busy = false
+	
+func good_distance_to_player(spawn_pos : Vector2)->bool:
+	#print("distance to player = ",spawn_pos.distance_to(player.global_position))
+	return spawn_pos.distance_to(player.global_position) > 200 or spawn_pos.distance_to(player.global_position) < max_distance
+	

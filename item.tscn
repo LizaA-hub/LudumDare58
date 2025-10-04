@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_kg5e7"]
 radius = 111.67
 
-[node name="item" type="Area2D" node_paths=PackedStringArray("icon")]
+[node name="item" type="Area2D" node_paths=PackedStringArray("icon") groups=["item"]]
 script = ExtResource("1_tnite")
 icon = NodePath("Icon")
 
@@ -18,4 +18,5 @@ modulate = Color(0.93776244, 0.51739395, 0.39578268, 1)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_ttk8k")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
