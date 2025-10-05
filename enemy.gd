@@ -28,6 +28,8 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept") and can_die:
 		_die()
+	elif event.is_action_pressed("right_click") and can_die:
+		_die()
 		
 func _die()->void:
 	moving = false
@@ -36,10 +38,10 @@ func _die()->void:
 	set_collision_layer_value(1,false)
 	set_collision_mask_value(1,false)
 	var tween:Tween = create_tween()
-	var direction : Vector2 = Vector2(0.5,-1) if player_left else Vector2(-0.5,-1)
-	tween.tween_property(sprite,"position",position + direction*1000,2)
-	tween.parallel().tween_property(sprite,"rotation",90,2)
-	tween.parallel().tween_property(self,"modulate",Color.TRANSPARENT,2)
+	var direction : Vector2 = Vector2(-0.5,-1) if player_left else Vector2(0.5,-1)
+	tween.tween_property(sprite,"global_position",global_position + direction*10000,1)
+	tween.parallel().tween_property(sprite,"rotation",10*PI,1)
+	tween.parallel().tween_property(self,"modulate",Color.TRANSPARENT,1)
 	await tween.finished
 	died.emit(self)
 	World.client_hit += 1
