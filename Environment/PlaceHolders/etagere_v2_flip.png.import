@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhn8q5dcpm74"
-path="res://.godot/imported/mur_gauche.png-ab9e2e9e6d1c867bb22e21f5b65914dc.ctex"
+uid="uid://dvlbnaxvkpeb0"
+path="res://.godot/imported/etagere_v2_flip.png-6e3be75e59468b25c91c8dfec1ddcda4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/PlaceHolders/mur_gauche.png"
-dest_files=["res://.godot/imported/mur_gauche.png-ab9e2e9e6d1c867bb22e21f5b65914dc.ctex"]
+source_file="res://Environment/PlaceHolders/etagere_v2_flip.png"
+dest_files=["res://.godot/imported/etagere_v2_flip.png-6e3be75e59468b25c91c8dfec1ddcda4.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfy24kmjwnycl"
-path="res://.godot/imported/allees_principales.png-f5998f1347d68216421171903924fc05.ctex"
+uid="uid://biatt6p1e4l3a"
+path="res://.godot/imported/etageres_flip.png-aa639466e20089b95dc62a05b3e7b642.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/PlaceHolders/allees_principales.png"
-dest_files=["res://.godot/imported/allees_principales.png-f5998f1347d68216421171903924fc05.ctex"]
+source_file="res://Environment/PlaceHolders/Old/etageres_flip.png"
+dest_files=["res://.godot/imported/etageres_flip.png-aa639466e20089b95dc62a05b3e7b642.ctex"]
 
 [params]
 

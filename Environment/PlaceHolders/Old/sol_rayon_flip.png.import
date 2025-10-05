@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chw7k40s5dxdd"
-path="res://.godot/imported/vraie_demi_etagere_flip.png-dd7ee426b45e964bfaa8cebea1533957.ctex"
+uid="uid://b04u4xp5ebkmx"
+path="res://.godot/imported/sol_rayon_flip.png-b8450c8516c5589c748e03e89eebc547.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/PlaceHolders/vraie_demi_etagere_flip.png"
-dest_files=["res://.godot/imported/vraie_demi_etagere_flip.png-dd7ee426b45e964bfaa8cebea1533957.ctex"]
+source_file="res://Environment/PlaceHolders/Old/sol_rayon_flip.png"
+dest_files=["res://.godot/imported/sol_rayon_flip.png-b8450c8516c5589c748e03e89eebc547.ctex"]
 
 [params]
 
