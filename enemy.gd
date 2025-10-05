@@ -5,6 +5,7 @@ signal target_reached
 
 var can_die : bool =false
 var moving : bool = true
+var is_dying : bool =false
 		
 @export var speed:float = 4000
 var target : Node2D :
@@ -29,13 +30,17 @@ func _input(event: InputEvent) -> void:
 		_die()
 		
 func _die()->void:
-	#moving = false
-	#var tween:Tween = create_tween()
-	#var direction : Vector2 = Vector2(1,-1) if player_left else Vector2(-1,-1)
-	#tween.tween_property(sprite,"position",position + direction*1000,2)
-	#tween.parallel().tween_property(sprite,"rotation",180,2)
-	#tween.parallel().tween_property(self,"modulate",Color.TRANSPARENT,2)
-	#await tween.finished
+	moving = false
+	can_die = false
+	is_dying = true
+	set_collision_layer_value(1,false)
+	set_collision_mask_value(1,false)
+	var tween:Tween = create_tween()
+	var direction : Vector2 = Vector2(0.5,-1) if player_left else Vector2(-0.5,-1)
+	tween.tween_property(sprite,"position",position + direction*1000,2)
+	tween.parallel().tween_property(sprite,"rotation",90,2)
+	tween.parallel().tween_property(self,"modulate",Color.TRANSPARENT,2)
+	await tween.finished
 	died.emit(self)
 	World.client_hit += 1
 
@@ -61,6 +66,7 @@ func _on_velocity_computed(safe_velocity)->void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	if is_dying : return
 	if area.is_in_group("player"):
 		can_die = true
 		if area.global_position.x < global_position.x :

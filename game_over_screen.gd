@@ -41,8 +41,8 @@ func _on_button_pressed() -> void:
 	
 func _on_new_high_score(index,score)->void:
 	new_score_index = index
-	new_score_label.text = String.num(score)
-	new_score_position.text = "#" + String.num(index+1,0)
+	new_score_label.text = String.num(score,2)
+	new_score_position.text = "#" + String.num(index+1,)
 	new_score_panel.visible = true
 
 
