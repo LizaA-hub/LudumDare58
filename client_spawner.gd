@@ -83,3 +83,11 @@ func _on_target_reached(client : CharacterBody2D)->void:
 	while_safety = 0
 	client.target = new_target
 	client.moving = true
+	
+func _on_replay()->void:
+	for client in instantiated_enemies :
+		client.queue_free()
+	instantiated_enemies.clear()
+	while_safety =0
+	busy= false
+	_spawn_enemy()

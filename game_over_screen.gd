@@ -21,13 +21,18 @@ var new_score_index : int
 func _ready() -> void:
 	World.game_over.connect(_show_screen)
 	World.new_high_score.connect(_on_new_high_score)
+	World.replay_game.connect(_on_replay)
 	
 func _show_screen()->void:
-	get_tree().paused = true
-	total_time_label.text = String.num(World.global_timer)
+	#get_tree().paused = true
+	var time_elapsed : float = World.global_timer
+	var m_seconds : int = int(time_elapsed*60)%60
+	var seconds : int =int(time_elapsed)%60
+	var minutes :int = int(time_elapsed/60)%60
+	total_time_label.text = "%d:%02d:%02d" %[minutes,seconds,m_seconds]
 	points_label.text = String.num(World.points)
 	client_label.text = String.num(World.client_hit)
-	score_label.text = String.num(World.calculate_score())
+	score_label.text = String.num(World.calculate_score(),3)
 	update_scores()
 	visible = true
 	
@@ -50,6 +55,9 @@ func update_scores()->void:
 	player_name_01.text = World.score_data[0][0]
 	player_name_02.text = World.score_data[1][0]
 	player_name_03.text = World.score_data[2][0]
-	player_score_01.text= String.num(World.score_data[0][1])
-	player_score_02.text= String.num(World.score_data[1][1])
-	player_score_03.text= String.num(World.score_data[2][1])
+	player_score_01.text= String.num(World.score_data[0][1],3)
+	player_score_02.text= String.num(World.score_data[1][1],3)
+	player_score_03.text= String.num(World.score_data[2][1],3)
+
+func _on_replay()->void:
+	visible = false

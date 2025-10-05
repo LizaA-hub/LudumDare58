@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://fu2lsweqg8ym"]
+[gd_scene load_steps=32 format=4 uid="uid://fu2lsweqg8ym"]
 
 [ext_resource type="Texture2D" uid="uid://dfy24kmjwnycl" path="res://Environment/PlaceHolders/allees_principales.png" id="1_efxa6"]
 [ext_resource type="Script" uid="uid://do4p553sc2wiw" path="res://player.gd" id="2_1bvp3"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://djqij5e724bc6" path="res://datas.gd" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://byclo5b5spbe4" path="res://game_over_screen.tscn" id="5_ycdy4"]
 [ext_resource type="Script" uid="uid://du4w2g8o56rq0" path="res://spawner.gd" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://bp1s7q1xtist2" path="res://start_screen.tscn" id="6_074og"]
 [ext_resource type="Script" uid="uid://d5pyl0f0pp7o" path="res://items/item_data.gd" id="7_5vw27"]
 [ext_resource type="Resource" uid="uid://orl18gjlisan" path="res://items/common_item.tres" id="8_kek77"]
 [ext_resource type="Texture2D" uid="uid://6e0ct8oonna8" path="res://Environment/PlaceHolders/etageres.png" id="8_ycdy4"]
@@ -87,7 +88,6 @@ radius = 898.94
 height = 1886.28
 
 [node name="Node2D" type="Node2D"]
-metadata/_edit_horizontal_guides_ = [449.0]
 
 [node name="map" type="Node2D" parent="."]
 
@@ -215,6 +215,8 @@ horizontal_alignment = 2
 unique_name_in_owner = true
 visible = false
 
+[node name="start_screen" parent="CanvasLayer" instance=ExtResource("6_074og")]
+
 [node name="spawner" type="Node2D" parent="."]
 script = ExtResource("6_7mycd")
 items = Array[ExtResource("7_5vw27")]([ExtResource("8_kek77"), ExtResource("9_vivmo"), ExtResource("10_2cqfq")])
@@ -317,7 +319,7 @@ script = ExtResource("2_1bvp3")
 speed = 6000.0
 
 [node name="Camera2D" type="Camera2D" parent="y_sort_nodes/CharacterBody2D"]
-zoom = Vector2(0.05, 0.05)
+zoom = Vector2(0.08, 0.08)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="y_sort_nodes/CharacterBody2D"]
 position = Vector2(-25, 4)

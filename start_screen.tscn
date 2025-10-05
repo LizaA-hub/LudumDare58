@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp1s7q1xtist2"]
+
+[ext_resource type="Script" uid="uid://c668u8g8paa2m" path="res://start_screen.gd" id="1_ncxyx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ncxyx"]
+font_size = 50
+
+[node name="start_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ncxyx")
+
+[node name="PanelContainer" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.7490196, 0.5686275, 0.2784314, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 46.0
+offset_right = 1152.0
+offset_bottom = 115.0
+text = "Nom du jeu ici"
+label_settings = SubResource("LabelSettings_ncxyx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 280.0
+offset_bottom = 56.0
+
+[node name="volume" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 1
+value = 100.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 559.0
+offset_top = 534.0
+offset_right = 636.0
+offset_bottom = 584.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 30
+text = "start"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 429.0
+offset_top = 291.0
+offset_right = 731.0
+offset_bottom = 314.0
+text = "Maybe un pti dessin avec les controls?"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

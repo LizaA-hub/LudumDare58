@@ -18,7 +18,7 @@ var busy:bool = false
 
 func _ready() -> void:
 	_populate_spawns()
-	
+	World.replay_game.connect(_on_replay)
 	
 func _populate_spawns()->void:
 	spawns = get_children()
@@ -92,4 +92,12 @@ func outside_screen(spawn_pos : Vector2)->bool:
 	#var not_too_far : bool = spawn_pos.distance_to(player.global_position) < max_distance
 	#print("pos = ",spawn_pos)
 	return y_good or x_good #and not_too_far
+	
+func _on_replay()->void:
+	for item in instantiated_items :
+		item.queue_free()
+	instantiated_items.clear()
+	while_safety =0
+	busy= false
+	_spawn_item()
 	
