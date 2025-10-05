@@ -2,7 +2,6 @@ extends Node2D
 
 var spawns : Array[Node]
 @export var items : Array[Item_data]
-@export var max_distance : float = 1000
 @export var item_max_nb : int = 8
 
 var item_prefab : PackedScene = preload("res://item.tscn")
@@ -77,6 +76,8 @@ func _on_item_picked(item : Area2D)->void:
 	busy = true
 	instantiated_items.erase(item)
 	item.queue_free()
+	if item_max_nb > 3:
+		item_max_nb -= 1
 	if instantiated_items.size() < item_max_nb :
 		_spawn_item()
 	call_deferred("_end_task")

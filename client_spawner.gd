@@ -65,6 +65,7 @@ func _on_client_died(client : CharacterBody2D)->void:
 	if instantiated_enemies.size() < client_max_nb :
 		_spawn_enemy()
 	call_deferred("_end_task")
+	client_max_nb += 1
 		
 func _end_task()->void:
 	busy = false
