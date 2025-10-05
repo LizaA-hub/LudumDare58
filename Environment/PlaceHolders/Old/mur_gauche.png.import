@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b04u4xp5ebkmx"
-path="res://.godot/imported/sol_rayon_flip.png-2ea2a59197fc41109834c952792410a3.ctex"
+uid="uid://bhn8q5dcpm74"
+path="res://.godot/imported/mur_gauche.png-decd4bc75818564ce3dc8d94a47d644e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/PlaceHolders/sol_rayon_flip.png"
-dest_files=["res://.godot/imported/sol_rayon_flip.png-2ea2a59197fc41109834c952792410a3.ctex"]
+source_file="res://Environment/PlaceHolders/Old/mur_gauche.png"
+dest_files=["res://.godot/imported/mur_gauche.png-decd4bc75818564ce3dc8d94a47d644e.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://biatt6p1e4l3a"
-path="res://.godot/imported/etageres_flip.png-11961b714ca9fd47ac7723e253c54458.ctex"
+uid="uid://6e0ct8oonna8"
+path="res://.godot/imported/etageres.png-e527724059d3ab23f161e571d5febb16.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/PlaceHolders/etageres_flip.png"
-dest_files=["res://.godot/imported/etageres_flip.png-11961b714ca9fd47ac7723e253c54458.ctex"]
+source_file="res://Environment/PlaceHolders/Old/etageres.png"
+dest_files=["res://.godot/imported/etageres.png-e527724059d3ab23f161e571d5febb16.ctex"]
 
 [params]
 

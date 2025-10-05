@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd6xtrdyrqf06"
-path="res://.godot/imported/vraie_demi_etagere.png-3b7132148d1d2f686f3b5e7c984d0b44.ctex"
+uid="uid://dfy24kmjwnycl"
+path="res://.godot/imported/allees_principales.png-501ad67fb793e3d62eebb616944108c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/PlaceHolders/vraie_demi_etagere.png"
-dest_files=["res://.godot/imported/vraie_demi_etagere.png-3b7132148d1d2f686f3b5e7c984d0b44.ctex"]
+source_file="res://Environment/PlaceHolders/Old/allees_principales.png"
+dest_files=["res://.godot/imported/allees_principales.png-501ad67fb793e3d62eebb616944108c9.ctex"]
 
 [params]
 
