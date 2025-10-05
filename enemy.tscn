@@ -7,11 +7,18 @@
 radius = 923.49
 height = 1846.98
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iifgy"]
-size = Vector2(1323, 182)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gyqm"]
+radius = 147.34
+height = 1024.0
 
-[node name="enemy" type="CharacterBody2D"]
+[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent", "sprite")]
+y_sort_enabled = true
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_4gyqm")
+speed = 800.0
+nav_agent = NodePath("NavigationAgent2D")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.3868622, 0.7079952, 0.41659874, 1)
@@ -25,13 +32,19 @@ position = Vector2(0, -736)
 shape = SubResource("CapsuleShape2D_qi2p4")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-unique_name_in_owner = true
+path_desired_distance = 1000.0
+target_desired_distance = 500.0
+path_max_distance = 3000.0
+path_postprocessing = 1
 avoidance_enabled = true
+radius = 200.0
 max_speed = 5000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(22, -91)
-shape = SubResource("RectangleShape2D_iifgy")
+position = Vector2(22, -223)
+rotation = 1.5707964
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CapsuleShape2D_4gyqm")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

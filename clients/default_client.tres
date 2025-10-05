@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Client_data" load_steps=3 format=3 uid="uid://cml5qhn5eem6i"]
+
+[ext_resource type="Script" uid="uid://m52gvt753u0n" path="res://clients/client_data.gd" id="1_q7inb"]
+[ext_resource type="Texture2D" uid="uid://ci180wr830cod" path="res://assets/character_principal.png" id="2_jeth0"]
+
+[resource]
+script = ExtResource("1_q7inb")
+texture = ExtResource("2_jeth0")
+metadata/_custom_type_script = "uid://m52gvt753u0n"

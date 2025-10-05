@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://fu2lsweqg8ym"]
+[gd_scene load_steps=31 format=4 uid="uid://fu2lsweqg8ym"]
 
 [ext_resource type="Texture2D" uid="uid://dfy24kmjwnycl" path="res://Environment/PlaceHolders/allees_principales.png" id="1_efxa6"]
 [ext_resource type="Script" uid="uid://do4p553sc2wiw" path="res://player.gd" id="2_1bvp3"]
@@ -6,13 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://ci180wr830cod" path="res://assets/character_principal.png" id="3_5vw27"]
 [ext_resource type="Script" uid="uid://bk70mvn1anwv7" path="res://floor.gd" id="3_ycdy4"]
 [ext_resource type="Script" uid="uid://djqij5e724bc6" path="res://datas.gd" id="4_lquwl"]
-[ext_resource type="Script" uid="uid://dymkk31uu8j1u" path="res://game_over_screen.gd" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://byclo5b5spbe4" path="res://game_over_screen.tscn" id="5_ycdy4"]
 [ext_resource type="Script" uid="uid://du4w2g8o56rq0" path="res://spawner.gd" id="6_7mycd"]
 [ext_resource type="Script" uid="uid://d5pyl0f0pp7o" path="res://items/item_data.gd" id="7_5vw27"]
 [ext_resource type="Resource" uid="uid://orl18gjlisan" path="res://items/common_item.tres" id="8_kek77"]
 [ext_resource type="Texture2D" uid="uid://6e0ct8oonna8" path="res://Environment/PlaceHolders/etageres.png" id="8_ycdy4"]
+[ext_resource type="Resource" uid="uid://b5n1oh7lka3ka" path="res://items/rare_item.tres" id="9_vivmo"]
 [ext_resource type="Texture2D" uid="uid://biatt6p1e4l3a" path="res://Environment/PlaceHolders/etageres_flip.png" id="9_w48qg"]
-[ext_resource type="PackedScene" uid="uid://cekojh57uv7f2" path="res://enemy.tscn" id="12_dg77c"]
+[ext_resource type="Resource" uid="uid://etqn50qa8yn8" path="res://items/ultrarare_item.tres" id="10_2cqfq"]
+[ext_resource type="Script" uid="uid://b5m58gwahusst" path="res://client_spawner.gd" id="11_2cqfq"]
+[ext_resource type="Script" uid="uid://m52gvt753u0n" path="res://clients/client_data.gd" id="12_yaehf"]
+[ext_resource type="Resource" uid="uid://cml5qhn5eem6i" path="res://clients/default_client.tres" id="13_074og"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ycdy4"]
 vertices = PackedVector2Array(3396, -512, -1004, 1696, -3372, 512, 1028, -1696)
@@ -45,8 +49,16 @@ navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_3je3x")
 sources/1 = SubResource("TileSetAtlasSource_0djjw")
 
-[sub_resource type="LabelSettings" id="LabelSettings_272bh"]
-font_size = 30
+[sub_resource type="Gradient" id="Gradient_yaehf"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.5205479, 0.79452056, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.5436917, 0, 0, 0, 0.1764706, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_074og"]
+gradient = SubResource("Gradient_yaehf")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cegan"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bl1td"]
 texture = ExtResource("8_ycdy4")
@@ -75,7 +87,6 @@ radius = 898.94
 height = 1886.28
 
 [node name="Node2D" type="Node2D"]
-metadata/_edit_vertical_guides_ = [2011.0]
 metadata/_edit_horizontal_guides_ = [449.0]
 
 [node name="map" type="Node2D" parent="."]
@@ -156,93 +167,57 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
 script = ExtResource("4_lquwl")
-points_label = NodePath("points")
-timer_label = NodePath("timer")
-global_timer_label = NodePath("global_timer")
+points_label = NodePath("HBoxContainer/points")
+timer_label = NodePath("HBoxContainer/timer")
+global_timer_label = NodePath("HBoxContainer/global_timer")
 
-[node name="points" type="Label" parent="CanvasLayer/datas"]
+[node name="ColorRect" type="TextureRect" parent="CanvasLayer/datas"]
 layout_mode = 1
-offset_right = 80.0
-offset_bottom = 23.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+grow_horizontal = 2
+texture = SubResource("GradientTexture2D_074og")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/datas"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 18.0
+offset_top = 12.0
+offset_right = -19.0
+offset_bottom = 35.0
+grow_horizontal = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="points" type="Label" parent="CanvasLayer/datas/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "Points : 00"
+label_settings = SubResource("LabelSettings_cegan")
 
-[node name="timer" type="Label" parent="CanvasLayer/datas"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -47.5
-offset_right = 47.5
-offset_bottom = 23.0
-grow_horizontal = 2
+[node name="timer" type="Label" parent="CanvasLayer/datas/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "Timer: 00:00"
+horizontal_alignment = 1
 
-[node name="global_timer" type="Label" parent="CanvasLayer/datas"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -153.0
-offset_bottom = 23.0
-grow_horizontal = 0
+[node name="global_timer" type="Label" parent="CanvasLayer/datas/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "Global Timer : 00:00"
+horizontal_alignment = 2
 
-[node name="game_over_screen" type="Control" parent="CanvasLayer"]
+[node name="game_over_screen" parent="CanvasLayer" instance=ExtResource("5_ycdy4")]
 unique_name_in_owner = true
-process_mode = 3
 visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("5_7mycd")
-
-[node name="Panel" type="Panel" parent="CanvasLayer/game_over_screen"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 129.0
-offset_top = 97.0
-offset_right = -136.0
-offset_bottom = -105.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="CanvasLayer/game_over_screen/Panel"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -82.5
-offset_top = 29.0
-offset_right = 80.5
-offset_bottom = 71.0
-grow_horizontal = 2
-text = "Game Over"
-label_settings = SubResource("LabelSettings_272bh")
-
-[node name="Button" type="Button" parent="CanvasLayer/game_over_screen/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -34.0
-offset_top = -15.5
-offset_right = 34.0
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Replay"
 
 [node name="spawner" type="Node2D" parent="."]
 script = ExtResource("6_7mycd")
-items = Array[ExtResource("7_5vw27")]([ExtResource("8_kek77")])
+items = Array[ExtResource("7_5vw27")]([ExtResource("8_kek77"), ExtResource("9_vivmo"), ExtResource("10_2cqfq")])
 max_distance = 2000.0
 
 [node name="Marker2D" type="Marker2D" parent="spawner"]
@@ -342,7 +317,7 @@ script = ExtResource("2_1bvp3")
 speed = 6000.0
 
 [node name="Camera2D" type="Camera2D" parent="y_sort_nodes/CharacterBody2D"]
-zoom = Vector2(0.08, 0.08)
+zoom = Vector2(0.05, 0.05)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="y_sort_nodes/CharacterBody2D"]
 position = Vector2(-25, 4)
@@ -366,10 +341,103 @@ position = Vector2(-42.5, -648)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="y_sort_nodes/CharacterBody2D/Area2D"]
 shape = SubResource("CapsuleShape2D_5vw27")
 
-[node name="enemy" parent="y_sort_nodes" node_paths=PackedStringArray("target") instance=ExtResource("12_dg77c")]
+[node name="client_spawner" type="Node2D" parent="y_sort_nodes"]
 y_sort_enabled = true
-position = Vector2(-8238, 2640)
-wall_min_slide_angle = 0.0
-target = NodePath("../CharacterBody2D")
+script = ExtResource("11_2cqfq")
+clients = Array[ExtResource("12_yaehf")]([ExtResource("13_074og")])
 
-[connection signal="pressed" from="CanvasLayer/game_over_screen/Panel/Button" to="CanvasLayer/game_over_screen" method="_on_button_pressed"]
+[node name="Marker2D" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-6241, 3020)
+
+[node name="Marker2D2" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(4656, -2089)
+
+[node name="Marker2D3" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-7428, -3747)
+
+[node name="Marker2D4" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-14512, -487)
+
+[node name="Marker2D5" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-12686, 6528)
+
+[node name="Marker2D6" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-20535, 10088)
+
+[node name="Marker2D7" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-27257, 13615)
+
+[node name="Marker2D8" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-30592, 15660)
+
+[node name="Marker2D9" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-23935, 8016)
+
+[node name="Marker2D10" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-17544, 4594)
+
+[node name="Marker2D11" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-31404, 4780)
+
+[node name="Marker2D12" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-24748, 1306)
+
+[node name="Marker2D13" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-38365, 1161)
+
+[node name="Marker2D14" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-31072, -2222)
+
+[node name="Marker2D15" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-45433, -2367)
+
+[node name="Marker2D16" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-38662, -6072)
+
+[node name="Marker2D17" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-52134, -5798)
+
+[node name="Marker2D18" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-45337, -9275)
+
+[node name="Marker2D19" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-36757, -11736)
+
+[node name="Marker2D20" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-29310, -8004)
+
+[node name="Marker2D21" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-22215, -4287)
+
+[node name="Marker2D22" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-15362, -7931)
+
+[node name="Marker2D23" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-22035, -11017)
+
+[node name="Marker2D24" type="Marker2D" parent="y_sort_nodes/client_spawner"]
+y_sort_enabled = true
+position = Vector2(-28999, -14923)

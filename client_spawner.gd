@@ -1,63 +1,48 @@
 extends Node2D
 
 var spawns : Array[Node]
-@export var items : Array[Item_data]
-@export var max_distance : float = 1000
-@export var item_max_nb : int = 8
+@export var clients : Array[Client_data]
+@export var client_max_nb : int = 3
 
-var item_prefab : PackedScene = preload("res://item.tscn")
+var client_prefab : PackedScene = preload("res://enemy.tscn")
 
 @onready var player : CharacterBody2D = %CharacterBody2D
-#@onready var enviro : Node2D = %enviro
 @onready var screen_min_y : Marker2D = %MarkerY
 @onready var screen_min_x : Marker2D = %MarkerX
 
-var instantiated_items : Array[Area2D]
+var instantiated_enemies : Array[CharacterBody2D]
 var while_safety : int =0
 var busy:bool = false
 
 func _ready() -> void:
 	_populate_spawns()
 	
-	
 func _populate_spawns()->void:
 	spawns = get_children()
-	_spawn_item()
+	_spawn_enemy()
 
-func _spawn_item()->void:
-	##pick a random shelf outside the screen
+func _spawn_enemy()->void:
+	##pick a random spawn outside the screen
 	var spawn : Node2D = spawns.pick_random()
-	#var spawn_pos = get_spawn_position(spawn)
-	#while spawn_pos == null:
-		#spawn = spawns.pick_random()
-		#while_safety +=1
-		#print("loop count : ",while_safety)
-		#assert(while_safety < 1000,"infinite loop!")
-	#while_safety = 0
 	while !outside_screen(spawn.position):
-		#spawn_pos = get_spawn_position(spawn)
 		spawn = spawns.pick_random()
 		while_safety +=1
 		print("loop count : ",while_safety)
 		assert(while_safety < 1000,"infinite loop!")
 	while_safety = 0
 	
-	##pick a random item
-	var item_list : Array[Item_data]
-	for item in items:
-		for j in item.multiplier:
-			item_list.append(item)
-			
-	var item_data : Item_data = item_list.pick_random()
-	var new_item : Area2D = item_prefab.instantiate()
-	new_item.data = item_data
-	new_item.picked.connect(_on_item_picked)
-	spawn.call_deferred("add_child",new_item,false)
-	#new_item.position = spawn.position
+	##pick a random client
+	var client_data : Client_data = clients.pick_random()
+	var new_client : CharacterBody2D = client_prefab.instantiate()
+	new_client.data = client_data
+	new_client.died.connect(_on_client_died)
+	new_client.target_reached.connect(_on_target_reached)
+	spawn.call_deferred("add_child",new_client,false)
+	_on_target_reached(new_client)
 	
-	instantiated_items.append(new_item)
-	if instantiated_items.size() < item_max_nb:
-		_spawn_item()
+	instantiated_enemies.append(new_client)
+	if instantiated_enemies.size() < client_max_nb:
+		_spawn_enemy()
 
 
 func get_spawn_position(spawn : Node2D):
@@ -72,13 +57,13 @@ func get_spawn_position(spawn : Node2D):
 	#print("spawn pos : ", random_pos)
 	return random_pos
 
-func _on_item_picked(item : Area2D)->void:
+func _on_client_died(client : CharacterBody2D)->void:
 	if busy : return
 	busy = true
-	instantiated_items.erase(item)
-	item.queue_free()
-	if instantiated_items.size() < item_max_nb :
-		_spawn_item()
+	instantiated_enemies.erase(client)
+	client.queue_free()
+	if instantiated_enemies.size() < client_max_nb :
+		_spawn_enemy()
 	call_deferred("_end_task")
 		
 func _end_task()->void:
@@ -86,10 +71,15 @@ func _end_task()->void:
 	
 func outside_screen(spawn_pos : Vector2)->bool:
 	var y_good : bool = spawn_pos.y < screen_min_y.position.y or spawn_pos.y > player.position.y-screen_min_y.position.y
-	#print("screen max y = ",player.position.y-screen_min_y.position.y)
 	var x_good : bool = spawn_pos.x < screen_min_x.position.x or spawn_pos.x > player.position.x-screen_min_x.position.x
-	#print("screen max x = ",player.position.x-screen_min_x.position.x)
-	#var not_too_far : bool = spawn_pos.distance_to(player.global_position) < max_distance
-	#print("pos = ",spawn_pos)
-	return y_good or x_good #and not_too_far
+	return y_good or x_good
 	
+func _on_target_reached(client : CharacterBody2D)->void:
+	var new_target:Node = spawns.pick_random()
+	while new_target.position.distance_to(client.position) < 500:
+		new_target = spawns.pick_random()
+		while_safety +=1
+		assert(while_safety < 1000,"infinite loop!")
+	while_safety = 0
+	client.target = new_target
+	client.moving = true

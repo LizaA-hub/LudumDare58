@@ -23,7 +23,7 @@ func set_texture(_texture : Texture2D)->void:
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("item"):
-		print("collide with item!")
+		#print("collide with item!")
 		picked.emit(self)
 	if area.is_in_group("player"):
 		if player_in : return
