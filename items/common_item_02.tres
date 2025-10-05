@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item_data" load_steps=3 format=3 uid="uid://b60g750e0fd2m"]
+
+[ext_resource type="Script" uid="uid://d5pyl0f0pp7o" path="res://items/item_data.gd" id="1_5cxmi"]
+[ext_resource type="Texture2D" uid="uid://bnta1013r7xd5" path="res://assets/items/kirby.png" id="2_5cxmi"]
+
+[resource]
+script = ExtResource("1_5cxmi")
+point = 1.0
+time = 5.0
+texture = ExtResource("2_5cxmi")
+multiplier = 2.0
+metadata/_custom_type_script = "uid://d5pyl0f0pp7o"

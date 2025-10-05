@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item_data" load_steps=3 format=3 uid="uid://b2hllwjiw5r3n"]
+
+[ext_resource type="Script" uid="uid://d5pyl0f0pp7o" path="res://items/item_data.gd" id="1_wdd1m"]
+[ext_resource type="Texture2D" uid="uid://1qt0y6bal07i" path="res://assets/items/sans.png" id="2_wdd1m"]
+
+[resource]
+script = ExtResource("1_wdd1m")
+point = 2.0
+time = 5.0
+texture = ExtResource("2_wdd1m")
+metadata/_custom_type_script = "uid://d5pyl0f0pp7o"

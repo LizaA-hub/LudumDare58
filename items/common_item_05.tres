@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item_data" load_steps=3 format=3 uid="uid://cc1oo56y5hia7"]
+
+[ext_resource type="Script" uid="uid://d5pyl0f0pp7o" path="res://items/item_data.gd" id="1_p0y43"]
+[ext_resource type="Texture2D" uid="uid://jklg6gnubtb" path="res://assets/items/miku.png" id="2_p0y43"]
+
+[resource]
+script = ExtResource("1_p0y43")
+point = 1.0
+time = 5.0
+texture = ExtResource("2_p0y43")
+multiplier = 2.0
+metadata/_custom_type_script = "uid://d5pyl0f0pp7o"

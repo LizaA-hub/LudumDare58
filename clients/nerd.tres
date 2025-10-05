@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Client_data" load_steps=3 format=3 uid="uid://csvvdma3vat2o"]
+
+[ext_resource type="Script" uid="uid://m52gvt753u0n" path="res://clients/client_data.gd" id="1_rx4jd"]
+[ext_resource type="Texture2D" uid="uid://c66o8ha2n8x6h" path="res://assets/pnj/nerd 1.png" id="2_rx4jd"]
+
+[resource]
+script = ExtResource("1_rx4jd")
+texture = ExtResource("2_rx4jd")
+metadata/_custom_type_script = "uid://m52gvt753u0n"

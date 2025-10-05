@@ -1,9 +1,9 @@
-[gd_scene load_steps=34 format=4 uid="uid://fu2lsweqg8ym"]
+[gd_scene load_steps=45 format=4 uid="uid://fu2lsweqg8ym"]
 
 [ext_resource type="Texture2D" uid="uid://dfy24kmjwnycl" path="res://Environment/PlaceHolders/Old/allees_principales.png" id="1_efxa6"]
 [ext_resource type="Script" uid="uid://do4p553sc2wiw" path="res://player.gd" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://kybcsuwm4gyo" path="res://Environment/PlaceHolders/Old/allees_principales_flip.png" id="2_dg77c"]
-[ext_resource type="Texture2D" uid="uid://ci180wr830cod" path="res://assets/character_principal.png" id="3_5vw27"]
+[ext_resource type="Texture2D" uid="uid://ci180wr830cod" path="res://assets/player/character_principal.png" id="3_5vw27"]
 [ext_resource type="Script" uid="uid://djqij5e724bc6" path="res://datas.gd" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://byclo5b5spbe4" path="res://game_over_screen.tscn" id="5_ycdy4"]
 [ext_resource type="Script" uid="uid://du4w2g8o56rq0" path="res://spawner.gd" id="6_7mycd"]
@@ -15,10 +15,21 @@
 [ext_resource type="Resource" uid="uid://b5n1oh7lka3ka" path="res://items/rare_item.tres" id="9_vivmo"]
 [ext_resource type="Texture2D" uid="uid://biatt6p1e4l3a" path="res://Environment/PlaceHolders/Old/etageres_flip.png" id="9_w48qg"]
 [ext_resource type="Resource" uid="uid://etqn50qa8yn8" path="res://items/ultrarare_item.tres" id="10_2cqfq"]
+[ext_resource type="Resource" uid="uid://b60g750e0fd2m" path="res://items/common_item_02.tres" id="10_a6jrf"]
 [ext_resource type="Script" uid="uid://b5m58gwahusst" path="res://client_spawner.gd" id="11_2cqfq"]
+[ext_resource type="Resource" uid="uid://byh03uresc3mc" path="res://items/common_item_03.tres" id="11_xuqvo"]
+[ext_resource type="Resource" uid="uid://djw5uoocxu4ii" path="res://items/common_item_04.tres" id="12_qsp4k"]
 [ext_resource type="Script" uid="uid://m52gvt753u0n" path="res://clients/client_data.gd" id="12_yaehf"]
-[ext_resource type="Resource" uid="uid://cml5qhn5eem6i" path="res://clients/default_client.tres" id="13_074og"]
-[ext_resource type="AudioStream" uid="uid://ccumvku8uh31a" path="res://assets/Ingame.ogg" id="20_82xsv"]
+[ext_resource type="Resource" uid="uid://cml5qhn5eem6i" path="res://clients/grandma.tres" id="13_074og"]
+[ext_resource type="Resource" uid="uid://cc1oo56y5hia7" path="res://items/common_item_05.tres" id="13_kq58d"]
+[ext_resource type="Resource" uid="uid://c8uqk6ajsiset" path="res://items/common_item_06.tres" id="14_seu75"]
+[ext_resource type="Resource" uid="uid://cuwohon41h7sx" path="res://items/rare_item_02.tres" id="16_htxhm"]
+[ext_resource type="Resource" uid="uid://b2hllwjiw5r3n" path="res://items/rare_item_03.tres" id="17_jq2sk"]
+[ext_resource type="AudioStream" uid="uid://ccumvku8uh31a" path="res://assets/music/Ingame.ogg" id="20_82xsv"]
+[ext_resource type="AudioStream" uid="uid://bxjvbeessn0xy" path="res://assets/music/Menu.ogg" id="20_getpj"]
+[ext_resource type="Resource" uid="uid://dp5ni43fdr1fp" path="res://clients/incel.tres" id="26_kq58d"]
+[ext_resource type="Resource" uid="uid://dmshwwf6jvulw" path="res://clients/karen.tres" id="27_seu75"]
+[ext_resource type="Resource" uid="uid://csvvdma3vat2o" path="res://clients/nerd.tres" id="28_htxhm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3je3x"]
 texture = ExtResource("1_efxa6")
@@ -77,16 +88,26 @@ radius = 898.94
 height = 1886.28
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_getpj"]
-clip_count = 1
+clip_count = 2
 clip_0/name = &"main"
 clip_0/stream = ExtResource("20_82xsv")
 clip_0/auto_advance = 0
+clip_1/name = &"menu"
+clip_1/stream = ExtResource("20_getpj")
+clip_1/auto_advance = 0
+initial_clip = 1
 _transitions = {
-Vector2i(0, 0): {
+Vector2i(0, 1): {
 "fade_beats": 1.0,
-"fade_mode": 4,
+"fade_mode": 3,
 "from_time": 0,
-"to_time": 0
+"to_time": 1
+},
+Vector2i(1, 0): {
+"fade_beats": 1.0,
+"fade_mode": 2,
+"from_time": 0,
+"to_time": 1
 }
 }
 
@@ -219,7 +240,7 @@ text = "Resume"
 
 [node name="spawner" type="Node2D" parent="."]
 script = ExtResource("6_7mycd")
-items = Array[ExtResource("7_5vw27")]([ExtResource("8_kek77"), ExtResource("9_vivmo"), ExtResource("10_2cqfq")])
+items = Array[ExtResource("7_5vw27")]([ExtResource("8_kek77"), ExtResource("10_a6jrf"), ExtResource("11_xuqvo"), ExtResource("12_qsp4k"), ExtResource("13_kq58d"), ExtResource("14_seu75"), ExtResource("9_vivmo"), ExtResource("16_htxhm"), ExtResource("17_jq2sk"), ExtResource("10_2cqfq")])
 max_distance = 2000.0
 
 [node name="Marker2D" type="Marker2D" parent="spawner"]
@@ -347,7 +368,7 @@ shape = SubResource("CapsuleShape2D_5vw27")
 [node name="client_spawner" type="Node2D" parent="y_sort_nodes"]
 y_sort_enabled = true
 script = ExtResource("11_2cqfq")
-clients = Array[ExtResource("12_yaehf")]([ExtResource("13_074og")])
+clients = Array[ExtResource("12_yaehf")]([ExtResource("13_074og"), ExtResource("26_kq58d"), ExtResource("27_seu75"), ExtResource("28_htxhm")])
 
 [node name="Marker2D" type="Marker2D" parent="y_sort_nodes/client_spawner"]
 y_sort_enabled = true

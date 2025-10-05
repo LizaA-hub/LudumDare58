@@ -3,6 +3,7 @@ extends Control
 @onready var audio_stream : AudioStreamPlayer = %AudioStreamPlayer
 
 func _on_button_pressed() -> void:
+	audio_stream["parameters/switch_to_clip"] = "main"
 	visible = false
 	World.game_on = true
 

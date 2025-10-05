@@ -15,6 +15,7 @@ extends Control
 @onready var new_score_panel : Control = %new_score_panel
 @onready var entered_name : LineEdit = %name_slot
 @onready var new_score_position : Label = %new_score_position
+@onready var audio_stream : AudioStreamPlayer = %AudioStreamPlayer
 
 var new_score_index : int
 
@@ -24,7 +25,7 @@ func _ready() -> void:
 	World.replay_game.connect(_on_replay)
 	
 func _show_screen()->void:
-	#get_tree().paused = true
+	audio_stream["parameters/switch_to_clip"] = "menu"
 	var time_elapsed : float = World.global_timer
 	var m_seconds : int = int(time_elapsed*60)%60
 	var seconds : int =int(time_elapsed)%60
@@ -61,3 +62,4 @@ func update_scores()->void:
 
 func _on_replay()->void:
 	visible = false
+	audio_stream["parameters/switch_to_clip"] = "main"

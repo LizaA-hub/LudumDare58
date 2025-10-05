@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item_data" load_steps=3 format=3 uid="uid://djw5uoocxu4ii"]
+
+[ext_resource type="Script" uid="uid://d5pyl0f0pp7o" path="res://items/item_data.gd" id="1_3h8xj"]
+[ext_resource type="Texture2D" uid="uid://btjl3pvp6ho41" path="res://assets/items/mae.png" id="2_3h8xj"]
+
+[resource]
+script = ExtResource("1_3h8xj")
+point = 1.0
+time = 5.0
+texture = ExtResource("2_3h8xj")
+multiplier = 2.0
+metadata/_custom_type_script = "uid://d5pyl0f0pp7o"

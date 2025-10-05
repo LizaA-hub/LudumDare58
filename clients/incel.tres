@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Client_data" load_steps=3 format=3 uid="uid://dp5ni43fdr1fp"]
+
+[ext_resource type="Script" uid="uid://m52gvt753u0n" path="res://clients/client_data.gd" id="1_bonne"]
+[ext_resource type="Texture2D" uid="uid://crs5kww8kss5a" path="res://assets/pnj/incel.png" id="2_bonne"]
+
+[resource]
+script = ExtResource("1_bonne")
+texture = ExtResource("2_bonne")
+metadata/_custom_type_script = "uid://m52gvt753u0n"
