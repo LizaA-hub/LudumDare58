@@ -15,7 +15,7 @@ extends Control
 @onready var new_score_panel : Control = %new_score_panel
 @onready var entered_name : LineEdit = %name_slot
 @onready var new_score_position : Label = %new_score_position
-@onready var audio_stream : AudioStreamPlayer = %AudioStreamPlayer
+@onready var audio_manager : Node = %AudioManager
 
 var new_score_index : int
 
@@ -25,7 +25,8 @@ func _ready() -> void:
 	World.replay_game.connect(_on_replay)
 	
 func _show_screen()->void:
-	audio_stream["parameters/switch_to_clip"] = "end"
+	audio_manager.change_music("end")
+	audio_manager.play_game_over()
 	var time_elapsed : float = World.global_timer
 	var m_seconds : int = int(time_elapsed*60)%60
 	var seconds : int =int(time_elapsed)%60
@@ -38,6 +39,7 @@ func _show_screen()->void:
 	visible = true
 	
 func _on_button_pressed() -> void:
+	audio_manager.play_ui_sfx()
 	World.replay()
 	
 func _on_new_high_score(index,score)->void:
@@ -48,6 +50,7 @@ func _on_new_high_score(index,score)->void:
 
 
 func _on_validate_button_pressed() -> void:
+	audio_manager.play_ui_sfx()
 	World.new_name(new_score_index,entered_name.text)
 	update_scores()
 	new_score_panel.visible = false
@@ -62,4 +65,4 @@ func update_scores()->void:
 
 func _on_replay()->void:
 	visible = false
-	audio_stream["parameters/switch_to_clip"] = "main"
+	audio_manager.change_music("main")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dy0nyslrrwd3t"
+path="res://.godot/imported/Joueur - Punch b.ogg-84495ef1ed913891a0ba0b9bc070cb0b.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/SFX/Joueur - Punch b.ogg"
+dest_files=["res://.godot/imported/Joueur - Punch b.ogg-84495ef1ed913891a0ba0b9bc070cb0b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

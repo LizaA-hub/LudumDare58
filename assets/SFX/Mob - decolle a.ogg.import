@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dfkbggmgyegcp"
+path="res://.godot/imported/Mob - decolle a.ogg-aff1a0a374f2bf8496ec612de1272a0c.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/SFX/Mob - decolle a.ogg"
+dest_files=["res://.godot/imported/Mob - decolle a.ogg-aff1a0a374f2bf8496ec612de1272a0c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

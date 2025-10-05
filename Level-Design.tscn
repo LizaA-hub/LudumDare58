@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://mldgy0fo30v0" path="res://Environment/Walls/mur_c_v2.png" id="5_tlx0u"]
 [ext_resource type="Texture2D" uid="uid://dtgajpqxoxskm" path="res://Environment/Walls/mur_c_v2_flip.png" id="6_ig2am"]
 [ext_resource type="Script" uid="uid://do4p553sc2wiw" path="res://player.gd" id="6_k108s"]
-[ext_resource type="Texture2D" path="res://assets/character_principal.png" id="7_3je3x"]
+[ext_resource type="Texture2D" uid="uid://ci180wr830cod" path="res://assets/player/character_principal.png" id="7_3je3x"]
 [ext_resource type="Texture2D" uid="uid://dieu71b1jkb41" path="res://Environment/Walls/mur_c_v3.png" id="7_7dq6q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_50fst"]

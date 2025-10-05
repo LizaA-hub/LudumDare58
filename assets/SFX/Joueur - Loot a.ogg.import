@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b2y0it6srkrq1"
+path="res://.godot/imported/Joueur - Loot a.ogg-338823ad00a5711e5cd7b077d995a6a0.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/SFX/Joueur - Loot a.ogg"
+dest_files=["res://.godot/imported/Joueur - Loot a.ogg-338823ad00a5711e5cd7b077d995a6a0.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

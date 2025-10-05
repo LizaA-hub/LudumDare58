@@ -96,5 +96,6 @@ func _on_replay()->void:
 	instantiated_items.clear()
 	while_safety =0
 	busy= false
+	item_max_nb = 8
 	_spawn_item()
 	

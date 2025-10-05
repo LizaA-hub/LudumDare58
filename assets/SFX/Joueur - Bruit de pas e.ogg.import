@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://3uag2khf2uxl"
+path="res://.godot/imported/Joueur - Bruit de pas e.ogg-89d3f33430e6cc987634d23a3520e009.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/SFX/Joueur - Bruit de pas e.ogg"
+dest_files=["res://.godot/imported/Joueur - Bruit de pas e.ogg-89d3f33430e6cc987634d23a3520e009.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

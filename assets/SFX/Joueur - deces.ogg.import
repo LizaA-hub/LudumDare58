@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cic8itpk52nq5"
+path="res://.godot/imported/Joueur - deces.ogg-0843d88d28e5c1ae7e509712926c0246.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/SFX/Joueur - deces.ogg"
+dest_files=["res://.godot/imported/Joueur - deces.ogg-0843d88d28e5c1ae7e509712926c0246.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

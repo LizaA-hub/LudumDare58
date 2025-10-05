@@ -91,4 +91,5 @@ func _on_replay()->void:
 	instantiated_enemies.clear()
 	while_safety =0
 	busy= false
+	client_max_nb = 3
 	_spawn_enemy()

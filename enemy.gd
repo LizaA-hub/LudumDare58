@@ -21,9 +21,12 @@ var data : Client_data:
 		set_texture(value.texture)
 var player_left : bool
 
+var audio_manager : Node
+
 func _ready() -> void:
 	nav_agent.navigation_finished.connect(_on_target_reached)
 	nav_agent.velocity_computed.connect(_on_velocity_computed)
+	audio_manager = get_tree().current_scene.get_node("AudioManager")
 	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept") and can_die:
@@ -32,6 +35,7 @@ func _input(event: InputEvent) -> void:
 		_die()
 		
 func _die()->void:
+	audio_manager.play_client_cry()
 	moving = false
 	can_die = false
 	is_dying = true
