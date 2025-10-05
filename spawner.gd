@@ -85,13 +85,9 @@ func _end_task()->void:
 	busy = false
 	
 func outside_screen(spawn_pos : Vector2)->bool:
-	var y_good : bool = spawn_pos.y < screen_min_y.position.y or spawn_pos.y > player.position.y-screen_min_y.position.y
-	#print("screen max y = ",player.position.y-screen_min_y.position.y)
+	var y_good : bool =  spawn_pos.y < screen_min_y.position.y or spawn_pos.y > player.position.y-screen_min_y.position.y
 	var x_good : bool = spawn_pos.x < screen_min_x.position.x or spawn_pos.x > player.position.x-screen_min_x.position.x
-	#print("screen max x = ",player.position.x-screen_min_x.position.x)
-	#var not_too_far : bool = spawn_pos.distance_to(player.global_position) < max_distance
-	#print("pos = ",spawn_pos)
-	return y_good or x_good #and not_too_far
+	return y_good or x_good 
 	
 func _on_replay()->void:
 	for item in instantiated_items :

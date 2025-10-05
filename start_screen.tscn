@@ -28,7 +28,7 @@ layout_mode = 0
 offset_top = 46.0
 offset_right = 1152.0
 offset_bottom = 115.0
-text = "Nom du jeu ici"
+text = "Beat The  Mall"
 label_settings = SubResource("LabelSettings_ncxyx")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -72,4 +72,5 @@ offset_right = 731.0
 offset_bottom = 314.0
 text = "Maybe un pti dessin avec les controls?"
 
+[connection signal="value_changed" from="HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

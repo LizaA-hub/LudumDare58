@@ -4,6 +4,7 @@ signal item_picked
 signal game_over
 signal new_high_score
 signal replay_game
+signal paused
 
 var points : float = 0
 var current_timer : float = 10
@@ -102,7 +103,14 @@ func _save_score_data()->void:
 		var section : String = "Player" + String.num(i)
 		config.set_value(section, "player_name", score_data[i][0])
 		config.set_value(section, "player_score", score_data[i][1])
-		print("section :", section)
-		print("name :", score_data[i][0])
-		print("score :",score_data[i][1])
+		#print("section :", section)
+		#print("name :", score_data[i][0])
+		#print("score :",score_data[i][1])
 	config.save(save_path)
+
+func pause(value : bool)->void:
+	if value:
+		game_on = false
+		paused.emit()
+	else:
+		game_on = true

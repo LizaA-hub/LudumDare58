@@ -12,7 +12,7 @@ extends Control
 @onready var player_score_03 : Label = %player_score_03
 @onready var replay_button : Button = %replay_button
 @onready var new_score_label  : Label = %new_score
-@onready var new_score_panel : PanelContainer = %new_score_panel
+@onready var new_score_panel : Control = %new_score_panel
 @onready var entered_name : LineEdit = %name_slot
 @onready var new_score_position : Label = %new_score_position
 
@@ -42,7 +42,7 @@ func _on_button_pressed() -> void:
 func _on_new_high_score(index,score)->void:
 	new_score_index = index
 	new_score_label.text = String.num(score)
-	new_score_position.text = "#" + String.num(index)
+	new_score_position.text = "#" + String.num(index+1,0)
 	new_score_panel.visible = true
 
 

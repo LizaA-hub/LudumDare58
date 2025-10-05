@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://fu2lsweqg8ym"]
+[gd_scene load_steps=34 format=4 uid="uid://fu2lsweqg8ym"]
 
 [ext_resource type="Texture2D" uid="uid://dfy24kmjwnycl" path="res://Environment/PlaceHolders/allees_principales.png" id="1_efxa6"]
 [ext_resource type="Script" uid="uid://do4p553sc2wiw" path="res://player.gd" id="2_1bvp3"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://du4w2g8o56rq0" path="res://spawner.gd" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bp1s7q1xtist2" path="res://start_screen.tscn" id="6_074og"]
 [ext_resource type="Script" uid="uid://d5pyl0f0pp7o" path="res://items/item_data.gd" id="7_5vw27"]
+[ext_resource type="Script" uid="uid://d0yrvatm6je3v" path="res://pause_screen.gd" id="7_cegan"]
 [ext_resource type="Resource" uid="uid://orl18gjlisan" path="res://items/common_item.tres" id="8_kek77"]
 [ext_resource type="Texture2D" uid="uid://6e0ct8oonna8" path="res://Environment/PlaceHolders/etageres.png" id="8_ycdy4"]
 [ext_resource type="Resource" uid="uid://b5n1oh7lka3ka" path="res://items/rare_item.tres" id="9_vivmo"]
@@ -61,6 +62,9 @@ fill_to = Vector2(0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cegan"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_82xsv"]
+font_size = 50
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bl1td"]
 texture = ExtResource("8_ycdy4")
 texture_region_size = Vector2i(3567, 3565)
@@ -88,6 +92,8 @@ radius = 898.94
 height = 1886.28
 
 [node name="Node2D" type="Node2D"]
+metadata/_edit_vertical_guides_ = [-14517.0, -24749.0]
+metadata/_edit_horizontal_guides_ = [-492.0, -13230.0]
 
 [node name="map" type="Node2D" parent="."]
 
@@ -158,6 +164,11 @@ tile_map_data = PackedByteArray("AAD/////AAAAAAAAAAD//wAAAAAAAAAAAAAAAP7/AAAAAAA
 tile_set = SubResource("TileSet_50fst")
 script = ExtResource("3_ycdy4")
 
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="map/floor"]
+position = Vector2(-3756, -2800)
+vertices = PackedVector2Array(-1587, -335, -683, -785, 1926, 549, 1056, 1004)
+affect_navigation_mesh = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="datas" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("points_label", "timer_label", "global_timer_label")]
@@ -216,6 +227,45 @@ unique_name_in_owner = true
 visible = false
 
 [node name="start_screen" parent="CanvasLayer" instance=ExtResource("6_074og")]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.61960787)
+script = ExtResource("7_cegan")
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.5
+offset_top = 134.0
+offset_right = 72.5
+offset_bottom = 203.0
+grow_horizontal = 2
+text = "Pause"
+label_settings = SubResource("LabelSettings_82xsv")
+
+[node name="Button" type="Button" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -15.5
+offset_right = 35.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Resume"
 
 [node name="spawner" type="Node2D" parent="."]
 script = ExtResource("6_7mycd")
@@ -326,6 +376,7 @@ position = Vector2(-25, 4)
 shape = SubResource("RectangleShape2D_kek77")
 
 [node name="Icon" type="Sprite2D" parent="y_sort_nodes/CharacterBody2D"]
+unique_name_in_owner = true
 position = Vector2(-42.5, -648)
 texture = ExtResource("3_5vw27")
 
@@ -443,3 +494,5 @@ position = Vector2(-22035, -11017)
 [node name="Marker2D24" type="Marker2D" parent="y_sort_nodes/client_spawner"]
 y_sort_enabled = true
 position = Vector2(-28999, -14923)
+
+[connection signal="pressed" from="CanvasLayer/ColorRect/Button" to="CanvasLayer/ColorRect" method="_on_button_pressed"]
