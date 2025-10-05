@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc2vjvgqagrny"
-path="res://.godot/imported/etagere_v2.png-3644e5463fc7b6cd70868ada97b5b4b0.ctex"
+uid="uid://bo22xe2ncnh3j"
+path="res://.godot/imported/mid_etagere-sud.png-cbf2ac829000ecbb6ce6f5f14d038749.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/PlaceHolders/etagere_v2.png"
-dest_files=["res://.godot/imported/etagere_v2.png-3644e5463fc7b6cd70868ada97b5b4b0.ctex"]
+source_file="res://Environment/PlaceHolders/mid_etagere-sud.png"
+dest_files=["res://.godot/imported/mid_etagere-sud.png-cbf2ac829000ecbb6ce6f5f14d038749.ctex"]
 
 [params]
 

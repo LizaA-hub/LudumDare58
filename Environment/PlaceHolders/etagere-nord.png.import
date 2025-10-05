@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1jqc08qkehvq"
-path="res://.godot/imported/moitie_etagere_v2_flip.png-7ddf0a9bf888bc0d8b188711bab36681.ctex"
+uid="uid://bmr26kspl1wsd"
+path="res://.godot/imported/etagere-nord.png-6b71e9e113d1765f694ae266ad063b88.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Environment/PlaceHolders/moitie_etagere_v2_flip.png"
-dest_files=["res://.godot/imported/moitie_etagere_v2_flip.png-7ddf0a9bf888bc0d8b188711bab36681.ctex"]
+source_file="res://Environment/PlaceHolders/etagere-nord.png"
+dest_files=["res://.godot/imported/etagere-nord.png-6b71e9e113d1765f694ae266ad063b88.ctex"]
 
 [params]
 
