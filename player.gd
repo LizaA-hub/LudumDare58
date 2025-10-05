@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 @export var speed : float = 100
-@onready var sprite : Sprite2D = %Icon
+@onready var normal_sprite : Sprite2D = %normal_sprite
+@onready var combat_sprite : Sprite2D = %combat_sprite
 
 func _ready() -> void:
 	World.replay_game.connect(_on_replay)
@@ -14,8 +15,8 @@ func _physics_process(_delta):
 	if World.game_on:
 		get_input()
 		move_and_slide()
-		if velocity != Vector2.ZERO:
-			sprite.flip_h = Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_left")
+		normal_sprite.flip_h = true if velocity.x<0 else false
+		combat_sprite.scale.x = -1 if velocity.x<0 else 1
 
 func cartesian_to_isometric(cartesian):
 	return Vector2(cartesian.x - cartesian.y,(cartesian.x + cartesian.y)/2)
@@ -26,3 +27,9 @@ func _on_replay()->void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		World.pause(World.game_on)
+	elif event.is_action_pressed("ui_accept"):
+		normal_sprite.visible = false
+		combat_sprite.visible = true
+	elif event.is_action_released("ui_accept"):
+		normal_sprite.visible = true
+		combat_sprite.visible = false

@@ -54,9 +54,9 @@ func _load_save()->void:
 		var player_name = config.get_value(player, "player_name", ("Player" + String.num(i)))
 		var player_score = config.get_value(player, "player_score",0)
 		score_data[i][0]= player_name
-		print(player_name)
+		#print(player_name)
 		score_data[i][1]= player_score
-		print(player_score)
+		#print(player_score)
 		i+=1
 		
 func calculate_score()->float:

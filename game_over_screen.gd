@@ -25,7 +25,7 @@ func _ready() -> void:
 	World.replay_game.connect(_on_replay)
 	
 func _show_screen()->void:
-	audio_stream["parameters/switch_to_clip"] = "menu"
+	audio_stream["parameters/switch_to_clip"] = "end"
 	var time_elapsed : float = World.global_timer
 	var m_seconds : int = int(time_elapsed*60)%60
 	var seconds : int =int(time_elapsed)%60
