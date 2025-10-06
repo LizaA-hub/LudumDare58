@@ -20,10 +20,10 @@ texture = ExtResource("2_k1na2")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-offset_left = 8.0
-offset_top = 7.0
-offset_right = 280.0
-offset_bottom = 56.0
+offset_left = 869.0
+offset_top = 11.0
+offset_right = 1141.0
+offset_bottom = 60.0
 
 [node name="volume" type="Label" parent="HBoxContainer"]
 layout_mode = 2
@@ -43,24 +43,15 @@ value = 100.0
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 559.0
-offset_top = 534.0
-offset_right = 636.0
-offset_bottom = 584.0
+offset_left = 528.0
+offset_top = 572.0
+offset_right = 611.0
+offset_bottom = 624.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("2_afy8x")
 theme_override_font_sizes/font_size = 30
 text = "start"
-
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 144.0
-offset_top = 557.0
-offset_right = 446.0
-offset_bottom = 580.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Maybe un pti dessin avec les controls?"
 
 [connection signal="value_changed" from="HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

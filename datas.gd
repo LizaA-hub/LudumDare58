@@ -4,9 +4,11 @@ extends Control
 @export var timer_label : Label
 enum TimerState{RED,WHITE}
 var timer_state : TimerState = TimerState.WHITE
+var timer_color : Color
 
 func _ready() -> void:
 	World.item_picked.connect(_on_item_picked)
+	timer_color = timer_label.label_settings.font_color
 	
 func _process(_delta: float) -> void:
 	if !World.game_on : return
@@ -19,7 +21,7 @@ func _process(_delta: float) -> void:
 	if timer > 2 :
 			match timer_state:
 				TimerState.RED:
-					timer_label.label_settings.font_color = Color.WHITE
+					timer_label.label_settings.font_color = timer_color
 					timer_state = TimerState.WHITE
 	elif timer <= 2 :
 		match timer_state:
@@ -28,4 +30,4 @@ func _process(_delta: float) -> void:
 				timer_state = TimerState.RED
 	
 func _on_item_picked()->void:
-	points_label.text = "Points : " + String.num(World.points,0)
+	points_label.text = String.num(World.points,0)

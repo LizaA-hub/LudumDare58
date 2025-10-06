@@ -25,24 +25,24 @@
 [ext_resource type="Texture2D" uid="uid://bevfm344e3ade" path="res://assets/Environment/Ground/sol_3.png" id="9_4w656"]
 [ext_resource type="Resource" uid="uid://b5n1oh7lka3ka" path="res://items/rare_item.tres" id="9_vivmo"]
 [ext_resource type="Resource" uid="uid://etqn50qa8yn8" path="res://items/ultrarare_item.tres" id="10_2cqfq"]
-[ext_resource type="Resource" path="res://items/common_item_02.tres" id="10_a6jrf"]
+[ext_resource type="Resource" uid="uid://b60g750e0fd2m" path="res://items/common_item_02.tres" id="10_a6jrf"]
 [ext_resource type="Script" uid="uid://b5m58gwahusst" path="res://client_spawner.gd" id="11_2cqfq"]
-[ext_resource type="Resource" path="res://items/common_item_03.tres" id="11_xuqvo"]
+[ext_resource type="Resource" uid="uid://byh03uresc3mc" path="res://items/common_item_03.tres" id="11_xuqvo"]
 [ext_resource type="FontFile" uid="uid://bvc4th3oko8tn" path="res://assets/UI/CherryBombOne-Regular.ttf" id="12_6iyjs"]
-[ext_resource type="Resource" path="res://items/common_item_04.tres" id="12_qsp4k"]
+[ext_resource type="Resource" uid="uid://djw5uoocxu4ii" path="res://items/common_item_04.tres" id="12_qsp4k"]
 [ext_resource type="Script" uid="uid://m52gvt753u0n" path="res://clients/client_data.gd" id="12_yaehf"]
-[ext_resource type="Resource" path="res://clients/grandma.tres" id="13_074og"]
-[ext_resource type="Resource" path="res://items/common_item_05.tres" id="13_kq58d"]
-[ext_resource type="Resource" path="res://items/common_item_06.tres" id="14_seu75"]
-[ext_resource type="Resource" path="res://items/rare_item_02.tres" id="16_htxhm"]
-[ext_resource type="Resource" path="res://items/rare_item_03.tres" id="17_jq2sk"]
+[ext_resource type="Resource" uid="uid://cml5qhn5eem6i" path="res://clients/grandma.tres" id="13_074og"]
+[ext_resource type="Resource" uid="uid://cc1oo56y5hia7" path="res://items/common_item_05.tres" id="13_kq58d"]
+[ext_resource type="Resource" uid="uid://c8uqk6ajsiset" path="res://items/common_item_06.tres" id="14_seu75"]
+[ext_resource type="Resource" uid="uid://cuwohon41h7sx" path="res://items/rare_item_02.tres" id="16_htxhm"]
+[ext_resource type="Resource" uid="uid://b2hllwjiw5r3n" path="res://items/rare_item_03.tres" id="17_jq2sk"]
 [ext_resource type="Texture2D" uid="uid://buej6mg5ag7a4" path="res://assets/UI/score copy.png" id="18_ruth0"]
 [ext_resource type="AudioStream" uid="uid://ccumvku8uh31a" path="res://assets/music/Ingame.ogg" id="20_82xsv"]
 [ext_resource type="AudioStream" uid="uid://bxjvbeessn0xy" path="res://assets/music/Menu.ogg" id="20_getpj"]
 [ext_resource type="Texture2D" uid="uid://5vgpjvsaeo8f" path="res://assets/UI/timer copy.png" id="20_rm4vd"]
-[ext_resource type="Resource" path="res://clients/incel.tres" id="26_kq58d"]
-[ext_resource type="Resource" path="res://clients/karen.tres" id="27_seu75"]
-[ext_resource type="Resource" path="res://clients/nerd.tres" id="28_htxhm"]
+[ext_resource type="Resource" uid="uid://dp5ni43fdr1fp" path="res://clients/incel.tres" id="26_kq58d"]
+[ext_resource type="Resource" uid="uid://dmshwwf6jvulw" path="res://clients/karen.tres" id="27_seu75"]
+[ext_resource type="Resource" uid="uid://csvvdma3vat2o" path="res://clients/nerd.tres" id="28_htxhm"]
 [ext_resource type="TileSet" uid="uid://dhnwalbd3xkv4" path="res://EtageresLD.tres" id="28_jq2sk"]
 [ext_resource type="AudioStream" uid="uid://bgn6nitbonwcc" path="res://assets/music/Fin.ogg" id="31_seu75"]
 [ext_resource type="Script" uid="uid://bvibffwed6swx" path="res://audio_manager.gd" id="35_b1qrp"]
@@ -59,7 +59,7 @@
 [ext_resource type="AudioStream" uid="uid://f203ffxglv53" path="res://assets/SFX/Mob - decolle c.ogg" id="53_uit24"]
 [ext_resource type="AudioStream" uid="uid://bd4wnnm85mce5" path="res://assets/SFX/UI - Bouton ok.ogg" id="54_ruth0"]
 [ext_resource type="AudioStream" uid="uid://ds6cio6wamie7" path="res://assets/SFX/Joueur - Timer alerte a demarrer 2sec avant fin timer.ogg" id="57_rnkwl"]
-[ext_resource type="PackedScene" path="res://player.tscn" id="58_vke2r"]
+[ext_resource type="PackedScene" uid="uid://be2a6hjhkwj87" path="res://player.tscn" id="58_vke2r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b17eg"]
 texture = ExtResource("1_e71vb")
@@ -187,10 +187,12 @@ gradient = SubResource("Gradient_yaehf")
 fill_to = Vector2(0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cegan"]
-font_size = 26
+font_size = 30
+font_color = Color(0.091006435, 0.17984703, 0.28933293, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vke2r"]
 font_size = 26
+font_color = Color(0.37728882, 0.22024202, 0.22025812, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_82xsv"]
 font_size = 50
@@ -401,10 +403,11 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 script = ExtResource("4_lquwl")
-points_label = NodePath("HBoxContainer/ScoreVisual/points")
-timer_label = NodePath("HBoxContainer/TimerVisual/timer")
+points_label = NodePath("ScoreVisual/points")
+timer_label = NodePath("TimerVisual/timer")
 
 [node name="ColorRect" type="TextureRect" parent="CanvasLayer/datas"]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -412,57 +415,51 @@ offset_bottom = 64.0
 grow_horizontal = 2
 texture = SubResource("GradientTexture2D_074og")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/datas"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 18.0
-offset_top = 12.0
-offset_right = -19.0
-offset_bottom = 35.0
-grow_horizontal = 2
-alignment = 1
-
-[node name="ScoreVisual" type="TextureRect" parent="CanvasLayer/datas/HBoxContainer"]
-layout_mode = 2
+[node name="ScoreVisual" type="TextureRect" parent="CanvasLayer/datas"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = 236.577
+offset_bottom = 155.0
 texture = ExtResource("18_ruth0")
 expand_mode = 3
 
-[node name="points" type="Label" parent="CanvasLayer/datas/HBoxContainer/ScoreVisual"]
+[node name="points" type="Label" parent="CanvasLayer/datas/ScoreVisual"]
 layout_mode = 0
-offset_left = -481.0
-offset_right = -4.0
-offset_bottom = 39.0
+offset_left = 43.0
+offset_top = 74.0
+offset_right = 176.0
+offset_bottom = 118.0
+rotation = -0.23746279
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("12_6iyjs")
 theme_override_font_sizes/font_size = 28
-text = "Points : 00"
+text = " 00"
 label_settings = SubResource("LabelSettings_cegan")
+horizontal_alignment = 1
 
-[node name="TimerVisual" type="TextureRect" parent="CanvasLayer/datas/HBoxContainer"]
-layout_mode = 2
+[node name="TimerVisual" type="TextureRect" parent="CanvasLayer/datas"]
+layout_mode = 0
+offset_left = 901.0
+offset_top = -1.0
+offset_right = 1117.4084
+offset_bottom = 199.0
 size_flags_horizontal = 4
 texture = ExtResource("20_rm4vd")
 expand_mode = 3
 
-[node name="timer" type="Label" parent="CanvasLayer/datas/HBoxContainer/TimerVisual"]
-custom_minimum_size = Vector2(150, 0)
+[node name="timer" type="Label" parent="CanvasLayer/datas/TimerVisual"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 0
-offset_left = -153.0
-offset_right = -3.0
-offset_bottom = 39.0
+offset_left = 51.0
+offset_top = 96.0
+offset_right = 191.0
+offset_bottom = 135.0
 theme_override_fonts/font = ExtResource("12_6iyjs")
 theme_override_font_sizes/font_size = 26
 text = " 00:00:00"
 label_settings = SubResource("LabelSettings_vke2r")
-
-[node name="timer_label" type="Label" parent="CanvasLayer/datas/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("12_6iyjs")
-theme_override_font_sizes/font_size = 26
-text = "Timer: "
-horizontal_alignment = 2
+horizontal_alignment = 1
 
 [node name="game_over_screen" parent="CanvasLayer" instance=ExtResource("5_ycdy4")]
 unique_name_in_owner = true
