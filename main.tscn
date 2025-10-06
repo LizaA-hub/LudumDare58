@@ -20,27 +20,27 @@
 [ext_resource type="Texture2D" uid="uid://bevfm344e3ade" path="res://Environment/Ground/sol_3.png" id="9_4w656"]
 [ext_resource type="Resource" uid="uid://b5n1oh7lka3ka" path="res://items/rare_item.tres" id="9_vivmo"]
 [ext_resource type="Resource" uid="uid://etqn50qa8yn8" path="res://items/ultrarare_item.tres" id="10_2cqfq"]
-[ext_resource type="Resource" uid="uid://b60g750e0fd2m" path="res://items/common_item_02.tres" id="10_a6jrf"]
+[ext_resource type="Resource" path="res://items/common_item_02.tres" id="10_a6jrf"]
 [ext_resource type="Script" uid="uid://b5m58gwahusst" path="res://client_spawner.gd" id="11_2cqfq"]
-[ext_resource type="Resource" uid="uid://byh03uresc3mc" path="res://items/common_item_03.tres" id="11_xuqvo"]
-[ext_resource type="Resource" uid="uid://djw5uoocxu4ii" path="res://items/common_item_04.tres" id="12_qsp4k"]
+[ext_resource type="Resource" path="res://items/common_item_03.tres" id="11_xuqvo"]
+[ext_resource type="Resource" path="res://items/common_item_04.tres" id="12_qsp4k"]
 [ext_resource type="Script" uid="uid://m52gvt753u0n" path="res://clients/client_data.gd" id="12_yaehf"]
-[ext_resource type="Resource" uid="uid://cml5qhn5eem6i" path="res://clients/grandma.tres" id="13_074og"]
-[ext_resource type="Resource" uid="uid://cc1oo56y5hia7" path="res://items/common_item_05.tres" id="13_kq58d"]
-[ext_resource type="Resource" uid="uid://c8uqk6ajsiset" path="res://items/common_item_06.tres" id="14_seu75"]
-[ext_resource type="Resource" uid="uid://cuwohon41h7sx" path="res://items/rare_item_02.tres" id="16_htxhm"]
-[ext_resource type="Resource" uid="uid://b2hllwjiw5r3n" path="res://items/rare_item_03.tres" id="17_jq2sk"]
+[ext_resource type="Resource" path="res://clients/grandma.tres" id="13_074og"]
+[ext_resource type="Resource" path="res://items/common_item_05.tres" id="13_kq58d"]
+[ext_resource type="Resource" path="res://items/common_item_06.tres" id="14_seu75"]
+[ext_resource type="Resource" path="res://items/rare_item_02.tres" id="16_htxhm"]
+[ext_resource type="Resource" path="res://items/rare_item_03.tres" id="17_jq2sk"]
 [ext_resource type="AudioStream" uid="uid://ccumvku8uh31a" path="res://assets/music/Ingame.ogg" id="20_82xsv"]
 [ext_resource type="AudioStream" uid="uid://bxjvbeessn0xy" path="res://assets/music/Menu.ogg" id="20_getpj"]
 [ext_resource type="Texture2D" uid="uid://de35aoi5ah07t" path="res://assets/player/normal_mc.png" id="22_jq2sk"]
 [ext_resource type="Texture2D" uid="uid://b58cs6yvj4lvu" path="res://assets/player/combat_mc.png" id="23_4k2k6"]
 [ext_resource type="Texture2D" uid="uid://b8qd17qpcdnv" path="res://assets/player/bras.png" id="24_0rl1p"]
-[ext_resource type="Resource" uid="uid://dp5ni43fdr1fp" path="res://clients/incel.tres" id="26_kq58d"]
-[ext_resource type="Resource" uid="uid://dmshwwf6jvulw" path="res://clients/karen.tres" id="27_seu75"]
-[ext_resource type="Resource" uid="uid://csvvdma3vat2o" path="res://clients/nerd.tres" id="28_htxhm"]
+[ext_resource type="Resource" path="res://clients/incel.tres" id="26_kq58d"]
+[ext_resource type="Resource" path="res://clients/karen.tres" id="27_seu75"]
+[ext_resource type="Resource" path="res://clients/nerd.tres" id="28_htxhm"]
 [ext_resource type="TileSet" uid="uid://dhnwalbd3xkv4" path="res://EtageresLD.tres" id="28_jq2sk"]
 [ext_resource type="AudioStream" uid="uid://bgn6nitbonwcc" path="res://assets/music/Fin.ogg" id="31_seu75"]
-[ext_resource type="Script" uid="uid://bvibffwed6swx" path="res://audio_manager.gd" id="35_b1qrp"]
+[ext_resource type="Script" path="res://audio_manager.gd" id="35_b1qrp"]
 [ext_resource type="AudioStream" uid="uid://cic8itpk52nq5" path="res://assets/SFX/Joueur - deces.ogg" id="41_0cbny"]
 [ext_resource type="AudioStream" uid="uid://b2y0it6srkrq1" path="res://assets/SFX/Joueur - Loot a.ogg" id="42_wnkbs"]
 [ext_resource type="AudioStream" uid="uid://bdrbnnj8cjfis" path="res://assets/SFX/Joueur - Loot b.ogg" id="43_f6a44"]
@@ -583,11 +583,11 @@ position = Vector2(-20065, -5369)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." node_paths=PackedStringArray("shelves_layer")]
 unique_name_in_owner = true
+z_index = 1
 position = Vector2(-2241, -1311)
 script = ExtResource("2_1bvp3")
 speed = 6000.0
 shelves_layer = NodePath("../y_sort_nodes/Shelves")
-shelves_offset = -5000.0
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(0.08, 0.08)
