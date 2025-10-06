@@ -1,11 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bp1s7q1xtist2"]
+[gd_scene load_steps=4 format=3 uid="uid://bp1s7q1xtist2"]
 
 [ext_resource type="Script" uid="uid://c668u8g8paa2m" path="res://start_screen.gd" id="1_ncxyx"]
 [ext_resource type="FontFile" uid="uid://bvc4th3oko8tn" path="res://assets/UI/CherryBombOne-Regular.ttf" id="2_afy8x"]
-[ext_resource type="Texture2D" uid="uid://cjsv76hf4r067" path="res://assets/logo.png" id="2_pevhg"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_ncxyx"]
-font_size = 50
+[ext_resource type="Texture2D" uid="uid://c0qluk76nvnbh" path="res://assets/6FYcd5.png" id="2_k1na2"]
 
 [node name="start_screen" type="Control"]
 layout_mode = 3
@@ -16,25 +13,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ncxyx")
 
-[node name="PanelContainer" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.219058, 0.22463742, 0.22326839, 1)
-
-[node name="Label" type="Label" parent="."]
-visible = false
-layout_mode = 0
-offset_top = 46.0
-offset_right = 1152.0
-offset_bottom = 115.0
-text = "Beat The  Mall"
-label_settings = SubResource("LabelSettings_ncxyx")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.29999998, 0.34340227)
+texture = ExtResource("2_k1na2")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -46,6 +28,7 @@ offset_bottom = 56.0
 [node name="volume" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_afy8x")
 text = "Volume"
 horizontal_alignment = 1
@@ -76,12 +59,8 @@ offset_left = 144.0
 offset_top = 557.0
 offset_right = 446.0
 offset_bottom = 580.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Maybe un pti dessin avec les controls?"
-
-[node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(600, 255)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_pevhg")
 
 [connection signal="value_changed" from="HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
