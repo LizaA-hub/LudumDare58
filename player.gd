@@ -11,6 +11,7 @@ var target_position : Vector2
 
 var walk_sound_timer : Timer
 var can_play_sound : bool = true
+var can_move : bool = true
 
 func _ready() -> void:
 	World.replay_game.connect(_on_replay)
@@ -31,7 +32,8 @@ func _physics_process(_delta):
 				target_position = (click_position - position).normalized()
 				velocity = target_position * speed
 			
-		move_and_slide()
+		if can_move:
+			move_and_slide()
 		normal_sprite.flip_h = true if velocity.x<0 else false
 		combat_sprite.scale.x = -1 if velocity.x<0 else 1
 		
@@ -84,9 +86,11 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("ui_accept") or event.is_action_pressed("right_click"):
 		normal_sprite.visible = false
 		combat_sprite.visible = true
+		can_move = false
 	elif event.is_action_released("ui_accept")or event.is_action_released("right_click"):
 		normal_sprite.visible = true
 		combat_sprite.visible = false
+		can_move = true
 
 func _on_walk_sound_timer_timeout()->void:
 	can_play_sound = true

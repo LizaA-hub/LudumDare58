@@ -22,9 +22,9 @@
 [ext_resource type="Resource" uid="uid://etqn50qa8yn8" path="res://items/ultrarare_item.tres" id="10_2cqfq"]
 [ext_resource type="Resource" uid="uid://b60g750e0fd2m" path="res://items/common_item_02.tres" id="10_a6jrf"]
 [ext_resource type="Script" uid="uid://b5m58gwahusst" path="res://client_spawner.gd" id="11_2cqfq"]
-[ext_resource type="Resource" path="res://items/common_item_03.tres" id="11_xuqvo"]
+[ext_resource type="Resource" uid="uid://byh03uresc3mc" path="res://items/common_item_03.tres" id="11_xuqvo"]
 [ext_resource type="FontFile" uid="uid://bvc4th3oko8tn" path="res://assets/UI/CherryBombOne-Regular.ttf" id="12_6iyjs"]
-[ext_resource type="Resource" path="res://items/common_item_04.tres" id="12_qsp4k"]
+[ext_resource type="Resource" uid="uid://djw5uoocxu4ii" path="res://items/common_item_04.tres" id="12_qsp4k"]
 [ext_resource type="Script" uid="uid://m52gvt753u0n" path="res://clients/client_data.gd" id="12_yaehf"]
 [ext_resource type="Resource" uid="uid://cml5qhn5eem6i" path="res://clients/grandma.tres" id="13_074og"]
 [ext_resource type="Resource" uid="uid://cc1oo56y5hia7" path="res://items/common_item_05.tres" id="13_kq58d"]
@@ -460,7 +460,6 @@ text = "Resume"
 [node name="spawner" type="Node2D" parent="."]
 script = ExtResource("6_7mycd")
 items = Array[ExtResource("7_5vw27")]([ExtResource("8_kek77"), ExtResource("10_a6jrf"), ExtResource("11_xuqvo"), ExtResource("12_qsp4k"), ExtResource("13_kq58d"), ExtResource("14_seu75"), ExtResource("9_vivmo"), ExtResource("16_htxhm"), ExtResource("17_jq2sk"), ExtResource("10_2cqfq")])
-item_max_nb = 12
 
 [node name="Marker2D" type="Marker2D" parent="spawner"]
 position = Vector2(-4896, -3691)
