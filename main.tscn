@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://fu2lsweqg8ym"]
+[gd_scene load_steps=82 format=4 uid="uid://fu2lsweqg8ym"]
 
 [ext_resource type="Texture2D" uid="uid://8842e17knkm8" path="res://assets/Environment/Walls/mur c final copy.png" id="1_e71vb"]
 [ext_resource type="Texture2D" uid="uid://bblh326pwyei1" path="res://assets/Environment/PlaceHolders/sol_rayon_v2.png" id="1_seu75"]
@@ -22,25 +22,25 @@
 [ext_resource type="Texture2D" uid="uid://bevfm344e3ade" path="res://assets/Environment/Ground/sol_3.png" id="9_4w656"]
 [ext_resource type="Resource" uid="uid://b5n1oh7lka3ka" path="res://items/rare_item.tres" id="9_vivmo"]
 [ext_resource type="Resource" uid="uid://etqn50qa8yn8" path="res://items/ultrarare_item.tres" id="10_2cqfq"]
-[ext_resource type="Resource" path="res://items/common_item_02.tres" id="10_a6jrf"]
+[ext_resource type="Resource" uid="uid://b60g750e0fd2m" path="res://items/common_item_02.tres" id="10_a6jrf"]
 [ext_resource type="Script" uid="uid://b5m58gwahusst" path="res://client_spawner.gd" id="11_2cqfq"]
-[ext_resource type="Resource" path="res://items/common_item_03.tres" id="11_xuqvo"]
+[ext_resource type="Resource" uid="uid://byh03uresc3mc" path="res://items/common_item_03.tres" id="11_xuqvo"]
 [ext_resource type="FontFile" uid="uid://bvc4th3oko8tn" path="res://assets/UI/CherryBombOne-Regular.ttf" id="12_6iyjs"]
-[ext_resource type="Resource" path="res://items/common_item_04.tres" id="12_qsp4k"]
+[ext_resource type="Resource" uid="uid://djw5uoocxu4ii" path="res://items/common_item_04.tres" id="12_qsp4k"]
 [ext_resource type="Script" uid="uid://m52gvt753u0n" path="res://clients/client_data.gd" id="12_yaehf"]
-[ext_resource type="Resource" path="res://clients/grandma.tres" id="13_074og"]
-[ext_resource type="Resource" path="res://items/common_item_05.tres" id="13_kq58d"]
-[ext_resource type="Resource" path="res://items/common_item_06.tres" id="14_seu75"]
-[ext_resource type="Resource" path="res://items/rare_item_02.tres" id="16_htxhm"]
-[ext_resource type="Resource" path="res://items/rare_item_03.tres" id="17_jq2sk"]
+[ext_resource type="Resource" uid="uid://cml5qhn5eem6i" path="res://clients/grandma.tres" id="13_074og"]
+[ext_resource type="Resource" uid="uid://cc1oo56y5hia7" path="res://items/common_item_05.tres" id="13_kq58d"]
+[ext_resource type="Resource" uid="uid://c8uqk6ajsiset" path="res://items/common_item_06.tres" id="14_seu75"]
+[ext_resource type="Resource" uid="uid://cuwohon41h7sx" path="res://items/rare_item_02.tres" id="16_htxhm"]
+[ext_resource type="Resource" uid="uid://b2hllwjiw5r3n" path="res://items/rare_item_03.tres" id="17_jq2sk"]
 [ext_resource type="AudioStream" uid="uid://ccumvku8uh31a" path="res://assets/music/Ingame.ogg" id="20_82xsv"]
 [ext_resource type="AudioStream" uid="uid://bxjvbeessn0xy" path="res://assets/music/Menu.ogg" id="20_getpj"]
 [ext_resource type="Texture2D" uid="uid://de35aoi5ah07t" path="res://assets/player/normal_mc.png" id="22_jq2sk"]
 [ext_resource type="Texture2D" uid="uid://b58cs6yvj4lvu" path="res://assets/player/combat_mc.png" id="23_4k2k6"]
 [ext_resource type="Texture2D" uid="uid://b8qd17qpcdnv" path="res://assets/player/bras.png" id="24_0rl1p"]
-[ext_resource type="Resource" path="res://clients/incel.tres" id="26_kq58d"]
-[ext_resource type="Resource" path="res://clients/karen.tres" id="27_seu75"]
-[ext_resource type="Resource" path="res://clients/nerd.tres" id="28_htxhm"]
+[ext_resource type="Resource" uid="uid://dp5ni43fdr1fp" path="res://clients/incel.tres" id="26_kq58d"]
+[ext_resource type="Resource" uid="uid://dmshwwf6jvulw" path="res://clients/karen.tres" id="27_seu75"]
+[ext_resource type="Resource" uid="uid://csvvdma3vat2o" path="res://clients/nerd.tres" id="28_htxhm"]
 [ext_resource type="TileSet" uid="uid://dhnwalbd3xkv4" path="res://EtageresLD.tres" id="28_jq2sk"]
 [ext_resource type="AudioStream" uid="uid://bgn6nitbonwcc" path="res://assets/music/Fin.ogg" id="31_seu75"]
 [ext_resource type="Script" uid="uid://bvibffwed6swx" path="res://audio_manager.gd" id="35_b1qrp"]
@@ -56,6 +56,7 @@
 [ext_resource type="AudioStream" uid="uid://chr4ho06k5ny8" path="res://assets/SFX/Mob - decolle b.ogg" id="52_vke2r"]
 [ext_resource type="AudioStream" uid="uid://f203ffxglv53" path="res://assets/SFX/Mob - decolle c.ogg" id="53_uit24"]
 [ext_resource type="AudioStream" uid="uid://bd4wnnm85mce5" path="res://assets/SFX/UI - Bouton ok.ogg" id="54_ruth0"]
+[ext_resource type="AudioStream" uid="uid://ds6cio6wamie7" path="res://assets/SFX/Joueur - Timer alerte a demarrer 2sec avant fin timer.ogg" id="57_rnkwl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b17eg"]
 texture = ExtResource("1_e71vb")
@@ -364,7 +365,7 @@ metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="datas" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("points_label", "timer_label", "global_timer_label")]
+[node name="datas" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("points_label", "timer_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -375,7 +376,6 @@ size_flags_horizontal = 3
 script = ExtResource("4_lquwl")
 points_label = NodePath("HBoxContainer/points")
 timer_label = NodePath("HBoxContainer/timer")
-global_timer_label = NodePath("HBoxContainer/global_timer")
 
 [node name="ColorRect" type="TextureRect" parent="CanvasLayer/datas"]
 layout_mode = 1
@@ -394,7 +394,6 @@ offset_top = 12.0
 offset_right = -19.0
 offset_bottom = 35.0
 grow_horizontal = 2
-theme_override_constants/separation = 50
 alignment = 1
 
 [node name="points" type="Label" parent="CanvasLayer/datas/HBoxContainer"]
@@ -405,20 +404,20 @@ theme_override_font_sizes/font_size = 28
 text = "Points : 00"
 label_settings = SubResource("LabelSettings_cegan")
 
-[node name="timer" type="Label" parent="CanvasLayer/datas/HBoxContainer"]
+[node name="timer_label" type="Label" parent="CanvasLayer/datas/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("12_6iyjs")
 theme_override_font_sizes/font_size = 26
-text = "Timer: 00:00"
+text = "Timer: "
 horizontal_alignment = 2
 
-[node name="global_timer" type="Label" parent="CanvasLayer/datas/HBoxContainer"]
-visible = false
+[node name="timer" type="Label" parent="CanvasLayer/datas/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Global Timer : 00:00"
-horizontal_alignment = 2
+theme_override_fonts/font = ExtResource("12_6iyjs")
+theme_override_font_sizes/font_size = 26
+text = " 00:00:00"
 
 [node name="game_over_screen" parent="CanvasLayer" instance=ExtResource("5_ycdy4")]
 unique_name_in_owner = true
@@ -470,82 +469,82 @@ script = ExtResource("6_7mycd")
 items = Array[ExtResource("7_5vw27")]([ExtResource("8_kek77"), ExtResource("10_a6jrf"), ExtResource("11_xuqvo"), ExtResource("12_qsp4k"), ExtResource("13_kq58d"), ExtResource("14_seu75"), ExtResource("9_vivmo"), ExtResource("16_htxhm"), ExtResource("17_jq2sk"), ExtResource("10_2cqfq")])
 
 [node name="Marker2D" type="Marker2D" parent="spawner"]
-position = Vector2(-4896, -3691)
+position = Vector2(-5236, -3843)
 
 [node name="Marker2D2" type="Marker2D" parent="spawner"]
 position = Vector2(504, -6974)
 
 [node name="Marker2D3" type="Marker2D" parent="spawner"]
-position = Vector2(-5846, -10088)
+position = Vector2(-8040, -11306)
 
 [node name="Marker2D4" type="Marker2D" parent="spawner"]
 position = Vector2(-14144, -2487)
 
 [node name="Marker2D5" type="Marker2D" parent="spawner"]
-position = Vector2(-14300, -8498)
+position = Vector2(-14219, -8435)
 
 [node name="Marker2D6" type="Marker2D" parent="spawner"]
-position = Vector2(-17176, 5031)
+position = Vector2(-20086, 3419)
 
 [node name="Marker2D7" type="Marker2D" parent="spawner"]
 position = Vector2(-27510, 10042)
 
 [node name="Marker2D8" type="Marker2D" parent="spawner"]
-position = Vector2(-36389, 5569)
+position = Vector2(-39156, 4199)
 
 [node name="Marker2D9" type="Marker2D" parent="spawner"]
-position = Vector2(-31459, 3690)
+position = Vector2(-28898, 4917)
 
 [node name="Marker2D10" type="Marker2D" parent="spawner"]
 position = Vector2(-5281, 10832)
 
 [node name="Marker2D11" type="Marker2D" parent="spawner"]
-position = Vector2(-39126, 599)
+position = Vector2(-37478, -1756)
 
 [node name="Marker2D12" type="Marker2D" parent="spawner"]
 position = Vector2(-33063, -2539)
 
 [node name="Marker2D13" type="Marker2D" parent="spawner"]
-position = Vector2(-42373, 2686)
+position = Vector2(-9711, 19041)
 
 [node name="Marker2D14" type="Marker2D" parent="spawner"]
 position = Vector2(-27115, -5526)
 
 [node name="Marker2D15" type="Marker2D" parent="spawner"]
-position = Vector2(-12720, 17508)
+position = Vector2(-15507, 16109)
 
 [node name="Marker2D16" type="Marker2D" parent="spawner"]
-position = Vector2(-28581, -765)
+position = Vector2(-28916, -992)
 
 [node name="Marker2D17" type="Marker2D" parent="spawner"]
-position = Vector2(-15247, -11516)
+position = Vector2(-16764, -12215)
 
 [node name="Marker2D18" type="Marker2D" parent="spawner"]
-position = Vector2(3008, 12166)
+position = Vector2(3648, 12324)
 
 [node name="Marker2D19" type="Marker2D" parent="spawner"]
-position = Vector2(6948, -3659)
+position = Vector2(9381, -2595)
 
 [node name="Marker2D20" type="Marker2D" parent="spawner"]
-position = Vector2(6934, 2244)
+position = Vector2(3723, 520)
 
 [node name="Marker2D21" type="Marker2D" parent="spawner"]
-position = Vector2(9369, 18366)
+position = Vector2(6532, 16908)
 
 [node name="Marker2D22" type="Marker2D" parent="spawner"]
-position = Vector2(21672, 19159)
+position = Vector2(21711, 19159)
 
 [node name="Marker2D23" type="Marker2D" parent="spawner"]
-position = Vector2(31783, 9375)
+position = Vector2(30670, 8617)
 
 [node name="Marker2D24" type="Marker2D" parent="spawner"]
-position = Vector2(33517, 13050)
+position = Vector2(36373, 11740)
 
 [node name="Marker2D25" type="Marker2D" parent="spawner"]
-position = Vector2(20100, 15393)
+position = Vector2(18810, 14546)
 
 [node name="Marker2D26" type="Marker2D" parent="spawner"]
-position = Vector2(12994, -749)
+position = Vector2(12502, -1025)
 
 [node name="Marker2D27" type="Marker2D" parent="spawner"]
 position = Vector2(-824, 23454)
@@ -554,22 +553,22 @@ position = Vector2(-824, 23454)
 position = Vector2(26017, 6512)
 
 [node name="Marker2D29" type="Marker2D" parent="spawner"]
-position = Vector2(20275, 3308)
+position = Vector2(17202, 4854)
 
 [node name="Marker2D30" type="Marker2D" parent="spawner"]
-position = Vector2(19958, 9558)
+position = Vector2(17062, 10809)
 
 [node name="Marker2D31" type="Marker2D" parent="spawner"]
-position = Vector2(26049, 12255)
+position = Vector2(23035, 13831)
 
 [node name="Marker2D32" type="Marker2D" parent="spawner"]
-position = Vector2(8552, 9130)
+position = Vector2(9842, 7150)
 
 [node name="Marker2D33" type="Marker2D" parent="spawner"]
-position = Vector2(589, 19695)
+position = Vector2(3672, 21222)
 
 [node name="Marker2D34" type="Marker2D" parent="spawner"]
-position = Vector2(6078, 22534)
+position = Vector2(6836, 26474)
 
 [node name="Marker2D35" type="Marker2D" parent="spawner"]
 position = Vector2(15612, 22074)
@@ -578,19 +577,19 @@ position = Vector2(15612, 22074)
 position = Vector2(-11196, 13936)
 
 [node name="Marker2D37" type="Marker2D" parent="spawner"]
-position = Vector2(-11180, 7845)
+position = Vector2(-9712, 7185)
 
 [node name="Marker2D38" type="Marker2D" parent="spawner"]
-position = Vector2(-2281, 3625)
+position = Vector2(-2222, 3527)
 
 [node name="Marker2D39" type="Marker2D" parent="spawner"]
-position = Vector2(2414, 4482)
+position = Vector2(1961, 4157)
 
 [node name="Marker2D40" type="Marker2D" parent="spawner"]
 position = Vector2(-23015, 2007)
 
 [node name="Marker2D41" type="Marker2D" parent="spawner"]
-position = Vector2(-26077, 6576)
+position = Vector2(-22984, 7827)
 
 [node name="Marker2D42" type="Marker2D" parent="spawner"]
 position = Vector2(-20065, -5369)
@@ -944,5 +943,9 @@ stream = ExtResource("54_ruth0")
 [node name="player_walk" type="AudioStreamPlayer" parent="AudioManager"]
 unique_name_in_owner = true
 stream = ExtResource("50_hrvbo")
+
+[node name="timer_low" type="AudioStreamPlayer" parent="AudioManager"]
+unique_name_in_owner = true
+stream = ExtResource("57_rnkwl")
 
 [connection signal="pressed" from="CanvasLayer/ColorRect/Button" to="CanvasLayer/ColorRect" method="_on_button_pressed"]
