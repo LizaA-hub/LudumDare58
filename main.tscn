@@ -1,8 +1,10 @@
-[gd_scene load_steps=82 format=4 uid="uid://fu2lsweqg8ym"]
+[gd_scene load_steps=90 format=4 uid="uid://fu2lsweqg8ym"]
 
 [ext_resource type="Texture2D" uid="uid://8842e17knkm8" path="res://assets/Environment/Walls/mur c final copy.png" id="1_e71vb"]
+[ext_resource type="Texture2D" uid="uid://bm2y6jywnbrwd" path="res://assets/Environment/Walls/mur a test.png" id="1_ruth0"]
 [ext_resource type="Texture2D" uid="uid://bblh326pwyei1" path="res://assets/Environment/PlaceHolders/sol_rayon_v2.png" id="1_seu75"]
 [ext_resource type="Script" uid="uid://do4p553sc2wiw" path="res://player.gd" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://24lqv1tj0db6" path="res://assets/Environment/Walls/mur b test.png" id="2_rm4vd"]
 [ext_resource type="Texture2D" uid="uid://c0ohpd3yvochl" path="res://assets/Environment/Walls/mur c final.png" id="2_rnkwl"]
 [ext_resource type="Texture2D" uid="uid://pxhidgep1sew" path="res://assets/Environment/Walls/mur d final copy.png" id="3_vke2r"]
 [ext_resource type="Script" uid="uid://djqij5e724bc6" path="res://datas.gd" id="4_lquwl"]
@@ -16,31 +18,33 @@
 [ext_resource type="Texture2D" uid="uid://yi6sed6gt7b7" path="res://assets/Environment/Ground/sol_1.png" id="7_abqjc"]
 [ext_resource type="Script" uid="uid://d0yrvatm6je3v" path="res://pause_screen.gd" id="7_cegan"]
 [ext_resource type="Texture2D" uid="uid://ckuygy5tmlqxa" path="res://assets/Environment/Walls/mur b final copy.png" id="7_pjyto"]
+[ext_resource type="Texture2D" uid="uid://kybg5hjjmfo1" path="res://assets/Environment/Walls/mur c test.png" id="7_sm6fg"]
 [ext_resource type="Texture2D" uid="uid://kejl4koq3o1m" path="res://assets/Environment/Ground/sol_2.png" id="8_6iyjs"]
+[ext_resource type="Texture2D" uid="uid://d3401n52bsubj" path="res://assets/Environment/Walls/mur d test.png" id="8_b17eg"]
 [ext_resource type="Resource" uid="uid://orl18gjlisan" path="res://items/common_item.tres" id="8_kek77"]
 [ext_resource type="Texture2D" uid="uid://xqv0nhh2lswb" path="res://assets/Environment/Walls/mur b final.png" id="8_sm6fg"]
 [ext_resource type="Texture2D" uid="uid://bevfm344e3ade" path="res://assets/Environment/Ground/sol_3.png" id="9_4w656"]
 [ext_resource type="Resource" uid="uid://b5n1oh7lka3ka" path="res://items/rare_item.tres" id="9_vivmo"]
 [ext_resource type="Resource" uid="uid://etqn50qa8yn8" path="res://items/ultrarare_item.tres" id="10_2cqfq"]
-[ext_resource type="Resource" uid="uid://b60g750e0fd2m" path="res://items/common_item_02.tres" id="10_a6jrf"]
+[ext_resource type="Resource" path="res://items/common_item_02.tres" id="10_a6jrf"]
 [ext_resource type="Script" uid="uid://b5m58gwahusst" path="res://client_spawner.gd" id="11_2cqfq"]
-[ext_resource type="Resource" uid="uid://byh03uresc3mc" path="res://items/common_item_03.tres" id="11_xuqvo"]
+[ext_resource type="Resource" path="res://items/common_item_03.tres" id="11_xuqvo"]
 [ext_resource type="FontFile" uid="uid://bvc4th3oko8tn" path="res://assets/UI/CherryBombOne-Regular.ttf" id="12_6iyjs"]
-[ext_resource type="Resource" uid="uid://djw5uoocxu4ii" path="res://items/common_item_04.tres" id="12_qsp4k"]
+[ext_resource type="Resource" path="res://items/common_item_04.tres" id="12_qsp4k"]
 [ext_resource type="Script" uid="uid://m52gvt753u0n" path="res://clients/client_data.gd" id="12_yaehf"]
-[ext_resource type="Resource" uid="uid://cml5qhn5eem6i" path="res://clients/grandma.tres" id="13_074og"]
-[ext_resource type="Resource" uid="uid://cc1oo56y5hia7" path="res://items/common_item_05.tres" id="13_kq58d"]
-[ext_resource type="Resource" uid="uid://c8uqk6ajsiset" path="res://items/common_item_06.tres" id="14_seu75"]
-[ext_resource type="Resource" uid="uid://cuwohon41h7sx" path="res://items/rare_item_02.tres" id="16_htxhm"]
-[ext_resource type="Resource" uid="uid://b2hllwjiw5r3n" path="res://items/rare_item_03.tres" id="17_jq2sk"]
+[ext_resource type="Resource" path="res://clients/grandma.tres" id="13_074og"]
+[ext_resource type="Resource" path="res://items/common_item_05.tres" id="13_kq58d"]
+[ext_resource type="Resource" path="res://items/common_item_06.tres" id="14_seu75"]
+[ext_resource type="Resource" path="res://items/rare_item_02.tres" id="16_htxhm"]
+[ext_resource type="Resource" path="res://items/rare_item_03.tres" id="17_jq2sk"]
 [ext_resource type="AudioStream" uid="uid://ccumvku8uh31a" path="res://assets/music/Ingame.ogg" id="20_82xsv"]
 [ext_resource type="AudioStream" uid="uid://bxjvbeessn0xy" path="res://assets/music/Menu.ogg" id="20_getpj"]
 [ext_resource type="Texture2D" uid="uid://de35aoi5ah07t" path="res://assets/player/normal_mc.png" id="22_jq2sk"]
 [ext_resource type="Texture2D" uid="uid://b58cs6yvj4lvu" path="res://assets/player/combat_mc.png" id="23_4k2k6"]
 [ext_resource type="Texture2D" uid="uid://b8qd17qpcdnv" path="res://assets/player/bras.png" id="24_0rl1p"]
-[ext_resource type="Resource" uid="uid://dp5ni43fdr1fp" path="res://clients/incel.tres" id="26_kq58d"]
-[ext_resource type="Resource" uid="uid://dmshwwf6jvulw" path="res://clients/karen.tres" id="27_seu75"]
-[ext_resource type="Resource" uid="uid://csvvdma3vat2o" path="res://clients/nerd.tres" id="28_htxhm"]
+[ext_resource type="Resource" path="res://clients/incel.tres" id="26_kq58d"]
+[ext_resource type="Resource" path="res://clients/karen.tres" id="27_seu75"]
+[ext_resource type="Resource" path="res://clients/nerd.tres" id="28_htxhm"]
 [ext_resource type="TileSet" uid="uid://dhnwalbd3xkv4" path="res://EtageresLD.tres" id="28_jq2sk"]
 [ext_resource type="AudioStream" uid="uid://bgn6nitbonwcc" path="res://assets/music/Fin.ogg" id="31_seu75"]
 [ext_resource type="Script" uid="uid://bvibffwed6swx" path="res://audio_manager.gd" id="35_b1qrp"]
@@ -82,6 +86,30 @@ texture_region_size = Vector2i(3523, 4761)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(-1200, 920)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rm4vd"]
+texture = ExtResource("7_sm6fg")
+texture_region_size = Vector2i(3553, 4783)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-1190, 910)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pjyto"]
+texture = ExtResource("8_b17eg")
+texture_region_size = Vector2i(3553, 4782)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-1190, 910)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sm6fg"]
+texture = ExtResource("1_ruth0")
+texture_region_size = Vector2i(3553, 4783)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-1190, 910)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jx0wj"]
+texture = ExtResource("2_rm4vd")
+texture_region_size = Vector2i(3553, 4783)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-1190, 910)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1vm84"]
 texture = ExtResource("5_ruth0")
 texture_region_size = Vector2i(3523, 4761)
@@ -117,6 +145,10 @@ sources/10 = SubResource("TileSetAtlasSource_b17eg")
 sources/11 = SubResource("TileSetAtlasSource_ntx8l")
 sources/12 = SubResource("TileSetAtlasSource_uatky")
 sources/13 = SubResource("TileSetAtlasSource_rqtf5")
+sources/4 = SubResource("TileSetAtlasSource_sm6fg")
+sources/5 = SubResource("TileSetAtlasSource_jx0wj")
+sources/14 = SubResource("TileSetAtlasSource_rm4vd")
+sources/15 = SubResource("TileSetAtlasSource_pjyto")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e71vb"]
 texture = ExtResource("7_abqjc")
@@ -353,7 +385,7 @@ polygon = PackedVector2Array(-51137, -33076, -49936, -32416, -81954, -16345, -82
 [node name="Walls" type="TileMapLayer" parent="map"]
 z_index = -1
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD9//T/DQAAAAAAAAD+//T/DAAAAAAAAAD+//X/CgAAAAAAAAD///b/BgAAAAAAAAD///f/CgAAAAAAAAAAAPj/DAAAAAAAAAAAAPn/BgAAAAAAAAABAPr/CAAAAAAAAAABAPv/CgAAAAAAAAACAPz/DAAAAAAAAAACAP3/CgAAAAAAAAADAP7/BgAAAAAAAAADAP//CAAAAAAAAAAEAAAACgAAAAAAAAAEAAEADAAAAAAAAAAFAAIABgAAAAAAAAAFAAMACAAAAAAAAAAGAAQACgAAAAAAAAAGAAUADAAAAAAAAAD3////DQAAAAAAAAD7//f/DQAAAAAAAAD4//7/BwAAAAAAAAD4//3/CQAAAAAAAAD5//z/CwAAAAAAAAD5//v/BwAAAAAAAAD6//r/CQAAAAAAAAD6//n/BwAAAAAAAAD7//j/CwAAAAAAAAD8//b/BwAAAAAAAAD8//X/CwAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD9//T/DwAAAAAAAAD+//T/DwAAAAAAABD+//X/DgAAAAAAABD///b/BAAAAAAAABD///f/DgAAAAAAABAAAPj/DwAAAAAAABAAAPn/BAAAAAAAABABAPr/BQAAAAAAABABAPv/DgAAAAAAABACAPz/DwAAAAAAABACAP3/DgAAAAAAABADAP7/BAAAAAAAABADAP//BQAAAAAAABAEAAAADgAAAAAAABAEAAEADwAAAAAAABAFAAIABAAAAAAAABAFAAMABQAAAAAAABAGAAQADgAAAAAAABAGAAUADwAAAAAAABD3////DwAAAAAAAAD7//f/DwAAAAAAAAD4//7/BAAAAAAAAAD4//3/BQAAAAAAAAD5//z/DgAAAAAAAAD5//v/BAAAAAAAAAD6//r/BQAAAAAAAAD6//n/BAAAAAAAAAD7//j/DgAAAAAAAAD8//b/BAAAAAAAAAD8//X/DgAAAAAAAAA=")
 tile_set = SubResource("TileSet_uypp3")
 metadata/_edit_lock_ = true
 
