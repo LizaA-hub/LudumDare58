@@ -1,8 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://bp1s7q1xtist2"]
+[gd_scene load_steps=7 format=3 uid="uid://bp1s7q1xtist2"]
 
 [ext_resource type="Script" uid="uid://c668u8g8paa2m" path="res://start_screen.gd" id="1_ncxyx"]
 [ext_resource type="FontFile" uid="uid://bvc4th3oko8tn" path="res://assets/UI/CherryBombOne-Regular.ttf" id="2_afy8x"]
-[ext_resource type="Texture2D" uid="uid://c0qluk76nvnbh" path="res://assets/UI/6FYcd5.png" id="2_k1na2"]
+[ext_resource type="Texture2D" uid="uid://dbpbxhi8btey0" path="res://assets/UI/title screen copy.png" id="2_k1na2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vdywr"]
+bg_color = Color(0.35946152, 0.23492151, 0.13420823, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdgt5"]
+bg_color = Color(0.20234147, 0.124109305, 0.06041532, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l67vj"]
+bg_color = Color(0.56374234, 0.3815099, 0.23440462, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [node name="start_screen" type="Control"]
 layout_mode = 3
@@ -14,16 +35,16 @@ grow_vertical = 2
 script = ExtResource("1_ncxyx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
-scale = Vector2(0.29999998, 0.34340227)
+position = Vector2(581.9375, 322.375)
+scale = Vector2(0.24750891, 0.24877727)
 texture = ExtResource("2_k1na2")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-offset_left = 869.0
-offset_top = 11.0
-offset_right = 1141.0
-offset_bottom = 60.0
+offset_left = 726.0
+offset_top = 7.0
+offset_right = 998.0
+offset_bottom = 56.0
 
 [node name="volume" type="Label" parent="HBoxContainer"]
 layout_mode = 2
@@ -43,14 +64,17 @@ value = 100.0
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 528.0
-offset_top = 572.0
-offset_right = 611.0
-offset_bottom = 624.0
+offset_left = 153.0
+offset_top = 446.0
+offset_right = 253.0
+offset_bottom = 546.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("2_afy8x")
 theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_vdywr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cdgt5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_l67vj")
 text = "start"
 
 [connection signal="value_changed" from="HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]

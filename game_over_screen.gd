@@ -59,9 +59,9 @@ func update_scores()->void:
 	player_name_01.text = World.score_data[0][0]
 	player_name_02.text = World.score_data[1][0]
 	player_name_03.text = World.score_data[2][0]
-	player_score_01.text= String.num(World.score_data[0][1],3)
-	player_score_02.text= String.num(World.score_data[1][1],3)
-	player_score_03.text= String.num(World.score_data[2][1],3)
+	player_score_01.text= String.num(World.score_data[0][1],2)
+	player_score_02.text= String.num(World.score_data[1][1],2)
+	player_score_03.text= String.num(World.score_data[2][1],2)
 
 func _on_replay()->void:
 	visible = false

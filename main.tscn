@@ -31,18 +31,18 @@
 [ext_resource type="FontFile" uid="uid://bvc4th3oko8tn" path="res://assets/UI/CherryBombOne-Regular.ttf" id="12_6iyjs"]
 [ext_resource type="Resource" uid="uid://djw5uoocxu4ii" path="res://items/common_item_04.tres" id="12_qsp4k"]
 [ext_resource type="Script" uid="uid://m52gvt753u0n" path="res://clients/client_data.gd" id="12_yaehf"]
-[ext_resource type="Resource" path="res://clients/grandma.tres" id="13_074og"]
+[ext_resource type="Resource" uid="uid://cml5qhn5eem6i" path="res://clients/grandma.tres" id="13_074og"]
 [ext_resource type="Resource" uid="uid://cc1oo56y5hia7" path="res://items/common_item_05.tres" id="13_kq58d"]
 [ext_resource type="Resource" uid="uid://c8uqk6ajsiset" path="res://items/common_item_06.tres" id="14_seu75"]
-[ext_resource type="Resource" path="res://items/rare_item_02.tres" id="16_htxhm"]
-[ext_resource type="Resource" path="res://items/rare_item_03.tres" id="17_jq2sk"]
+[ext_resource type="Resource" uid="uid://cuwohon41h7sx" path="res://items/rare_item_02.tres" id="16_htxhm"]
+[ext_resource type="Resource" uid="uid://b2hllwjiw5r3n" path="res://items/rare_item_03.tres" id="17_jq2sk"]
 [ext_resource type="Texture2D" uid="uid://buej6mg5ag7a4" path="res://assets/UI/score copy.png" id="18_ruth0"]
 [ext_resource type="AudioStream" uid="uid://ccumvku8uh31a" path="res://assets/music/Ingame.ogg" id="20_82xsv"]
 [ext_resource type="AudioStream" uid="uid://bxjvbeessn0xy" path="res://assets/music/Menu.ogg" id="20_getpj"]
 [ext_resource type="Texture2D" uid="uid://5vgpjvsaeo8f" path="res://assets/UI/timer copy.png" id="20_rm4vd"]
-[ext_resource type="Resource" path="res://clients/incel.tres" id="26_kq58d"]
-[ext_resource type="Resource" path="res://clients/karen.tres" id="27_seu75"]
-[ext_resource type="Resource" path="res://clients/nerd.tres" id="28_htxhm"]
+[ext_resource type="Resource" uid="uid://dp5ni43fdr1fp" path="res://clients/incel.tres" id="26_kq58d"]
+[ext_resource type="Resource" uid="uid://dmshwwf6jvulw" path="res://clients/karen.tres" id="27_seu75"]
+[ext_resource type="Resource" uid="uid://csvvdma3vat2o" path="res://clients/nerd.tres" id="28_htxhm"]
 [ext_resource type="TileSet" uid="uid://dhnwalbd3xkv4" path="res://EtageresLD.tres" id="28_jq2sk"]
 [ext_resource type="AudioStream" uid="uid://bgn6nitbonwcc" path="res://assets/music/Fin.ogg" id="31_seu75"]
 [ext_resource type="Script" uid="uid://bvibffwed6swx" path="res://audio_manager.gd" id="35_b1qrp"]
@@ -234,7 +234,7 @@ Vector2i(1, 0): {
 "to_time": 1
 },
 Vector2i(2, 1): {
-"fade_beats": 1.0,
+"fade_beats": 2.0,
 "fade_mode": 3,
 "from_time": 0,
 "to_time": 1

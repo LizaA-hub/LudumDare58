@@ -1,31 +1,28 @@
 [gd_scene load_steps=10 format=3 uid="uid://byclo5b5spbe4"]
 
 [ext_resource type="Script" uid="uid://dymkk31uu8j1u" path="res://game_over_screen.gd" id="1_gt22q"]
+[ext_resource type="Texture2D" uid="uid://cf8wwokomw8mb" path="res://assets/UI/game over copy.png" id="2_l4tlu"]
 [ext_resource type="FontFile" uid="uid://bvc4th3oko8tn" path="res://assets/UI/CherryBombOne-Regular.ttf" id="2_w3hxg"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gt22q"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Theme" id="Theme_w3hxg"]
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_gt22q")
-
-[sub_resource type="LabelSettings" id="LabelSettings_l4tlu"]
-font = ExtResource("2_w3hxg")
-font_size = 60
 
 [sub_resource type="LabelSettings" id="LabelSettings_272bh"]
 font = ExtResource("2_w3hxg")
-font_size = 20
-
-[sub_resource type="LabelSettings" id="LabelSettings_fdghx"]
-font = ExtResource("2_w3hxg")
-font_size = 40
-
-[sub_resource type="LabelSettings" id="LabelSettings_2yv1s"]
 font_size = 30
+font_color = Color(0.40784314, 0.27058825, 0.2784314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdghx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yv1s"]
+bg_color = Color(0.6, 0.6, 0.6, 0.5803922)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4tlu"]
+bg_color = Color(1, 1, 1, 0.14901961)
 
 [sub_resource type="LabelSettings" id="LabelSettings_tmhko"]
 font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_2yv1s"]
+font_size = 30
 
 [node name="game_over_screen" type="Control"]
 process_mode = 3
@@ -37,193 +34,164 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gt22q")
 
-[node name="Panel" type="PanelContainer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 10.157959
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_w3hxg")
+texture = ExtResource("2_l4tlu")
+expand_mode = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="game_over" type="Label" parent="Panel/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "Game Over"
-label_settings = SubResource("LabelSettings_l4tlu")
-
-[node name="HBoxContainer" type="GridContainer" parent="Panel/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/h_separation = 50
-columns = 4
-
-[node name="Label8" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "Total time"
-label_settings = SubResource("LabelSettings_272bh")
-
-[node name="Label7" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "Points"
-label_settings = SubResource("LabelSettings_272bh")
-
-[node name="Label6" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "Client hit"
-label_settings = SubResource("LabelSettings_272bh")
-
-[node name="Label5" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "Total"
-label_settings = SubResource("LabelSettings_272bh")
-
-[node name="total_time" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
+[node name="player_name_01" type="Label" parent="TextureRect"]
 unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "xx:xx"
-label_settings = SubResource("LabelSettings_272bh")
-
-[node name="points" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "xx"
-label_settings = SubResource("LabelSettings_272bh")
-
-[node name="client" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "xxx"
-label_settings = SubResource("LabelSettings_272bh")
-
-[node name="score" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "xxxx"
-label_settings = SubResource("LabelSettings_272bh")
-
-[node name="leaderboard" type="Label" parent="Panel/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "Leaderboard"
-label_settings = SubResource("LabelSettings_fdghx")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer"]
-custom_minimum_size = Vector2(280, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 20
-
-[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-size_flags_vertical = 0
-text = "#1"
-label_settings = SubResource("LabelSettings_2yv1s")
-
-[node name="player_name_01" type="Label" parent="Panel/VBoxContainer/HBoxContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 0
+offset_left = 493.0
+offset_top = 214.0
+offset_right = 674.0
+offset_bottom = 258.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "Liza"
-label_settings = SubResource("LabelSettings_2yv1s")
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
 
-[node name="player_score_01" type="Label" parent="Panel/VBoxContainer/HBoxContainer2"]
+[node name="player_score_01" type="Label" parent="TextureRect"]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 0
+offset_left = 493.0
+offset_top = 247.0
+offset_right = 675.0
+offset_bottom = 291.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "XXXXX"
-label_settings = SubResource("LabelSettings_2yv1s")
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/VBoxContainer"]
-custom_minimum_size = Vector2(280, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 20
-
-[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer3"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "#2"
-label_settings = SubResource("LabelSettings_2yv1s")
-
-[node name="player_name_02" type="Label" parent="Panel/VBoxContainer/HBoxContainer3"]
+[node name="replay_button" type="Button" parent="TextureRect"]
 unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "Player1"
-label_settings = SubResource("LabelSettings_2yv1s")
-
-[node name="player_score_02" type="Label" parent="Panel/VBoxContainer/HBoxContainer3"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "XXXXX"
-label_settings = SubResource("LabelSettings_2yv1s")
-
-[node name="HBoxContainer4" type="HBoxContainer" parent="Panel/VBoxContainer"]
-custom_minimum_size = Vector2(280, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_constants/separation = 20
-
-[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer4"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "#3"
-label_settings = SubResource("LabelSettings_2yv1s")
-
-[node name="player_name_03" type="Label" parent="Panel/VBoxContainer/HBoxContainer4"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "Player1"
-label_settings = SubResource("LabelSettings_2yv1s")
-
-[node name="player_score_03" type="Label" parent="Panel/VBoxContainer/HBoxContainer4"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "XXXXX"
-label_settings = SubResource("LabelSettings_2yv1s")
-
-[node name="replay_button" type="Button" parent="Panel/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 0
+offset_left = 516.079
+offset_top = 554.0
+offset_right = 639.079
+offset_bottom = 604.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_w3hxg")
 theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_fdghx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2yv1s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_l4tlu")
 text = "Replay"
+
+[node name="total_time" type="Label" parent="TextureRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 307.35648
+offset_top = 122.95116
+offset_right = 428.612
+offset_bottom = 173.21439
+rotation = -0.078758955
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "xx:xx"
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
+
+[node name="points" type="Label" parent="TextureRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 465.07898
+offset_top = 102.0
+offset_right = 573.079
+offset_bottom = 146.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "xx"
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
+
+[node name="client" type="Label" parent="TextureRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 595.079
+offset_top = 111.0
+offset_right = 702.079
+offset_bottom = 155.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "xxx"
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
+
+[node name="score" type="Label" parent="TextureRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 724.19574
+offset_top = 101.97905
+offset_right = 857.5834
+offset_bottom = 145.97905
+rotation = 0.09161198
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "xxxx"
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
+
+[node name="player_name_02" type="Label" parent="TextureRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 315.07898
+offset_top = 294.0
+offset_right = 488.0
+offset_bottom = 338.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Player1"
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
+
+[node name="player_score_02" type="Label" parent="TextureRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 314.07898
+offset_top = 324.0
+offset_right = 487.07898
+offset_bottom = 368.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "XXXXX"
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
+
+[node name="player_name_03" type="Label" parent="TextureRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 681.0
+offset_top = 344.0
+offset_right = 860.0
+offset_bottom = 388.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Player1"
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
+
+[node name="player_score_03" type="Label" parent="TextureRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 678.0
+offset_top = 378.0
+offset_right = 857.0
+offset_bottom = 422.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "XXXXX"
+label_settings = SubResource("LabelSettings_272bh")
+horizontal_alignment = 1
 
 [node name="new_score_panel" type="Control" parent="."]
 unique_name_in_owner = true
@@ -318,5 +286,5 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 20
 text = "Validate"
 
-[connection signal="pressed" from="Panel/VBoxContainer/replay_button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TextureRect/replay_button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="new_score_panel/VBoxContainer/validate_button" to="." method="_on_validate_button_pressed"]
