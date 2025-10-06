@@ -1,28 +1,29 @@
-[gd_scene load_steps=76 format=4 uid="uid://fu2lsweqg8ym"]
+[gd_scene load_steps=77 format=4 uid="uid://fu2lsweqg8ym"]
 
-[ext_resource type="Texture2D" uid="uid://bblh326pwyei1" path="res://Environment/PlaceHolders/sol_rayon_v2.png" id="1_seu75"]
+[ext_resource type="Texture2D" uid="uid://bblh326pwyei1" path="res://assets/Environment/PlaceHolders/sol_rayon_v2.png" id="1_seu75"]
 [ext_resource type="Script" uid="uid://do4p553sc2wiw" path="res://player.gd" id="2_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://du53mon711ptw" path="res://Environment/Walls/mur c copy 5.png" id="2_facbu"]
-[ext_resource type="Texture2D" uid="uid://bn5d1n3jrl5y" path="res://Environment/Walls/mur_c_v1.png" id="3_b1qrp"]
-[ext_resource type="Texture2D" uid="uid://cd7jn3td8po3h" path="res://Environment/Walls/mur_c_v1_flip.png" id="4_come4"]
+[ext_resource type="Texture2D" uid="uid://du53mon711ptw" path="res://assets/Environment/Walls/mur c copy 5.png" id="2_facbu"]
+[ext_resource type="Texture2D" uid="uid://bn5d1n3jrl5y" path="res://assets/Environment/Walls/mur_c_v1.png" id="3_b1qrp"]
+[ext_resource type="Texture2D" uid="uid://cd7jn3td8po3h" path="res://assets/Environment/Walls/mur_c_v1_flip.png" id="4_come4"]
 [ext_resource type="Script" uid="uid://djqij5e724bc6" path="res://datas.gd" id="4_lquwl"]
-[ext_resource type="Texture2D" uid="uid://mldgy0fo30v0" path="res://Environment/Walls/mur_c_v2.png" id="5_h8e4i"]
+[ext_resource type="Texture2D" uid="uid://mldgy0fo30v0" path="res://assets/Environment/Walls/mur_c_v2.png" id="5_h8e4i"]
 [ext_resource type="PackedScene" uid="uid://byclo5b5spbe4" path="res://game_over_screen.tscn" id="5_ycdy4"]
-[ext_resource type="Texture2D" uid="uid://dtgajpqxoxskm" path="res://Environment/Walls/mur_c_v2_flip.png" id="6_4lmeg"]
+[ext_resource type="Texture2D" uid="uid://dtgajpqxoxskm" path="res://assets/Environment/Walls/mur_c_v2_flip.png" id="6_4lmeg"]
 [ext_resource type="Script" uid="uid://du4w2g8o56rq0" path="res://spawner.gd" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bp1s7q1xtist2" path="res://start_screen.tscn" id="6_074og"]
-[ext_resource type="Texture2D" uid="uid://dieu71b1jkb41" path="res://Environment/Walls/mur_c_v3.png" id="7_0cp0l"]
+[ext_resource type="Texture2D" uid="uid://dieu71b1jkb41" path="res://assets/Environment/Walls/mur_c_v3.png" id="7_0cp0l"]
 [ext_resource type="Script" uid="uid://d5pyl0f0pp7o" path="res://items/item_data.gd" id="7_5vw27"]
-[ext_resource type="Texture2D" uid="uid://yi6sed6gt7b7" path="res://Environment/Ground/sol_1.png" id="7_abqjc"]
+[ext_resource type="Texture2D" uid="uid://yi6sed6gt7b7" path="res://assets/Environment/Ground/sol_1.png" id="7_abqjc"]
 [ext_resource type="Script" uid="uid://d0yrvatm6je3v" path="res://pause_screen.gd" id="7_cegan"]
-[ext_resource type="Texture2D" uid="uid://kejl4koq3o1m" path="res://Environment/Ground/sol_2.png" id="8_6iyjs"]
+[ext_resource type="Texture2D" uid="uid://kejl4koq3o1m" path="res://assets/Environment/Ground/sol_2.png" id="8_6iyjs"]
 [ext_resource type="Resource" uid="uid://orl18gjlisan" path="res://items/common_item.tres" id="8_kek77"]
-[ext_resource type="Texture2D" uid="uid://bevfm344e3ade" path="res://Environment/Ground/sol_3.png" id="9_4w656"]
+[ext_resource type="Texture2D" uid="uid://bevfm344e3ade" path="res://assets/Environment/Ground/sol_3.png" id="9_4w656"]
 [ext_resource type="Resource" uid="uid://b5n1oh7lka3ka" path="res://items/rare_item.tres" id="9_vivmo"]
 [ext_resource type="Resource" uid="uid://etqn50qa8yn8" path="res://items/ultrarare_item.tres" id="10_2cqfq"]
 [ext_resource type="Resource" path="res://items/common_item_02.tres" id="10_a6jrf"]
 [ext_resource type="Script" uid="uid://b5m58gwahusst" path="res://client_spawner.gd" id="11_2cqfq"]
 [ext_resource type="Resource" path="res://items/common_item_03.tres" id="11_xuqvo"]
+[ext_resource type="FontFile" uid="uid://bvc4th3oko8tn" path="res://assets/UI/CherryBombOne-Regular.ttf" id="12_6iyjs"]
 [ext_resource type="Resource" path="res://items/common_item_04.tres" id="12_qsp4k"]
 [ext_resource type="Script" uid="uid://m52gvt753u0n" path="res://clients/client_data.gd" id="12_yaehf"]
 [ext_resource type="Resource" path="res://clients/grandma.tres" id="13_074og"]
@@ -138,6 +139,7 @@ gradient = SubResource("Gradient_yaehf")
 fill_to = Vector2(0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cegan"]
+font_size = 26
 
 [sub_resource type="LabelSettings" id="LabelSettings_82xsv"]
 font_size = 50
@@ -389,12 +391,16 @@ alignment = 1
 [node name="points" type="Label" parent="CanvasLayer/datas/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("12_6iyjs")
+theme_override_font_sizes/font_size = 28
 text = "Points : 00"
 label_settings = SubResource("LabelSettings_cegan")
 
 [node name="timer" type="Label" parent="CanvasLayer/datas/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("12_6iyjs")
+theme_override_font_sizes/font_size = 26
 text = "Timer: 00:00"
 horizontal_alignment = 2
 
