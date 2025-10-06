@@ -1,9 +1,8 @@
-[gd_scene load_steps=90 format=4 uid="uid://fu2lsweqg8ym"]
+[gd_scene load_steps=86 format=4 uid="uid://fu2lsweqg8ym"]
 
 [ext_resource type="Texture2D" uid="uid://8842e17knkm8" path="res://assets/Environment/Walls/mur c final copy.png" id="1_e71vb"]
 [ext_resource type="Texture2D" uid="uid://bm2y6jywnbrwd" path="res://assets/Environment/Walls/mur a test.png" id="1_ruth0"]
 [ext_resource type="Texture2D" uid="uid://bblh326pwyei1" path="res://assets/Environment/PlaceHolders/sol_rayon_v2.png" id="1_seu75"]
-[ext_resource type="Script" uid="uid://do4p553sc2wiw" path="res://player.gd" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://24lqv1tj0db6" path="res://assets/Environment/Walls/mur b test.png" id="2_rm4vd"]
 [ext_resource type="Texture2D" uid="uid://c0ohpd3yvochl" path="res://assets/Environment/Walls/mur c final.png" id="2_rnkwl"]
 [ext_resource type="Texture2D" uid="uid://pxhidgep1sew" path="res://assets/Environment/Walls/mur d final copy.png" id="3_vke2r"]
@@ -26,25 +25,22 @@
 [ext_resource type="Texture2D" uid="uid://bevfm344e3ade" path="res://assets/Environment/Ground/sol_3.png" id="9_4w656"]
 [ext_resource type="Resource" uid="uid://b5n1oh7lka3ka" path="res://items/rare_item.tres" id="9_vivmo"]
 [ext_resource type="Resource" uid="uid://etqn50qa8yn8" path="res://items/ultrarare_item.tres" id="10_2cqfq"]
-[ext_resource type="Resource" path="res://items/common_item_02.tres" id="10_a6jrf"]
+[ext_resource type="Resource" uid="uid://b60g750e0fd2m" path="res://items/common_item_02.tres" id="10_a6jrf"]
 [ext_resource type="Script" uid="uid://b5m58gwahusst" path="res://client_spawner.gd" id="11_2cqfq"]
-[ext_resource type="Resource" path="res://items/common_item_03.tres" id="11_xuqvo"]
+[ext_resource type="Resource" uid="uid://byh03uresc3mc" path="res://items/common_item_03.tres" id="11_xuqvo"]
 [ext_resource type="FontFile" uid="uid://bvc4th3oko8tn" path="res://assets/UI/CherryBombOne-Regular.ttf" id="12_6iyjs"]
-[ext_resource type="Resource" path="res://items/common_item_04.tres" id="12_qsp4k"]
+[ext_resource type="Resource" uid="uid://djw5uoocxu4ii" path="res://items/common_item_04.tres" id="12_qsp4k"]
 [ext_resource type="Script" uid="uid://m52gvt753u0n" path="res://clients/client_data.gd" id="12_yaehf"]
-[ext_resource type="Resource" path="res://clients/grandma.tres" id="13_074og"]
-[ext_resource type="Resource" path="res://items/common_item_05.tres" id="13_kq58d"]
-[ext_resource type="Resource" path="res://items/common_item_06.tres" id="14_seu75"]
-[ext_resource type="Resource" path="res://items/rare_item_02.tres" id="16_htxhm"]
-[ext_resource type="Resource" path="res://items/rare_item_03.tres" id="17_jq2sk"]
+[ext_resource type="Resource" uid="uid://cml5qhn5eem6i" path="res://clients/grandma.tres" id="13_074og"]
+[ext_resource type="Resource" uid="uid://cc1oo56y5hia7" path="res://items/common_item_05.tres" id="13_kq58d"]
+[ext_resource type="Resource" uid="uid://c8uqk6ajsiset" path="res://items/common_item_06.tres" id="14_seu75"]
+[ext_resource type="Resource" uid="uid://cuwohon41h7sx" path="res://items/rare_item_02.tres" id="16_htxhm"]
+[ext_resource type="Resource" uid="uid://b2hllwjiw5r3n" path="res://items/rare_item_03.tres" id="17_jq2sk"]
 [ext_resource type="AudioStream" uid="uid://ccumvku8uh31a" path="res://assets/music/Ingame.ogg" id="20_82xsv"]
 [ext_resource type="AudioStream" uid="uid://bxjvbeessn0xy" path="res://assets/music/Menu.ogg" id="20_getpj"]
-[ext_resource type="Texture2D" uid="uid://de35aoi5ah07t" path="res://assets/player/normal_mc.png" id="22_jq2sk"]
-[ext_resource type="Texture2D" uid="uid://b58cs6yvj4lvu" path="res://assets/player/combat_mc.png" id="23_4k2k6"]
-[ext_resource type="Texture2D" uid="uid://b8qd17qpcdnv" path="res://assets/player/bras.png" id="24_0rl1p"]
-[ext_resource type="Resource" path="res://clients/incel.tres" id="26_kq58d"]
-[ext_resource type="Resource" path="res://clients/karen.tres" id="27_seu75"]
-[ext_resource type="Resource" path="res://clients/nerd.tres" id="28_htxhm"]
+[ext_resource type="Resource" uid="uid://dp5ni43fdr1fp" path="res://clients/incel.tres" id="26_kq58d"]
+[ext_resource type="Resource" uid="uid://dmshwwf6jvulw" path="res://clients/karen.tres" id="27_seu75"]
+[ext_resource type="Resource" uid="uid://csvvdma3vat2o" path="res://clients/nerd.tres" id="28_htxhm"]
 [ext_resource type="TileSet" uid="uid://dhnwalbd3xkv4" path="res://EtageresLD.tres" id="28_jq2sk"]
 [ext_resource type="AudioStream" uid="uid://bgn6nitbonwcc" path="res://assets/music/Fin.ogg" id="31_seu75"]
 [ext_resource type="Script" uid="uid://bvibffwed6swx" path="res://audio_manager.gd" id="35_b1qrp"]
@@ -61,6 +57,7 @@
 [ext_resource type="AudioStream" uid="uid://f203ffxglv53" path="res://assets/SFX/Mob - decolle c.ogg" id="53_uit24"]
 [ext_resource type="AudioStream" uid="uid://bd4wnnm85mce5" path="res://assets/SFX/UI - Bouton ok.ogg" id="54_ruth0"]
 [ext_resource type="AudioStream" uid="uid://ds6cio6wamie7" path="res://assets/SFX/Joueur - Timer alerte a demarrer 2sec avant fin timer.ogg" id="57_rnkwl"]
+[ext_resource type="PackedScene" uid="uid://be2a6hjhkwj87" path="res://player.tscn" id="58_vke2r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b17eg"]
 texture = ExtResource("1_e71vb")
@@ -190,15 +187,11 @@ fill_to = Vector2(0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_cegan"]
 font_size = 26
 
+[sub_resource type="LabelSettings" id="LabelSettings_vke2r"]
+font_size = 26
+
 [sub_resource type="LabelSettings" id="LabelSettings_82xsv"]
 font_size = 50
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kek77"]
-size = Vector2(1364, 154)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5vw27"]
-radius = 898.94
-height = 1886.28
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_facbu"]
 vertices = PackedVector2Array(15467.094, -695.2422, 15466.906, -707.0703, 41299.703, 10384, 21590.219, 3833.4922, 19365.383, 2490.5469, 4383.203, 22737.281, 6638.047, 21508.906, 36983.57, 11288.477, 4914.4766, 27676.21, 3728.1797, 25938.64, 3727.8125, 25926.75, 8285.094, 8212.859, 3641.039, 5252.9766, 3640.961, 5240.883, 7337.1484, 3482.2813, -8164.0625, -6603.883, -8163.9375, -6615.9297, -3782.7813, -8044.711, 1349.0703, -5477.789, -4485.0703, -4877.5313, -16396.867, 6447.258, -14084.9375, 5214.9688, -6712.758, 2367.2734, 1374.1172, 6459.2734, -10238.211, 6934.539, -21472.75, -5057.711, -10435.859, 490.2578, -25911.969, -688.8281, -25912.031, -701.2578, -7456.1563, -12296.406, -9684.07, -11029.781, -11018.773, -12473.5, -11828.992, -16272.797, 4198.578, 11472.641, 2097.789, 12707.398, -2332.9688, 11190.898, -2333.0313, 11179, -27950.156, -3955.711, -28196.313, -1818.2813, -30352.156, -611.77344, -31690.29, -2092.6563, -31689.727, -2104.3906, -30103.047, -5125.078, 17125.93, 15634.891, 19276.758, 16812.273, 12428.0625, 18591.852, 12427.9375, 18579.953, -11019.25, -12461.68, -1531.2734, -9394.469, -3783.211, -8056.5703, -5199.9688, -11084.078, -5200.0313, -11096.023, 6554.0703, 12691.102, 6545.4766, 12686.406, 6589.047, 12664.094, 3612.039, -6654.9766, 7323.5625, -5022.547, 5071.7266, -3601.3438, 3611.961, -6642.883, 2676.9219, 26552.11, -14085.0625, 5202.8438, -6713.2266, 2355.5234, 6637.953, 21496.922, 10304.242, 19771.313, 21589.758, 3845.2813, 25381.352, 5522.5234, -42927.383, 2375.6016, -3731.8984, 18686.227, -3732.1016, 18674.094, -39862.22, 1976.2813, -7493.8594, 16822.29, 27408.781, 6763.242, 27409.21, 6751.492, 31190.25, 8504.523, -7485.961, -9838.633, 33286.83, 9763.156, 33287.156, 9751.406, -2410.1328, -3690.8125, -2409.8672, -3702.7578, 5072.297, -3589.6797, 1416.7891, -1928.3438, 17126.07, 15622.867, 7370.7813, 15898.57, -5258.961, 15614.9375, -5259.039, 15602.922, 13378.969, 13834.211, -24586.18, 2316.3672, -31819.07, 2265.0469, -31818.93, 2253.1875, -22338.328, 1001.6094, 21461.75, 9765.289, 21462.242, 9753.539, 28970, 9696.023, 28970, 9707.992, 25219.25, 11446.617, 11144.977, 12682.922, 11145.023, 12695.141, 6588.953, 12651.758, -845.1328, -660.78906, -844.8672, -648.78125, -4538.4063, 1028.5391, -8214.961, -694.02344, -8215.039, -706.1172, -4586.8516, -2580.8516, -20015.977, 8225, -20016.023, 8212.922, -12559.172, 8293.367, -12558.82, 8305.227, -19863.172, -8051.7734, -19862.828, -8063.6563, -18333.11, -11057.211, -16230.289, -9873.6875, -15591.148, -8037.7266, -15590.844, -8025.75, -19285.422, -6409.4688, 9585.0625, 2268.9297, 9584.93, 2256.8516, 13302.297, 537.34375, -34046.813, 3448.2188, -24585.813, 2328.2578, -28175.5, 3963.461, 27483.813, 12758.3125, 27484.18, 12746.3125, 31148.93, 10875.3125, -30351.828, -599.6875, -34014.117, 1019.46094, -13257.133, -9366.43, -9683.93, -11017.977, -22066.75, -9343.422, -21473.242, -5069.461, -4510.8203, 12386.3125, 2098.2188, 12719.3125, -6687.742, -3581.5625, -6688.242, -3593.6094, -10430.9375, -5434.7813, -13131.609, -13748.453, -47159.727, 1514.9766, -18332.89, -11069.156, -30102.953, -5137.078, -33896.54, -3476.4922, 8284.906, 8224.844, 5162.8203, 17179.344, 5163.1797, 17191.258, -1286.0781, 17352.68, 38085.71, 11997.922, -44083.242, 3060.5469, -42078.93, 750.8672, -42079.07, 762.8906, 4384.9375, 11507.578, 4330.75, 11537.828, 6553.9297, 12703.133, 4351.0625, 13838.219, 19330.406, 8447.531, 25175.79, 7901.328, -28200.96, 456.15625, -36273.227, 2350.4219, -36272.758, 2362.3672, -22219.867, 9394.25, -13230.047, 11440.6875, 5473.7734, 12101.656, 4064.5469, 13694.5, -15579.0625, 12696.039, -15578.9375, 12708.156, 23088.93, 6738.8438, 23089.07, 6726.922, 10470.773, 9436.3125, -30317.688, 5341.3438, -30318.29, 5329.703)
@@ -450,6 +443,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("12_6iyjs")
 theme_override_font_sizes/font_size = 26
 text = " 00:00:00"
+label_settings = SubResource("LabelSettings_vke2r")
 
 [node name="game_over_screen" parent="CanvasLayer" instance=ExtResource("5_ycdy4")]
 unique_name_in_owner = true
@@ -625,55 +619,6 @@ position = Vector2(-22984, 7827)
 
 [node name="Marker2D42" type="Marker2D" parent="spawner"]
 position = Vector2(-20065, -5369)
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." node_paths=PackedStringArray("shelves_layer")]
-unique_name_in_owner = true
-z_index = 1
-position = Vector2(-2241, -1311)
-script = ExtResource("2_1bvp3")
-speed = 6000.0
-shelves_layer = NodePath("../y_sort_nodes/Shelves")
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-zoom = Vector2(0.08, 0.08)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-visible = false
-position = Vector2(-25, 4)
-shape = SubResource("RectangleShape2D_kek77")
-
-[node name="normal_sprite" type="Sprite2D" parent="CharacterBody2D"]
-unique_name_in_owner = true
-z_index = 1
-position = Vector2(-42.5, -648)
-texture = ExtResource("22_jq2sk")
-
-[node name="combat_sprite" type="Sprite2D" parent="CharacterBody2D"]
-unique_name_in_owner = true
-visible = false
-position = Vector2(-42.5, -648)
-texture = ExtResource("23_4k2k6")
-
-[node name="arm" type="Sprite2D" parent="CharacterBody2D/combat_sprite"]
-unique_name_in_owner = true
-show_behind_parent = true
-position = Vector2(707.5, -126)
-texture = ExtResource("24_0rl1p")
-
-[node name="MarkerY" type="Marker2D" parent="CharacterBody2D"]
-unique_name_in_owner = true
-position = Vector2(0, -4050)
-
-[node name="MarkerX" type="Marker2D" parent="CharacterBody2D"]
-unique_name_in_owner = true
-position = Vector2(-7200, 0)
-
-[node name="Area2D" type="Area2D" parent="CharacterBody2D" groups=["player"]]
-visible = false
-position = Vector2(-42.5, -648)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
-shape = SubResource("CapsuleShape2D_5vw27")
 
 [node name="y_sort_nodes" type="Node2D" parent="."]
 z_index = 1
@@ -979,5 +924,17 @@ stream = ExtResource("50_hrvbo")
 [node name="timer_low" type="AudioStreamPlayer" parent="AudioManager"]
 unique_name_in_owner = true
 stream = ExtResource("57_rnkwl")
+
+[node name="player" parent="." node_paths=PackedStringArray("shelves_layer") instance=ExtResource("58_vke2r")]
+unique_name_in_owner = true
+shelves_layer = NodePath("../y_sort_nodes/Shelves")
+
+[node name="MarkerY" type="Marker2D" parent="player"]
+unique_name_in_owner = true
+position = Vector2(0, -4050)
+
+[node name="MarkerX" type="Marker2D" parent="player"]
+unique_name_in_owner = true
+position = Vector2(-7200, 0)
 
 [connection signal="pressed" from="CanvasLayer/ColorRect/Button" to="CanvasLayer/ColorRect" method="_on_button_pressed"]

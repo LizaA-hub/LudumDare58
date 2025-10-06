@@ -1,0 +1,94 @@
+[gd_scene load_steps=10 format=3 uid="uid://be2a6hjhkwj87"]
+
+[ext_resource type="Script" uid="uid://do4p553sc2wiw" path="res://player.gd" id="1_hqtel"]
+[ext_resource type="Texture2D" uid="uid://de35aoi5ah07t" path="res://assets/player/normal_mc.png" id="2_sweqy"]
+[ext_resource type="Texture2D" uid="uid://b58cs6yvj4lvu" path="res://assets/player/combat_mc.png" id="3_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://b8qd17qpcdnv" path="res://assets/player/bras.png" id="4_1jxqw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kek77"]
+size = Vector2(1364, 154)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5vw27"]
+radius = 898.94
+height = 1886.28
+
+[sub_resource type="Animation" id="Animation_sweqy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_hqtel"]
+resource_name = "walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.22, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.18808329, 0.23795393, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2hs0m"]
+_data = {
+&"RESET": SubResource("Animation_sweqy"),
+&"walk": SubResource("Animation_hqtel")
+}
+
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("anim_player")]
+z_index = 1
+script = ExtResource("1_hqtel")
+speed = 6000.0
+anim_player = NodePath("anim_player")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.08, 0.08)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-25, 4)
+shape = SubResource("RectangleShape2D_kek77")
+
+[node name="normal_sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(-42.5, -648)
+texture = ExtResource("2_sweqy")
+
+[node name="combat_sprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-42.5, -648)
+texture = ExtResource("3_2hs0m")
+
+[node name="arm" type="Sprite2D" parent="combat_sprite"]
+unique_name_in_owner = true
+show_behind_parent = true
+position = Vector2(707.5, -126)
+texture = ExtResource("4_1jxqw")
+
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+visible = false
+position = Vector2(-42.5, -648)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_5vw27")
+
+[node name="anim_player" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2hs0m")
+}

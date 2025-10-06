@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed : float = 100
 @export var shelves_layer : TileMapLayer
+@export var anim_player : AnimationPlayer
 @onready var normal_sprite : Sprite2D = %normal_sprite
 @onready var combat_sprite : Sprite2D = %combat_sprite
 @onready var audio_manager : Node = %AudioManager
@@ -9,17 +10,17 @@ extends CharacterBody2D
 var click_position : Vector2
 var target_position : Vector2
 
-var walk_sound_timer : Timer
 var can_play_sound : bool = true
 var can_move : bool = true
 
 var initial_position : Vector2
 
+var rotation_variation : float
+var multiplier : float = 1
+var replay_walk : bool = false
+
 func _ready() -> void:
 	World.replay_game.connect(_on_replay)
-	walk_sound_timer = Timer.new()
-	add_child(walk_sound_timer)
-	walk_sound_timer.timeout.connect(_on_walk_sound_timer_timeout)
 	initial_position = global_position
 	
 func get_input():
@@ -37,19 +38,27 @@ func _physics_process(_delta):
 			
 		if can_move:
 			move_and_slide()
-		normal_sprite.flip_h = true if velocity.x<0 else false
-		combat_sprite.scale.x = -1 if velocity.x<0 else 1
+			
+		if velocity.x < 0:
+			normal_sprite.flip_h = true 
+			combat_sprite.scale.x = -1
+		elif velocity.x > 0:
+			normal_sprite.flip_h = false 
+			combat_sprite.scale.x = 1
 		
 		# Mise à jour du Z-index basé sur la position Y et les étagères
 		update_z_index_with_shelves()
 		
-		if velocity != Vector2.ZERO:
-			audio_manager.toggle_walk_sound(true)
+		if velocity != Vector2.ZERO and can_move:
+			#audio_manager.toggle_walk_sound(true)
+			anim_player.play("walk")
 		else:
-			audio_manager.toggle_walk_sound(false)
+			#audio_manager.toggle_walk_sound(false)
+			anim_player.pause()
 			
 		if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("right_click"):
 			audio_manager.play_punch_sound()
+			
 
 func update_z_index_with_shelves():
 	if shelves_layer == null:
@@ -94,6 +103,3 @@ func _input(event: InputEvent) -> void:
 		normal_sprite.visible = true
 		combat_sprite.visible = false
 		can_move = true
-
-func _on_walk_sound_timer_timeout()->void:
-	can_play_sound = true
