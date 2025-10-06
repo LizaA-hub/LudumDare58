@@ -70,14 +70,6 @@ theme_override_fonts/font = ExtResource("2_afy8x")
 theme_override_font_sizes/font_size = 30
 text = "start"
 
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 144.0
-offset_top = 557.0
-offset_right = 446.0
-offset_bottom = 580.0
-text = "Maybe un pti dessin avec les controls?"
-
 [node name="Logo" type="Sprite2D" parent="."]
 position = Vector2(600, 255)
 scale = Vector2(0.3, 0.3)

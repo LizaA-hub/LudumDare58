@@ -2,11 +2,11 @@ extends Node2D
 
 var spawns : Array[Node]
 @export var items : Array[Item_data]
-@export var item_min_nb : int = 6
+@export var item_min_nb : int = 3
 
 var item_prefab : PackedScene = preload("res://item.tscn")
 
-@onready var player : CharacterBody2D = %CharacterBody2D
+@onready var player : CharacterBody2D = %player
 #@onready var enviro : Node2D = %enviro
 @onready var screen_min_y : Marker2D = %MarkerY
 @onready var screen_min_x : Marker2D = %MarkerX
@@ -69,7 +69,7 @@ func _on_item_picked(item : Area2D)->void:
 	instantiated_items.erase(item)
 	item.queue_free()
 	increase_counter +=1
-	if increase_counter==6:
+	if increase_counter==3:
 		increase_counter = 0
 		item_nb_target -= 1
 		

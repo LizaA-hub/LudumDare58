@@ -6,7 +6,7 @@ var spawns : Array[Node]
 
 var client_prefab : PackedScene = preload("res://enemy.tscn")
 
-@onready var player : CharacterBody2D = %CharacterBody2D
+@onready var player : CharacterBody2D = %player
 @onready var screen_min_y : Marker2D = %MarkerY
 @onready var screen_min_x : Marker2D = %MarkerX
 
@@ -113,7 +113,7 @@ func change_position()->Vector2:
 func _on_item_picked()->void:
 	if client_nb_target >= client_max_nb : return
 	increase_counter += 1
-	if increase_counter == 6 :
+	if increase_counter == 2 :
 		increase_counter = 0
 		if increase_index==1:
 			increase_index=0
