@@ -2,7 +2,7 @@ extends Node2D
 
 var spawns : Array[Node]
 @export var clients : Array[Client_data]
-@export var client_max_nb : int = 3
+@export var client_max_nb : int = 100
 
 var client_prefab : PackedScene = preload("res://enemy.tscn")
 
@@ -13,9 +13,14 @@ var client_prefab : PackedScene = preload("res://enemy.tscn")
 var instantiated_enemies : Array[CharacterBody2D]
 var while_safety : int =0
 var busy:bool = false
+var nb_increase : Array = [1,2]
+var increase_index: int = 0
+var increase_counter : int = 0
+var client_nb_target : int = 3
 
 func _ready() -> void:
 	_populate_spawns()
+	World.item_picked.connect(_on_item_picked)
 	
 func _populate_spawns()->void:
 	spawns = get_children()
@@ -42,7 +47,7 @@ func _spawn_enemy()->void:
 	_on_target_reached(new_client)
 	
 	instantiated_enemies.append(new_client)
-	if instantiated_enemies.size() < client_max_nb:
+	if instantiated_enemies.size() < client_nb_target:
 		_spawn_enemy()
 
 
@@ -63,10 +68,9 @@ func _on_client_died(client : CharacterBody2D)->void:
 	busy = true
 	instantiated_enemies.erase(client)
 	client.queue_free()
-	if instantiated_enemies.size() < client_max_nb :
+	if instantiated_enemies.size() < client_nb_target :
 		_spawn_enemy()
 	call_deferred("_end_task")
-	client_max_nb += 1
 		
 func _end_task()->void:
 	busy = false
@@ -92,7 +96,8 @@ func _on_replay()->void:
 	instantiated_enemies.clear()
 	while_safety =0
 	busy= false
-	client_max_nb = 3
+	client_nb_target = 3
+	increase_index=0
 	_spawn_enemy()
 	
 func change_position()->Vector2:
@@ -104,3 +109,14 @@ func change_position()->Vector2:
 		assert(while_safety < 1000,"infinite loop!")
 	while_safety = 0
 	return spawn.global_position
+
+func _on_item_picked()->void:
+	if client_nb_target >= client_max_nb : return
+	increase_counter += 1
+	if increase_counter == 6 :
+		increase_counter = 0
+		if increase_index==1:
+			increase_index=0
+		client_nb_target += nb_increase[increase_index]
+		increase_index += 1
+		

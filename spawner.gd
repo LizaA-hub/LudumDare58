@@ -2,7 +2,7 @@ extends Node2D
 
 var spawns : Array[Node]
 @export var items : Array[Item_data]
-@export var item_max_nb : int = 8
+@export var item_min_nb : int = 6
 
 var item_prefab : PackedScene = preload("res://item.tscn")
 
@@ -14,6 +14,8 @@ var item_prefab : PackedScene = preload("res://item.tscn")
 var instantiated_items : Array[Area2D]
 var while_safety : int =0
 var busy:bool = false
+var increase_counter : int = 0
+var item_nb_target : int = 12
 
 func _ready() -> void:
 	_populate_spawns()
@@ -26,15 +28,7 @@ func _populate_spawns()->void:
 func _spawn_item()->void:
 	##pick a random shelf outside the screen
 	var spawn : Node2D = spawns.pick_random()
-	#var spawn_pos = get_spawn_position(spawn)
-	#while spawn_pos == null:
-		#spawn = spawns.pick_random()
-		#while_safety +=1
-		#print("loop count : ",while_safety)
-		#assert(while_safety < 1000,"infinite loop!")
-	#while_safety = 0
 	while !outside_screen(spawn.position):
-		#spawn_pos = get_spawn_position(spawn)
 		spawn = spawns.pick_random()
 		while_safety +=1
 		print("loop count : ",while_safety)
@@ -53,10 +47,9 @@ func _spawn_item()->void:
 	new_item.picked.connect(_on_item_picked)
 	new_item.spawner = self
 	spawn.call_deferred("add_child",new_item,false)
-	#new_item.position = spawn.position
 	
 	instantiated_items.append(new_item)
-	if instantiated_items.size() < item_max_nb:
+	if instantiated_items.size() < item_nb_target:
 		_spawn_item()
 
 
@@ -73,18 +66,16 @@ func get_spawn_position(spawn : Node2D):
 	return random_pos
 
 func _on_item_picked(item : Area2D)->void:
-	#if busy : return
-	busy = true
 	instantiated_items.erase(item)
 	item.queue_free()
-	if item_max_nb > 3:
-		item_max_nb -= 1
-	if instantiated_items.size() < item_max_nb :
-		_spawn_item()
-	call_deferred("_end_task")
+	increase_counter +=1
+	if increase_counter==6:
+		increase_counter = 0
+		item_nb_target -= 1
 		
-func _end_task()->void:
-	busy = false
+	if instantiated_items.size() >= item_nb_target:return
+	_spawn_item()
+
 	
 func outside_screen(spawn_pos : Vector2)->bool:
 	var y_good : bool =  spawn_pos.y < screen_min_y.position.y or spawn_pos.y > player.position.y-screen_min_y.position.y
@@ -97,7 +88,8 @@ func _on_replay()->void:
 	instantiated_items.clear()
 	while_safety =0
 	busy= false
-	item_max_nb = 8
+	increase_counter = 0
+	item_nb_target = 12
 	_spawn_item()
 	
 func change_position()->Vector2:
