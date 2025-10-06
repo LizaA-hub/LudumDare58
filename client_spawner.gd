@@ -7,8 +7,6 @@ var spawns : Array[Node]
 var client_prefab : PackedScene = preload("res://enemy.tscn")
 
 @onready var player : CharacterBody2D = %player
-@onready var screen_min_y : Marker2D = %MarkerY
-@onready var screen_min_x : Marker2D = %MarkerX
 
 var instantiated_enemies : Array[CharacterBody2D]
 var while_safety : int =0
@@ -76,8 +74,9 @@ func _end_task()->void:
 	busy = false
 	
 func outside_screen(spawn_pos : Vector2)->bool:
-	var y_good : bool = spawn_pos.y < screen_min_y.position.y or spawn_pos.y > player.position.y-screen_min_y.position.y
-	var x_good : bool = spawn_pos.x < screen_min_x.position.x or spawn_pos.x > player.position.x-screen_min_x.position.x
+	var distance_to_player : Vector2 = spawn_pos - player.global_position
+	var y_good : bool = abs(distance_to_player.y) < player.camera_bound.y or abs(distance_to_player.y) > player.camera_bound.y
+	var x_good : bool =abs(distance_to_player.x) < player.camera_bound.x or abs(distance_to_player.x) > player.camera_bound.x
 	return y_good or x_good
 	
 func _on_target_reached(client : CharacterBody2D)->void:
@@ -113,7 +112,7 @@ func change_position()->Vector2:
 func _on_item_picked()->void:
 	if client_nb_target >= client_max_nb : return
 	increase_counter += 1
-	if increase_counter == 2 :
+	if increase_counter == 1 :
 		increase_counter = 0
 		if increase_index==1:
 			increase_index=0

@@ -7,9 +7,6 @@ var spawns : Array[Node]
 var item_prefab : PackedScene = preload("res://item.tscn")
 
 @onready var player : CharacterBody2D = %player
-#@onready var enviro : Node2D = %enviro
-@onready var screen_min_y : Marker2D = %MarkerY
-@onready var screen_min_x : Marker2D = %MarkerX
 
 var instantiated_items : Array[Area2D]
 var while_safety : int =0
@@ -78,8 +75,9 @@ func _on_item_picked(item : Area2D)->void:
 
 	
 func outside_screen(spawn_pos : Vector2)->bool:
-	var y_good : bool =  spawn_pos.y < screen_min_y.position.y or spawn_pos.y > player.position.y-screen_min_y.position.y
-	var x_good : bool = spawn_pos.x < screen_min_x.position.x or spawn_pos.x > player.position.x-screen_min_x.position.x
+	var distance_to_player : Vector2 = spawn_pos - player.global_position
+	var y_good : bool = abs(distance_to_player.y) < player.camera_bound.y or abs(distance_to_player.y) > player.camera_bound.y
+	var x_good : bool =abs(distance_to_player.x) < player.camera_bound.x or abs(distance_to_player.x) > player.camera_bound.x
 	return y_good or x_good 
 	
 func _on_replay()->void:

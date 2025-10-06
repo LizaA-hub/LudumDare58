@@ -943,14 +943,8 @@ stream = ExtResource("57_rnkwl")
 
 [node name="player" parent="." node_paths=PackedStringArray("shelves_layer") instance=ExtResource("58_vke2r")]
 unique_name_in_owner = true
+position = Vector2(-2701, -1739)
 shelves_layer = NodePath("../y_sort_nodes/Shelves")
-
-[node name="MarkerY" type="Marker2D" parent="player"]
-unique_name_in_owner = true
-position = Vector2(0, -4050)
-
-[node name="MarkerX" type="Marker2D" parent="player"]
-unique_name_in_owner = true
-position = Vector2(-7200, 0)
+camera_bound = Vector2(8200, 5100)
 
 [connection signal="pressed" from="CanvasLayer/ColorRect/Button" to="CanvasLayer/ColorRect" method="_on_button_pressed"]

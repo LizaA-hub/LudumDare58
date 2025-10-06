@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed : float = 100
 @export var shelves_layer : TileMapLayer
 @export var anim_player : AnimationPlayer
+@export var camera_bound : Vector2
 @onready var normal_sprite : Sprite2D = %normal_sprite
 @onready var combat_sprite : Sprite2D = %combat_sprite
 @onready var audio_manager : Node = %AudioManager
