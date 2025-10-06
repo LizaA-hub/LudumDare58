@@ -12,12 +12,14 @@ var target_position : Vector2
 var walk_sound_timer : Timer
 var can_play_sound : bool = true
 var can_move : bool = true
+var initial_position : Vector2
 
 func _ready() -> void:
 	World.replay_game.connect(_on_replay)
 	walk_sound_timer = Timer.new()
 	add_child(walk_sound_timer)
 	walk_sound_timer.timeout.connect(_on_walk_sound_timer_timeout)
+	initial_position = global_position
 	
 func get_input():
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -78,7 +80,7 @@ func cartesian_to_isometric(cartesian):
 	return Vector2(cartesian.x - cartesian.y,(cartesian.x + cartesian.y)/2)
 	
 func _on_replay()->void:
-	position = Vector2.ZERO
+	position = initial_position
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):

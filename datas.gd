@@ -2,23 +2,31 @@ extends Control
 
 @export var points_label : Label
 @export var timer_label : Label
-@export var global_timer_label : Label
+#@export var global_timer_label : Label
+enum TimerState{RED,WHITE}
+var timer_state : TimerState = TimerState.WHITE
 
 func _ready() -> void:
 	World.item_picked.connect(_on_item_picked)
 	
 func _process(_delta: float) -> void:
+	if !World.game_on : return
 	var timer : float = World.current_timer
 	var m_seconds : int = int(timer*60)%60
 	var seconds: int = int(timer)%60
 	var minutes : int = int(timer/60)%60
-	timer_label.text = "Timer : %d:%02d:%02d"%[minutes,seconds,m_seconds]
+	timer_label.text = "%02d:%02d:%02d" % [minutes, seconds, m_seconds]
 	
-	var time_elapsed : float = World.global_timer
-	m_seconds  = int(time_elapsed*60)%60
-	seconds =int(time_elapsed)%60
-	minutes  = int(time_elapsed/60)%60
-	global_timer_label.text = "Global Timer : %d:%02d:%02d"%[minutes,seconds,m_seconds]
+	if timer > 2 :
+		match timer_state:
+			TimerState.RED:
+				timer_label.label_settings.font_color = Color.WHITE
+				timer_state = TimerState.WHITE
+	elif timer <= 2 :
+		match timer_state:
+			TimerState.WHITE:
+				timer_label.label_settings.font_color = Color.RED
+				timer_state = TimerState.RED
 	
 func _on_item_picked()->void:
 	points_label.text = "Points : " + String.num(World.points,0)
