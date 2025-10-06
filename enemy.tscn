@@ -1,17 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://cekojh57uv7f2"]
+[gd_scene load_steps=8 format=3 uid="uid://cekojh57uv7f2"]
 
 [ext_resource type="Script" uid="uid://cmlg4sfvv8gv3" path="res://enemy.gd" id="1_4gyqm"]
-[ext_resource type="Texture2D" uid="uid://b0ddgssmr4mtk" path="res://assets/pnj/grandma 1.png" id="2_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://c66o8ha2n8x6h" path="res://assets/pnj/nerd 1.png" id="2_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://cp08v3wh4xe1m" path="res://assets/boom_1.png" id="3_epg4t"]
+[ext_resource type="Texture2D" uid="uid://covlxrj6wdw8g" path="res://assets/boom_2.png" id="4_3yqyl"]
+[ext_resource type="Texture2D" uid="uid://xarqd7i0ei10" path="res://assets/boom_3.png" id="5_wujgv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qi2p4"]
-radius = 923.49
-height = 1846.98
+radius = 1393.0
+height = 2840.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4gyqm"]
 radius = 147.34
-height = 1024.0
+height = 1642.6667
 
-[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent", "sprite")]
+[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent", "sprite", "die_fx")]
 y_sort_enabled = true
 motion_mode = 1
 wall_min_slide_angle = 0.0
@@ -19,13 +22,14 @@ script = ExtResource("1_4gyqm")
 speed = 800.0
 nav_agent = NodePath("NavigationAgent2D")
 sprite = NodePath("Sprite2D")
+die_fx = NodePath("die_fx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -736)
+position = Vector2(-27, -1207)
 texture = ExtResource("2_4gyqm")
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(0, -736)
+[node name="Area2D" type="Area2D" parent="." groups=["client"]]
+position = Vector2(-7, -1066)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_qi2p4")
@@ -36,7 +40,8 @@ target_desired_distance = 500.0
 path_max_distance = 100000.0
 path_postprocessing = 1
 avoidance_enabled = true
-radius = 200.0
+radius = 1000.0
+neighbor_distance = 5000.0
 max_speed = 10000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -45,7 +50,21 @@ rotation = 1.5707964
 scale = Vector2(1.5, 1.5)
 shape = SubResource("CapsuleShape2D_4gyqm")
 
+[node name="die_fx" type="Node2D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="Boom1" type="Sprite2D" parent="die_fx"]
+position = Vector2(-2643, -2268)
+texture = ExtResource("3_epg4t")
+
+[node name="Boom2" type="Sprite2D" parent="die_fx"]
+position = Vector2(-1392, -1212)
+texture = ExtResource("4_3yqyl")
+
+[node name="Boom3" type="Sprite2D" parent="die_fx"]
+position = Vector2(-867, -3271)
+texture = ExtResource("5_wujgv")
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

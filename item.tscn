@@ -7,7 +7,7 @@
 radius = 470.69
 
 [node name="item" type="Area2D" node_paths=PackedStringArray("icon") groups=["item"]]
-z_index = 1
+z_index = 2
 position = Vector2(0, -9)
 script = ExtResource("1_tnite")
 icon = NodePath("Icon")

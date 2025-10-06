@@ -51,6 +51,7 @@ func _spawn_item()->void:
 	var new_item : Area2D = item_prefab.instantiate()
 	new_item.data = item_data
 	new_item.picked.connect(_on_item_picked)
+	new_item.spawner = self
 	spawn.call_deferred("add_child",new_item,false)
 	#new_item.position = spawn.position
 	
@@ -72,7 +73,7 @@ func get_spawn_position(spawn : Node2D):
 	return random_pos
 
 func _on_item_picked(item : Area2D)->void:
-	if busy : return
+	#if busy : return
 	busy = true
 	instantiated_items.erase(item)
 	item.queue_free()
@@ -99,3 +100,12 @@ func _on_replay()->void:
 	item_max_nb = 8
 	_spawn_item()
 	
+func change_position()->Vector2:
+	var spawn : Node2D = spawns.pick_random()
+	while !outside_screen(spawn.position):
+		spawn = spawns.pick_random()
+		while_safety +=1
+		#print("loop count : ",while_safety)
+		assert(while_safety < 1000,"infinite loop!")
+	while_safety = 0
+	return spawn.global_position

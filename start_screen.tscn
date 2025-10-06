@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bp1s7q1xtist2"]
+[gd_scene load_steps=4 format=3 uid="uid://bp1s7q1xtist2"]
 
 [ext_resource type="Script" uid="uid://c668u8g8paa2m" path="res://start_screen.gd" id="1_ncxyx"]
+[ext_resource type="Texture2D" uid="uid://cjsv76hf4r067" path="res://assets/logo.png" id="2_pevhg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ncxyx"]
 font_size = 50
@@ -21,9 +22,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.7490196, 0.5686275, 0.2784314, 1)
+color = Color(0.219058, 0.22463742, 0.22326839, 1)
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 0
 offset_top = 46.0
 offset_right = 1152.0
@@ -67,11 +69,16 @@ text = "start"
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 429.0
-offset_top = 291.0
-offset_right = 731.0
-offset_bottom = 314.0
+offset_left = 144.0
+offset_top = 557.0
+offset_right = 446.0
+offset_bottom = 580.0
 text = "Maybe un pti dessin avec les controls?"
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(600, 255)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_pevhg")
 
 [connection signal="value_changed" from="HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

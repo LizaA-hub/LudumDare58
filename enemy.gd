@@ -15,6 +15,7 @@ var target : Node2D :
 		
 @export var nav_agent : NavigationAgent2D
 @export var sprite : Sprite2D
+@export var die_fx : Node2D
 var data : Client_data:
 	set(value):
 		data = value
@@ -22,6 +23,10 @@ var data : Client_data:
 var player_left : bool
 
 var audio_manager : Node
+var spawner : Node2D
+
+var spawn_cooldown : float = 0.5
+var is_just_spawn : bool = true
 
 func _ready() -> void:
 	nav_agent.navigation_finished.connect(_on_target_reached)
@@ -41,14 +46,21 @@ func _die()->void:
 	is_dying = true
 	set_collision_layer_value(1,false)
 	set_collision_mask_value(1,false)
+	die_fx.visible = true
 	var tween:Tween = create_tween()
 	var direction : Vector2 = Vector2(-0.5,-1) if player_left else Vector2(0.5,-1)
 	tween.tween_property(sprite,"global_position",global_position + direction*10000,1)
 	tween.parallel().tween_property(sprite,"rotation",10*PI,1)
 	tween.parallel().tween_property(self,"modulate",Color.TRANSPARENT,1)
+	tween.parallel().tween_property(die_fx,"modulate",Color.TRANSPARENT,1)
 	await tween.finished
 	died.emit(self)
 	World.client_hit += 1
+	
+func _process(delta: float) -> void:
+	spawn_cooldown -= delta
+	if spawn_cooldown <= 0:
+		is_just_spawn = false
 
 func _physics_process(delta):
 	if moving and World.game_on:
@@ -79,6 +91,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			player_left = true
 		else:
 			player_left = false
+	if area.is_in_group("client"):
+		if !is_just_spawn : return
+		global_position = spawner.change_position()
+		spawn_cooldown = 0.5
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
@@ -87,3 +103,5 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 		
 func set_texture(_texture : Texture2D)->void:
 	sprite.texture = _texture
+	var offset_y = _texture.get_size().y/2
+	sprite.position.y = -offset_y

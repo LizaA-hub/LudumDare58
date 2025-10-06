@@ -37,6 +37,7 @@ func _spawn_enemy()->void:
 	new_client.data = client_data
 	new_client.died.connect(_on_client_died)
 	new_client.target_reached.connect(_on_target_reached)
+	new_client.spawner = self
 	spawn.call_deferred("add_child",new_client,false)
 	_on_target_reached(new_client)
 	
@@ -58,7 +59,7 @@ func get_spawn_position(spawn : Node2D):
 	return random_pos
 
 func _on_client_died(client : CharacterBody2D)->void:
-	if busy : return
+	#if busy : return
 	busy = true
 	instantiated_enemies.erase(client)
 	client.queue_free()
@@ -93,3 +94,13 @@ func _on_replay()->void:
 	busy= false
 	client_max_nb = 3
 	_spawn_enemy()
+	
+func change_position()->Vector2:
+	var spawn : Node2D = spawns.pick_random()
+	while !outside_screen(spawn.position):
+		spawn = spawns.pick_random()
+		while_safety +=1
+		#print("loop count : ",while_safety)
+		assert(while_safety < 1000,"infinite loop!")
+	while_safety = 0
+	return spawn.global_position

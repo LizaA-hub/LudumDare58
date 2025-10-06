@@ -3,6 +3,7 @@ extends Area2D
 @export var icon : Sprite2D
 var player_in : bool = false
 signal picked
+var spawner : Node2D
 
 
 var data : Item_data :
@@ -22,7 +23,7 @@ func set_texture(_texture : Texture2D)->void:
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("item"):
 		#print("collide with item!")
-		picked.emit(self)
+		global_position = spawner.change_position()
 	if area.is_in_group("player"):
 		if player_in : return
 		audio_manager.play_loot_sound()
