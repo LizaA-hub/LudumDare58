@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c668u8g8paa2m" path="res://start_screen.gd" id="1_ncxyx"]
 [ext_resource type="FontFile" uid="uid://bvc4th3oko8tn" path="res://assets/UI/CherryBombOne-Regular.ttf" id="2_afy8x"]
-[ext_resource type="Texture2D" uid="uid://c0qluk76nvnbh" path="res://assets/6FYcd5.png" id="2_k1na2"]
+[ext_resource type="Texture2D" uid="uid://c0qluk76nvnbh" path="res://assets/UI/6FYcd5.png" id="2_k1na2"]
 
 [node name="start_screen" type="Control"]
 layout_mode = 3

@@ -70,4 +70,4 @@ right_click={
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0, 0, 0, 1)
+environment/defaults/default_clear_color=Color(0.13719451, 0.0844767, 0.016150597, 1)
