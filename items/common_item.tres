@@ -8,5 +8,4 @@ script = ExtResource("1_wgw5c")
 point = 1.0
 time = 5.0
 texture = ExtResource("2_wgw5c")
-multiplier = 2.0
 metadata/_custom_type_script = "uid://d5pyl0f0pp7o"
