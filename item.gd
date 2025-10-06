@@ -1,6 +1,8 @@
 extends Area2D
 
 @export var icon : Sprite2D
+@export var ur_halo : Sprite2D
+@export var rare_halo : Sprite2D
 var player_in : bool = false
 signal picked
 var spawner : Node2D
@@ -15,6 +17,10 @@ var audio_manager : Node
 
 func _ready() -> void:
 	audio_manager = get_tree().current_scene.get_node("AudioManager")
+	if data.point == 2:
+		rare_halo.visible = true
+	elif data.point == 5:
+		ur_halo.visible = true
 	
 func set_texture(_texture : Texture2D)->void:
 	icon.texture = _texture
